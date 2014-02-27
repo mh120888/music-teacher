@@ -2,6 +2,8 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
+    @appointments_by_date = @appointments.group_by(&:date)
+    @date = Date.today
   end
 
   def show

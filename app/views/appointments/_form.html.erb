@@ -11,19 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+
     <%= f.label :date %><br />
     <%= f.date_select :date %>
-  </div>
-  <div class="field">
+
     <%= f.label :start_time %><br />
-    <%= f.time_select :start_time %>
-  </div>
-  <div class="field">
+    <%= f.time_select :start_time, {ampm: true} %>
+
     <%= f.label :end_time %><br />
-    <%= f.time_select :end_time %>
-  </div>
-  <div class="actions">
+    <%= f.time_select :end_time, {ampm: true} %>
+
     <%= f.submit %>
-  </div>
 <% end %>
