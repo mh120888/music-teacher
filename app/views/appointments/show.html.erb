@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @appointment.user_id %>
+</p>
+
+<p>
+  <b>Student:</b>
+  <%= @appointment.student_id %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @appointment.date %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @appointment.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @appointment.end_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>
