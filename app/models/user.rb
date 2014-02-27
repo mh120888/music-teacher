@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :password, :email
+  attr_accessible :name, :email, :password
   has_many :appointments
 end
