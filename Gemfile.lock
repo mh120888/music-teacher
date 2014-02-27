@@ -38,6 +38,7 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.1)
       ffi (~> 1.0, >= 1.0.11)
+    coderay (1.1.0)
     database_cleaner (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -60,6 +61,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.5.2)
     multi_json (1.8.4)
@@ -67,6 +69,10 @@ GEM
       mini_portile (~> 0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
+    pry (0.9.12.6)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -114,6 +120,7 @@ GEM
       websocket (~> 1.0.4)
     shoulda-matchers (2.5.0)
       activesupport (>= 3.0.0)
+    slop (3.4.7)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -142,6 +149,7 @@ DEPENDENCIES
   faker
   jquery-rails
   pg
+  pry
   rails (= 3.2.14)
   rails_db_info
   rspec-rails

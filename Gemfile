@@ -12,6 +12,7 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'rspec-rails'
   gem 'rails_db_info'
+  gem 'pry'
 end
 
 group :test do
