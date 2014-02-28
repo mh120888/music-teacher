@@ -4,9 +4,17 @@ module StripeHelper
     get_client_access(get_client_info(code))
   end
 
-  def charge_payment(params)
-    customer = generate_customer(params)
+  def charge_payment(params, customer)
     Stripe::Charge.create(customer: customer.id, amount: params[:amount].to_i * 100, currency: 'usd')
+  end
+
+  def charge_subscription(params, customer)
+    customer.subscriptions.create({:plan => params[:plan_id]})
+  end
+
+  def charge(params)
+    customer = generate_customer(params)
+    params[:plan_id] ? charge_subscription(params, customer) : charge_payment(params, customer)
   end
 
   def email_for(payment)
@@ -25,6 +33,20 @@ module StripeHelper
     account.retrieve.display_name
   end
 
+  def name_for(plan)
+    plan["name"]
+  end
+
+  def description_for(plan)
+    "$#{plan["amount"] / 100.0} each #{plan["interval"]}"
+  end
+
+  def subscribers_for(plan)
+    Stripe::Customer.all.select do |cust|
+      cust.subscriptions.data[0] && cust.subscriptions.data[0].plan.id == plan.id
+    end
+  end
+
   private
 
   def get_client_info(code) #get's accesstoken and publishable key for the user
@@ -37,6 +59,24 @@ module StripeHelper
   end
 
   def generate_customer(params)
-    customer = Stripe::Customer.create( :email => params[:stripeEmail],  :card  => params[:stripeToken])
+    customer = find_customer_by_email(params[:stripeEmail])
+    if customer_exists?(customer)
+      customer
+    else
+      create_new_customer(params)
+    end
   end
+
+  def customer_exists?(customer)
+    !customer.nil?
+  end
+
+  def find_customer_by_email(email)
+    Stripe::Customer.all.select {|cust| cust.email == email}.first
+  end
+
+  def create_new_customer(params)
+    Stripe::Customer.create(:email => params[:stripeEmail], :card => params[:stripeToken])
+  end
+
 end

@@ -1,8 +1,13 @@
 <%= form_tag payments_path do %>
 
 
-Amount: <input type="text" name="amount">
+Amount: <input type="text" name="amount"> OR Choose a Plan
 
+<select name="plan_id">
+  <%= @plans.each do |plan| %>
+    <option value=<%= plan["id"] %>><%= plan["name"] %></option>
+  <% end %>
+</select>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"

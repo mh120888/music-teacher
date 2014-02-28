@@ -1,0 +1,8 @@
+<div class="plan">
+<h4><%= name_for plan %></h4>
+<li><%= description_for plan %></li>
+<h5>Subscribers for this Plan</h5>
+<% subscribers_for(plan).each do |subscriber| %>
+  <li><%= subscriber.email %> </li>
+<% end %>
+</div>

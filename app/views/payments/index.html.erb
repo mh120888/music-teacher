@@ -6,7 +6,7 @@
 <% end %>
 
 <%= render 'payment_history' , locals: {:payments => @payments} %>
-
+<%= render 'plans' , locals: {:plans => @plan} %>
 
 <% if @connected %>
   <%= link_to "Create a Payment!" , new_payment_path, :class => "new-payment", :remote => true %>

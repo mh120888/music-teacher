@@ -2,11 +2,12 @@ class PaymentsController < ApplicationController
   include StripeHelper
 
   def new
+    @plans = Stripe::Plan.all
     render :new, :layout => false
   end
 
   def create
-    charge_payment params
+    charge params
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to payments_path
@@ -16,6 +17,7 @@ class PaymentsController < ApplicationController
     @user = username Stripe::Account
     @connected = session[:connected]
     @payments = Stripe::Charge.all
+    @plans = Stripe::Plan.all
   end
 
   def connect
