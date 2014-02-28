@@ -1,9 +1,9 @@
-<h1>Sign In</h1>
+<h1>Log In</h1>
 
 <%= form_for @user, url: 'authenticatexe32' do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email%><br>
   <%= label_tag :password %>
   <%= password_field_tag :password %><br>
-  <%= f.submit "Sign In" %>
+  <%= f.submit "Log In" %>
 <% end %>

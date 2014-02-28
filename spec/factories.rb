@@ -1,4 +1,4 @@
-require 'BCrypt'
+require 'bcrypt'
 
 FactoryGirl.define do
   factory :appointment do

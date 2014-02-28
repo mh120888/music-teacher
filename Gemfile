@@ -8,7 +8,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', :require => "bcrypt"
 
 group :development, :test do
   gem 'rspec-rails'
