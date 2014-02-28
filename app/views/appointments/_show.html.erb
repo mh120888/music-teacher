@@ -20,4 +20,4 @@
 
 
 <%= link_to 'Edit', edit_appointment_path(appointment), class: "show-edit-form", remote: true %> |
-<%= link_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete', appointment, remote: true, method: :delete,  class: "delete-appointment" %>

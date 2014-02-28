@@ -1,16 +1,9 @@
 <h1>Listing appointments</h1>
 <h3 id="notice"><%= notice %></h3>
-<% @appointments_by_date.each do |date, appointments| %>
-    <h1><%= date.strftime("%B %e %Y") %></h1>
-    <% @appointments.each do |appointment| %>
-      <div class="appointment">
-        <%= render partial: 'show', locals: { appointment: appointment } %>
-      </div>
-    <% end %>
-<% end %>
+<div class="appointment-list">
+    <%= render 'list' %>
+</div>
 </table>
-
-<br />
 
 <%= link_to 'New Appointment', new_appointment_path, id: "new-appointment" %>
 <div class="new-appointment-form hidden">
