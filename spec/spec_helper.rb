@@ -6,6 +6,7 @@ require 'rspec/autorun'
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
+  config.include WaitForAjax, type: :feature
 
   config.use_transactional_fixtures = false
 
