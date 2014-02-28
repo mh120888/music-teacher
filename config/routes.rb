@@ -1,6 +1,6 @@
 MusicTeacherRails::Application.routes.draw do
   resources :appointments
-  root to: "test#index"
+  root to: "dashboard#index"
 
 
   # The priority is based upon order of creation:
