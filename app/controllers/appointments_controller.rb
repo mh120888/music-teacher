@@ -2,7 +2,7 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointment = Appointment.new
-    @appointments_by_date = Appointment.all.group_by(&:date)
+    @appointments_by_date = Appointment.group_by_date
     @date = Date.today
   end
 
@@ -22,7 +22,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(params[:appointment])
     if @appointment.save
-      @appointments_by_date = Appointment.all.group_by(&:date)
+      @appointments_by_date = Appointment.group_by_date
       render partial: 'list', notice: 'Appointment was successfully created.'
     else
       render action: "new"
