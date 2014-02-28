@@ -9,7 +9,6 @@ describe 'User login' do
       expect(page).to have_content("Sign In")
     end
     it 'should have the user model fields' do
-      expect(page).to have_field('Name')
       expect(page).to have_field('Email')
       expect(page).to have_field('Password')
     end
