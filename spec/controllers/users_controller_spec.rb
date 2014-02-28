@@ -9,10 +9,11 @@ describe UsersController do
     end
   end
   context '#create' do
-    let!(:user_attributes) { FactoryGirl.attributes_for(:user) }
+    let!(:user_attributes) { UserHelper.attributes_without_password }
+    let(:password) { "password" }
     it 'should increment user count by 1' do
       expect {
-        post :create, user: user_attributes
+        post :create, user: user_attributes, password: password
       }.to change{ User.count }.by(1)
     end
   end
