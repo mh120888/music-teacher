@@ -1,9 +1,20 @@
+/***************
+ Layout styles
+***************/
+
 body {
   background-color: #F5F5F7;
 }
 
+.header {
+  width: 1200px;
+  min-height: 45px;
+  margin-bottom: 20px;
+}
+
 .dashboard-wrapper {
   width: 1200px;
+  min-height: 600px;
   margin: 20px auto;
 }
 
@@ -15,6 +26,7 @@ body {
   background-color: #FFF;
   display: inline-block;
   float: left;
+  margin-right: 10px;
   font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
   border-radius: 4px;
   border: 1px solid #cececf;
@@ -38,10 +50,18 @@ body {
   margin: 0;
 }
 
+div.nav-wrapper ul li:first-child {
+  padding-left: 9px;
+}
+
+div.nav-wrapper ul li:last-child {
+  padding-right: 9px;
+}
+
 .main-nav li {
   padding: 10px;
   border-right: solid 1px #e4e4e4;
-  min-width: 140px;
+  min-width: 176px;
   display: inline-block;
   text-align: center;
 }
@@ -55,10 +75,19 @@ body {
 .logo {
   display: inline-block;
   float: left;
-  width: 200px;
+  width: 180px;
   height: 45px;
-  padding: 0 0 0 20px;
-  margin-right: 45px;
+  padding: 0;
+  margin-right: 20px;
+  background: #FFF;
+}
+
+.user-info {
+  display: inline-block;
+  float: left;
+  width: 180px;
+  height: 45px;
+  padding: 0;
   background: #FFF;
 }
 
