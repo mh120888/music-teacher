@@ -108,7 +108,6 @@ Test = (function() {
   }
 
   function showError(event, xhr, status, error) {
-    debugger
   }
 
   function _init() {
