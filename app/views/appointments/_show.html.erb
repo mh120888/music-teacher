@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Title:</b>
   <%= appointment.title %>
@@ -21,5 +19,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_appointment_path(appointment) %> |
+<%= link_to 'Edit', edit_appointment_path(appointment), class: "show-edit-form", remote: true %> |
 <%= link_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' } %>

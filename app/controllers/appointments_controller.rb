@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
 
   def index
+    @appointment = Appointment.new
     @appointments = Appointment.all
     @appointments_by_date = @appointments.group_by(&:date)
     @date = Date.today
@@ -16,12 +17,13 @@ class AppointmentsController < ApplicationController
 
   def edit
     @appointment = Appointment.find(params[:id])
+    render partial: 'edit', locals: { appointment: @appointment }
   end
 
   def create
     @appointment = Appointment.new(params[:appointment])
     if @appointment.save
-      redirect_to @appointment, notice: 'Appointment was successfully created.'
+      redirect_to appointments_path, notice: 'Appointment was successfully created.'
     else
       render action: "new"
     end
@@ -30,7 +32,8 @@ class AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find(params[:id])
     if @appointment.update_attributes(params[:appointment])
-      redirect_to @appointment, notice: 'Appointment was successfully updated.'
+      render partial: 'show', locals: { appointment: @appointment },
+       notice: 'Appointment was successfully updated.'
     else
       render action: "edit"
     end
