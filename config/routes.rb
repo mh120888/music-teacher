@@ -1,4 +1,10 @@
 MusicTeacherRails::Application.routes.draw do
+
+  match 'payments/connect' => 'payments#connect'
+  resources :payments
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

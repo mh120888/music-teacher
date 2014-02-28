@@ -1,0 +1,7 @@
+<h1>Welcome to Your Payments Page</h1>
+
+<%= link_to image_tag("blue.png"), "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_32D88BD1qLklliziD7gYQvctJIhWBSQ7&scope=read_write&state=1234", :class => "stripe-connect"  %>
+
+<% if @connected %>
+  <%= link_to "Create a Payment!" , new_payment_path %>
+<% end %>

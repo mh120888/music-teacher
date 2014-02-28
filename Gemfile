@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 gem 'pg'
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'omniauth-stripe-connect'
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'
