@@ -6,12 +6,7 @@ module StripeHelper
 
   def charge_payment(params)
     customer = generate_customer(params)
-    Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => params[:amount].to_i * 100,
-      :description => 'Rails Stripe customer',
-      :currency    => 'usd'
-    )
+    Stripe::Charge.create(customer: customer.id, amount: params[:amount].to_i * 100, currency: 'usd')
   end
 
   def email_for(payment)
@@ -19,7 +14,7 @@ module StripeHelper
   end
 
   def amount_for(payment)
-    "$" + (payment["amount"] / 100.0).to_s
+    "$#{(payment["amount"] / 100.0)}"
   end
 
   def date_for(payment)
@@ -42,9 +37,6 @@ module StripeHelper
   end
 
   def generate_customer(params)
-    customer = Stripe::Customer.create(
-      :email => params[:stripeEmail],
-      :card  => params[:stripeToken]
-    )
+    customer = Stripe::Customer.create( :email => params[:stripeEmail],  :card  => params[:stripeToken])
   end
 end
