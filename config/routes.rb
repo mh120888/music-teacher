@@ -1,6 +1,7 @@
 MusicTeacherRails::Application.routes.draw do
   
   resources :users, only: [:new, :create, :show]
+  get '/signin' => 'users#signin', as: 'signin'
   resources :appointments
   root to: "test#index"
 

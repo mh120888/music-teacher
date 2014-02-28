@@ -20,4 +20,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+  def signin
+    @user = User.new
+  end
+  def authenticate
+    @user = User.find_by_email(params[:user][:email])
+
+  end
 end
