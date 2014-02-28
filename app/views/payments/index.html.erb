@@ -1,7 +1,16 @@
-<h1>Welcome to Your Payments Page</h1>
+<h1>Welcome <%= @user %>, This is Your Payments Page</h1>
 
-<%= link_to image_tag("blue.png"), "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_32D88BD1qLklliziD7gYQvctJIhWBSQ7&scope=read_write&state=1234", :class => "stripe-connect"  %>
+<% if !@connected %>
+  <h2>Setup: Please link you Stripe Account</h2>
+  <%= link_to image_tag("blue.png"), "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_32D88BD1qLklliziD7gYQvctJIhWBSQ7&scope=read_write&state=1234", :class => "stripe-connect"  %>
+<% end %>
+
+<%= render 'payment_history' , locals: {:payments => @payments} %>
+
 
 <% if @connected %>
-  <%= link_to "Create a Payment!" , new_payment_path %>
+  <%= link_to "Create a Payment!" , new_payment_path, :class => "new-payment", :remote => true %>
 <% end %>
+<div id="new-payment">
+</div>
+
