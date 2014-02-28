@@ -1,7 +1,7 @@
 MusicTeacherRails::Application.routes.draw do
   resources :users, only: [:new, :create, :show]
 
-  get '/signin' => 'users#signin', as: 'signin'
+  get '/login' => 'users#login', as: 'login'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
