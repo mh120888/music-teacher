@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'User signup' do
+describe 'User signup', :js => true do
   describe 'should have a form to sign up' do
     before(:each) do
       visit new_user_path
@@ -20,11 +20,11 @@ describe 'User signup' do
     describe "submitting a form to sign up" do
 
       context "with valid data" do
-        let!(:user_attributes) { FactoryGirl.attributes_for(:user) }
+        let!(:user_attributes) { UserHelper.attributes_without_password }
         before(:each) do
           fill_in "user_name", :with => user_attributes[:name]
           fill_in "Email", :with => user_attributes[:email]
-          fill_in "Password", :with => user_attributes[:password]
+          fill_in "Password", :with => "password"
           click_button('Create Account')
         end
         it 'should send me to my dashboard page' do
@@ -33,7 +33,18 @@ describe 'User signup' do
       end
 
       context "with invalid data" do
-
+        let!(:user_attributes) { UserHelper.attributes_without_password }
+        before(:each) do
+          fill_in "Email", :with => user_attributes[:email]
+          fill_in "Password", :with => "password"
+          click_button('Create Account')
+        end
+        it 'should redirect to the new user page' do
+          expect(page).to have_content('Sign Up')
+        end
+        it 'should repopulate the form with previous data' do
+          expect(find_field('user_email').value).to eq user_attributes[:email]
+        end
       end
 
     end
