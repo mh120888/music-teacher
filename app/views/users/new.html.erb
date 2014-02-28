@@ -5,7 +5,7 @@
   <%= f.text_field :name %>
   <%= f.label :email %>
   <%= f.text_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
   <%= f.submit "Create Account" %>
 <% end %>
