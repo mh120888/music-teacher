@@ -1,21 +1,9 @@
 <p>
-  <b>Title:</b>
-  <%= appointment.title %>
+  <%= appointment.start_time.strftime("%l:%M") %> - <%= appointment.start_time.strftime("%l:%M %P") %> <%= appointment.title %>
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= appointment.description %>
-</p>
-
-<p>
-  <b>Start time:</b>
-  <%= appointment.start_time.strftime("%I:%M %p") %>
-</p>
-
-<p>
-  <b>End time:</b>
-  <%= appointment.end_time.strftime("%I:%M %p") %>
+  Notes: <%= appointment.description %>
 </p>
 
 

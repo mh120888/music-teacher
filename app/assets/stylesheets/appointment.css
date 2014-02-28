@@ -1,3 +1,21 @@
 .hidden {
   display: none;
 }
+
+.appointments-module {
+  width: 350px;
+  min-height: 400px;
+  display: inline-block;
+}
+
+.appointments-pannel {
+  width: 350px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.new-appointment-form {
+  position: absolute;
+  left: 365px;
+  top: 31px;
+}

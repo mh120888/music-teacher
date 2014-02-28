@@ -1,14 +1,13 @@
-<h1>Listing appointments</h1>
-<h3 id="notice"><%= notice %></h3>
-<div class="appointment-list">
-    <%= render 'list' %>
+<div class="appointments-module">
+    <h2>Upcoming appointments <%= link_to 'New', new_appointment_path, id: "new-appointment" %></h2>
+    <div class="new-appointment-form hidden">
+        <%= render 'form'%>
+    </div>
+    <div class="appointments-pannel">
+        <h4 id="notice"><%= notice %></h4>
+        <div class="appointment-list">
+            <%= render 'list' %>
+        </div>
+        </table>
+    </div>
 </div>
-</table>
-
-<%= link_to 'New Appointment', new_appointment_path, id: "new-appointment" %>
-<div class="new-appointment-form hidden">
-    <%= render 'form'%>
-</div>
-
-
-

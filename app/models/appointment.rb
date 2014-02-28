@@ -3,10 +3,12 @@ class Appointment < ActiveRecord::Base
   validates :date, presence: true
   belongs_to :user
 
-  def self.group_by_date
-    Appointment.all.sort_by(&:date).group_by(&:date)
-    .map do |date, appts|
-      appts.sort_by(&:start_time)
+  def self.upcoming_grouped_by_date
+    appts_by_date = Appointment.all.sort_by(&:date).group_by(&:date)
+    grouped = {}
+    appts_by_date.each do |date, appts|
+      grouped[date] = appts.sort_by(&:start_time) if date.future?
     end
+    grouped
   end
 end

@@ -7,11 +7,22 @@ $(function(){
 var NewForm = (function() {
   function bindEvents() {
     $('#new-appointment').on('click', toggleHidden);
+    $('.new-appointment-form form').on('ajax:success', addAppointment);
+    $('.new-appointment-form form').on('ajax:error', showCreateError);
   }
 
   function toggleHidden(event) {
     event.preventDefault();
     $('.new-appointment-form').toggleClass('hidden');
+  }
+
+  function addAppointment(event, data) {
+    $('.appointment-list').html(data);
+    $('.new-appointment-form').toggleClass('hidden');
+  }
+
+  function showCreateError(event, xhr, status, error) {
+    console.log('Create appointment failed ' + error)
   }
 
   function _init() {
@@ -26,8 +37,8 @@ var NewForm = (function() {
 
 var DeleteForm = (function() {
   function bindEvents() {
-    $('.delete-appointment').on('ajax:success', showDeleteMessage);
-    $('.delete-appointment').on('ajax:error', showDeleteError);
+    $('.appointments-pannel').on('ajax:success', '.delete-appointment', showDeleteMessage);
+    $('.appointments-pannel').on('ajax:error', '.delete-appointment', showDeleteError);
   }
 
   function showDeleteMessage(event, data) {
@@ -50,30 +61,19 @@ var DeleteForm = (function() {
 
 var EditForm = (function() {
   function bindEvents() {
-    $('.show-edit-form').on('ajax:success', show);
-    $('.show-edit-form').on('ajax:error', showDisplayError);
+    $('.appointments-pannel').on('ajax:success', '.show-edit-form', show);
+    $('.appointments-pannel').on('ajax:error', '.show-edit-form', showError);
 
-    $('.new-appointment-form form').on('ajax:success', addAppointment);
-    $('.new-appointment-form form').on('ajax:error', showCreateError);
-
-    $('.appointment').on('ajax:success', '.edit_appointment', replaceWithEdit);
-    $('.appointment').on('ajax:error', '.edit_appointment', showEditError);
+    $('.appointments-pannel').on('ajax:success', '.edit_appointment', replaceWithEdit);
+    $('.appointments-pannel').on('ajax:error', '.edit_appointment', showEditError);
   }
 
   function show(event, data) {
     $(this).parent().html(data);
   }
 
-  function showDisplayError(event, xhr, status, error) {
+  function showError(event, xhr, status, error) {
     console.log('Display edit form failed: ' + error)
-  }
-
-  function addAppointment(event, data) {
-    $('.appointment-list').html(data);
-  }
-
-  function showCreateError(event, xhr, status, error) {
-    console.log('Create appointment failed ' + error)
   }
 
   function replaceWithEdit(event, data) {
