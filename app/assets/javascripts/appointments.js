@@ -1,7 +1,8 @@
 $(function(){
+  NewForm.init();
   EditForm.init();
   DeleteForm.init();
-  NewForm.init();
+  Test.init();
 });
 
 var NewForm = (function() {
@@ -93,3 +94,28 @@ var EditForm = (function() {
   }
 }());
 
+Test = (function() {
+  function bindEvents() {
+    $('.show-appointments-module').on('ajax:success', show);
+    $('.show-appointments-module').on('ajax:error', showError);
+  }
+
+  function show(event, data) {
+    $('body').html(data)
+    NewForm.init();
+    EditForm.init();
+    DeleteForm.init();
+  }
+
+  function showError(event, xhr, status, error) {
+    debugger
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}());
