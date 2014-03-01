@@ -18,6 +18,14 @@ body {
   margin: 20px auto;
 }
 
+#module-area {
+  width: 74%;
+  height: 75%;
+  position: absolute;
+  display: inline-block;
+  float: left;
+}
+
 /****************
   Main Nav
 ****************/

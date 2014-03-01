@@ -3,6 +3,7 @@ MusicTeacherRails::Application.routes.draw do
   root to: "dashboard#index"
   match '/lesson' => 'dashboard#lesson'
   match '/test' => 'test#index'
+  match '/test_module' => 'test#module'
 
 
   # The priority is based upon order of creation:

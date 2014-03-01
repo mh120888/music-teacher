@@ -13,21 +13,19 @@ Navigation = (function(){
 }());
 
 Module = (function(){
-  function bindDraggable() {
-    $( ".draggable" ).draggable();
+  function _bindDraggable() {
+    $(".active-module").draggable({ containment: "parent", handle: ".module-header" });
   }
 
-  function _newModule() {
-    return $('.module').clone();
-  }
-
-  function _init() {
-    bindDraggable();
+  function _newModule(data, moduleName) {
+    var newModule = $('.module').clone().html(data).removeClass('hidden').addClass('active-module').addClass(moduleName);
+    $('#module-area').append(newModule[0]);
+    Module.bindDraggable();
   }
 
   return {
-    init: _init,
-    newModule: _newModule
+    newModule: _newModule,
+    bindDraggable: _bindDraggable
   }
 }());
 
@@ -62,8 +60,10 @@ LessonPage = (function(){
   }
 
   function metronomeModule(event, data) {
-    var newModule = Module.newModule();
-    debugger
+    var moduleName = 'metronome-module';
+    if($("." + moduleName).length == 0) {
+      Module.newModule(data, moduleName);
+    }
   }
 
   function moduleError(event, xhr, status, error) {
