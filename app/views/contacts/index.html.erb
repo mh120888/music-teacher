@@ -1,8 +1,8 @@
-<h1>Your Contacts:</h1>
-<ul>
-  <% @contacts.each do |contact| %>
-    <li><%= contact.first_name %> <%= contact.last_name %></li>
-  <% end %>
-</ul>
-
-<%= link_to 'Add New Contact', new_contact_path, :remote => true %>
+<div class='contacts-module'>
+  <div class='contacts-list'>
+    <%= render 'list' %>
+  </div>
+  <div class='new-contact-form hidden'>
+    <%= render 'new' %>
+  </div>
+</div>
