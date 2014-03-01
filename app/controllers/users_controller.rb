@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :signed_in_user, only: [:show]
+  before_filter :correct_user, only: [:show]
+  
   def new
     @user = User.new
     if params[:user]
@@ -9,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.password = params[:password]
     if @user.save
+      sign_in @user
       redirect_to @user
     else
       @old_name = @user.name
@@ -17,7 +21,18 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
   def show
+  end
+
+  private
+
+  def signed_in_user
+    redirect_to login_path, notice: "Please sign in" unless signed_in?
+  end
+
+  def correct_user
     @user = User.find(params[:id])
+    redirect_to current_user unless current_user?(@user)
   end
 end
