@@ -10,6 +10,7 @@ MusicTeacherRails::Application.routes.draw do
   match '/test' => 'test#index'
   match '/test_module' => 'test#module'
   match '/another_test_module' => 'test#another_module'
+  resources :contacts, only: [:new]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
