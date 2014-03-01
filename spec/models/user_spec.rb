@@ -3,6 +3,8 @@ require 'spec_helper'
 describe User do
   subject(:user) { User.new }
 
+  it { should respond_to :remember_token }
+
   context 'validation' do
     context 'email' do
       it { should validate_uniqueness_of :email }
@@ -43,6 +45,15 @@ describe User do
           }.not_to raise_error
         end
       end
+    end
+  end
+
+  describe 'remmber token' do
+    let(:password) { "password" }
+    let!(:user) { User.create_with_password(UserHelper.attributes_without_password, password) }
+
+    it 'should have a remember token' do
+      expect(user.remember_token).not_to be_blank
     end
   end
 end
