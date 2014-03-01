@@ -5,7 +5,7 @@ MusicTeacherRails::Application.routes.draw do
   match '/sounds/search' => 'sounds#search', :as => :sc_search
   match '/sounds/connected' => 'sounds#connected', :as => :sc_connected
   match '/sounds/play' => 'sounds#play', :as => :sc_play
-  resources :sounds, :only => [:index, :create, :show]
+  resources :sounds, :only => [:index]
 
 
 
