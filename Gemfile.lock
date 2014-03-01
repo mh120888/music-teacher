@@ -50,7 +50,15 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     ffi (1.9.3)
+    hashie (2.0.5)
     hike (1.2.3)
+    httmultiparty (0.3.12)
+      httparty (>= 0.7.3)
+      mimemagic
+      multipart-post
+    httparty (0.13.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     journey (1.0.4)
     jquery-rails (3.1.0)
@@ -61,8 +69,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mimemagic (0.2.1)
     mini_portile (0.5.2)
     multi_json (1.8.4)
+    multi_xml (0.5.5)
+    multipart-post (2.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     pg (0.17.1)
@@ -114,6 +125,9 @@ GEM
       websocket (~> 1.0.4)
     shoulda-matchers (2.5.0)
       activesupport (>= 3.0.0)
+    soundcloud (0.3.2)
+      hashie (~> 2.0)
+      httmultiparty (~> 0.3.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -147,4 +161,5 @@ DEPENDENCIES
   rspec-rails
   selenium-webdriver
   shoulda-matchers
+  soundcloud
   uglifier (>= 1.0.3)

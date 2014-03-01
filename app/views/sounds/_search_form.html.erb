@@ -1,0 +1,9 @@
+<%= form_tag(sc_search_path, id: "search") do -%>
+  <%= label_tag "q", "Description" %>
+  <%= search_field_tag "","", name: "search[q]" %>
+  <%= submit_tag 'Search' %>
+  <div id="advanced-search">
+    <%= label_tag "genre" %>
+    <%= search_field_tag "","", name: "search[genres]", placeholder: "Ex: Rock,Hiphop..." %>
+  </div>
+<% end -%>

@@ -2,6 +2,12 @@ MusicTeacherRails::Application.routes.draw do
   resources :appointments
   root to: "test#index"
 
+  match '/sounds/search' => 'sounds#search', :as => :sc_search
+  match '/sounds/connected' => 'sounds#connected', :as => :sc_connected
+  match '/sounds/play' => 'sounds#play', :as => :sc_play
+  resources :sounds, :only => [:index, :create, :show]
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

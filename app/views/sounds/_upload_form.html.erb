@@ -1,0 +1,7 @@
+<%= form_tag(sounds_path, id: "upload", method: 'post') do -%>
+  <h3>Upload a Track!</h3>
+    <%= label_tag 'track_title', 'Name: ' %>
+    <%= text_field_tag 'track_title' %>
+    <%= file_field_tag 'sound' %>
+    <%= submit_tag 'Upload' %>
+<% end %>

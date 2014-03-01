@@ -1,0 +1,4 @@
+<% @results.each do |track| %>
+  <h3 class="track"><%= track.title %></h3>
+    <%= render 'play_button', track: track %>
+<% end %>
