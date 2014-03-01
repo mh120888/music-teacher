@@ -4,6 +4,7 @@ MusicTeacherRails::Application.routes.draw do
   match '/lesson' => 'dashboard#lesson'
   match '/test' => 'test#index'
   match '/test_module' => 'test#module'
+  match '/another_test_module' => 'test#another_module'
 
 
   # The priority is based upon order of creation:

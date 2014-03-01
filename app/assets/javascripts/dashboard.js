@@ -12,22 +12,6 @@ Navigation = (function(){
   }
 }());
 
-Module = (function(){
-  function _bindDraggable() {
-    $(".active-module").draggable({ containment: "parent", handle: ".module-header" });
-  }
-
-  function _newModule(data, moduleName) {
-    var newModule = $('.module').clone().html(data).removeClass('hidden').addClass('active-module').addClass(moduleName);
-    $('#module-area').append(newModule[0]);
-    Module.bindDraggable();
-  }
-
-  return {
-    newModule: _newModule,
-    bindDraggable: _bindDraggable
-  }
-}());
 
 Lesson = (function(){
   function bindEvents() {
@@ -53,17 +37,22 @@ Lesson = (function(){
   }
 }());
 
+
 LessonPage = (function(){
   function bindEvents() {
-    $('.metronome').on('ajax:success', metronomeModule);
-    $('.metronome').on('ajax:error', moduleError);
+    $('.test-module-link').on('ajax:success', addModuleOne);
+    $('.test-module-link').on('ajax:error', moduleError);
+
+    $('.another-test-module-link').on('ajax:success', addModuleTwo);
+    $('.another-test-module-link').on('ajax:error', moduleError);
   }
 
-  function metronomeModule(event, data) {
-    var moduleName = 'metronome-module';
-    if($("." + moduleName).length == 0) {
-      Module.newModule(data, moduleName);
-    }
+  function addModuleOne(event, data) {
+    Module.appendModule(data, 'test-module')
+  }
+
+  function addModuleTwo(event, data) {
+    Module.appendModule(data, 'another-test-module')
   }
 
   function moduleError(event, xhr, status, error) {
