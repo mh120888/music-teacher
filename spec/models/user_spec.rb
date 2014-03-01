@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe User do
-  it { should have_many(:appointments) }
   subject(:user) { User.new }
 
   it { should respond_to :remember_token }
+  it { should have_many(:appointments) }
 
   context 'validation' do
     context 'email' do

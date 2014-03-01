@@ -12,6 +12,7 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20140228223906) do
+
   create_table "appointments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "student_id"
