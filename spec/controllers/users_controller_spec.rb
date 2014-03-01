@@ -17,11 +17,4 @@ describe UsersController do
       }.to change{ User.count }.by(1)
     end
   end
-  context '#show' do
-    let!(:user) { FactoryGirl.create(:user) }
-    it 'stored the appropriate user' do
-      get :show, id: user.id
-      expect(assigns(:user).id).to eq(user.id)
-    end
-  end
 end
