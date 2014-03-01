@@ -14,7 +14,7 @@ class Sound < ActiveRecord::Base
 
   def self.search(params)
     search_terms = compact_search_params(params)
-    self::APP_CLIENT.get('/tracks', search_terms)[0..9]
+    self::APP_CLIENT.get('/tracks', search_terms, :limit => 5)[0..4]
   end
 
   def self.compact_search_params(params)

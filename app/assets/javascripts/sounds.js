@@ -30,10 +30,35 @@ var TrackWidgetDisplay = (function(){
   return {
     init: _init
   }
+}())
 
+var ToggleMode = (function(){
+  function bind(){
+    $("#search").on("click", toggleSearch)
+    $("#existing").on("click", toggleExisting)
+  }
+
+  function toggleSearch(){
+    $('#search-tracks').show()
+    $('#user-tracks').hide()
+  }
+
+  function toggleExisting(){
+    $('#search-tracks').hide()
+    $('#user-tracks').show()
+  }
+
+  function _init(){
+    bind()
+  }
+
+  return {
+    init: _init
+  }
 }())
 
 $(function(){
   TrackSearchForm.init();
   TrackWidgetDisplay.init();
+  ToggleMode.init()
 });
