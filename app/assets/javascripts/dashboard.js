@@ -1,0 +1,69 @@
+$(function(){
+  Navigation.init();
+});
+
+Navigation = (function(){
+  function _init() {
+    Lesson.init();
+  }
+
+  return {
+    init: _init
+  }
+}());
+
+
+Lesson = (function(){
+  function bindEvents() {
+    $('.nav-lesson').on('ajax:success', showLesson);
+    $('.nav-lesson').on('ajax:error', showError);
+  }
+
+  function showLesson(event, data) {
+    $('.content-wrapper').html(data);
+    LessonPage.init();
+  }
+
+  function showError(event, xhr, status, error) {
+    console.log('Show lesson failed' + error);
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}());
+
+
+LessonPage = (function(){
+  function bindEvents() {
+    $('.test-module-link').on('ajax:success', addModuleOne);
+    $('.test-module-link').on('ajax:error', moduleError);
+
+    $('.another-test-module-link').on('ajax:success', addModuleTwo);
+    $('.another-test-module-link').on('ajax:error', moduleError);
+  }
+
+  function addModuleOne(event, data) {
+    Module.appendModule(data, 'test-module')
+  }
+
+  function addModuleTwo(event, data) {
+    Module.appendModule(data, 'another-test-module')
+  }
+
+  function moduleError(event, xhr, status, error) {
+    console.log('Create module failed' + error);
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}());
