@@ -1,0 +1,6 @@
+<div id="outstanding">
+  <h3>Outstanding Payments</h3>
+  <% @outstanding.each do |payment| %>
+    <%= render 'payments/payment_info', :payment => payment %>
+  <% end %>
+</div>

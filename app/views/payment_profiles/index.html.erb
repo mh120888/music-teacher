@@ -1,16 +1,34 @@
-<h1>Welcome <%= @user %>, This is Your Payments Page</h1>
+<div id="payment-module">
+  <div id="title">
+    Payments
+  </div>
+  <% if !@connected %>
 
-<% if !@connected %>
-  <h2>Setup: Please link you Stripe Account</h2>
-  <%= link_to image_tag("blue.png"), "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_32D88BD1qLklliziD7gYQvctJIhWBSQ7&scope=read_write&state=1234", :class => "stripe-connect"  %>
-<% end %>
+    <h2>Setup: Please link you Stripe Account</h2>
+    <%= link_to image_tag("blue.png"), "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_32D88BD1qLklliziD7gYQvctJIhWBSQ7&scope=read_write&state=1234", :class => "stripe-connect"  %>
+  <% end %>
 
-<%= render 'payment_history' , locals: {:payments => @payments} %>
-<%= render 'plans' , locals: {:plans => @plan} %>
 
-<% if @connected %>
-  <%= link_to "Create a Payment!" , new_payment_profile_path, :class => "new-payment", :remote => true %>
-<% end %>
-<div id="new-payment">
+  <% if @connected %>
+    <div id="payment-info">
+      <%= render 'payment_history' , locals: {:payments => @payments} %>
+      <%= render 'outstanding', locals: {:outstanding => @outstanding} %>
+    </div>
+    <div id="request">
+      <%= form_tag payments_path do %>
+        <input type="text" name="amount">
+        <%= submit_tag "Generate URL!" %>
+      <% end %>
+    </div>
+    <div id="new-payment">
+        <%= link_to "Pay Now!" , new_payment_profile_path, :class => "new-payment", :remote => true %>
+    </div>
+    <div class="spacer2"></div>
+    <div id="chart"></div>
+    <div class="spacer1"></div>
+    <%= render 'plans' , locals: {:plans => @plan} %>
+
+  <% end %>
 </div>
+
 

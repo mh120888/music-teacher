@@ -7,3 +7,93 @@
   color: white;
 
 }*/
+
+li {
+  list-style: none
+}
+
+#payment-history {
+  border: 1px solid black;
+  width: 300px;
+  text-align: center;
+  height: 400px;
+  overflow: scroll;
+  float: left;
+}
+/*
+.payment {
+  margin: 0 auto;
+}
+*/
+#plans {
+  border: 1px solid black;
+  width: 300px;
+  margin: 20px;
+  height: 300px;
+  float: left;
+  text-align: center;
+/*  margin-top: 400px;*/
+}
+
+#payment-info {
+  height: 700px;
+  width: 300px;
+  border: 2px solid red;
+  float: left;
+  margin-top: 50px
+  position: relative;
+}
+
+#payment-module{
+  width: 1200px;
+  height: 800px;
+  border: 3px solid blue;
+  position: relative;
+}
+
+#new-payment {
+  width: 100px;
+  height: 20px;
+  border: 1px solid black;
+  float: left;
+  text-align: center;
+  clear: right;
+}
+
+#outstanding {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  border: 1px solid green;
+/*  bottom: 0;
+  position: absolute;*/
+  overflow: scroll;
+  float: left;
+}
+
+h1 {
+  width: 300px;
+  margin: none;
+}
+
+.spacer1 {
+  height: 375px;
+  clear: right;
+}
+
+.spacer2 {
+  height: 40px;
+  clear: right;
+}
+
+#chart {
+  height: 325px;
+  width: 500px;
+  border: 1px solid black;
+  float: left;
+  margin: 20px;
+}
+
+#request {
+  float: left;
+}

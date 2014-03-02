@@ -1,0 +1,16 @@
+<h1>Log In</h1>
+
+<% if flash[:error] %>
+<div class="error">
+	<p>You have an error at login:</p>
+	<p><%= flash[:error] %></p>
+</div>
+<% end %>
+
+<%= form_tag sessions_path do |f| %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email, params[:email] %><br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password, params[:password] %><br>
+  <%= submit_tag "Log In" %>
+<% end %>

@@ -9,7 +9,7 @@ module StripeHelper
   end
 
   def date_for(payment)
-    DateTime.strptime(payment["created"].to_s,'%s')
+    DateTime.strptime(payment["created"].to_s,'%s').to_s[0..9]
   end
 
   def username(account)

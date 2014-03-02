@@ -1,9 +1,11 @@
 class PaymentProfile < ActiveRecord::Base
-  attr_accessible :access_token, :publishable_key
+    attr_accessible :access_token, :publishable_key
+    belongs_to :user
+    has_many :payments
 
-   def self.access_client_account(code)
-    get_client_access(get_client_info(code))
-  end
+   def self.access_client_account(code, user)
+    get_client_access(get_client_info(code), user)
+   end
 
   def self.charge_payment(params, customer)
     Stripe::Charge.create(customer: customer.id, amount: params[:amount].to_i * 100, currency: 'usd')
@@ -18,35 +20,19 @@ class PaymentProfile < ActiveRecord::Base
     params[:plan_id] ? charge_subscription(params, customer) : charge_payment(params, customer)
   end
 
-  # def email_for(payment)
-  #   payment["card"]["name"]
-  # end
+  def self.assign_to(client, user)
+    user.payment_profiles << PaymentProfile.create(access_token: client['access_token'], publishable_key: client['stripe_publishable_key'])
+  end
 
-  # def amount_for(payment)
-  #   "$#{(payment["amount"] / 100.0)}"
-  # end
+  def self.setup_client(user)
+    if user.payment_profiles.first
+      payment_profile = user.payment_profiles.first
+      Stripe.api_key = payment_profile[:access_token]
+      Rails.configuration.stripe[:publishable_key] = payment_profile[:publishable_key]
+      true
+    end
+  end
 
-  # def date_for(payment)
-  #   DateTime.strptime(payment["created"].to_s,'%s')
-  # end
-
-  # def username(account)
-  #   account.retrieve.display_name
-  # end
-
-  # def name_for(plan)
-  #   plan["name"]
-  # end
-
-  # def description_for(plan)
-  #   "$#{plan["amount"] / 100.0} each #{plan["interval"]}"
-  # end
-
-  # def subscribers_for(plan)
-  #   Stripe::Customer.all.select do |cust|
-  #     cust.subscriptions.data[0] && cust.subscriptions.data[0].plan.id == plan.id
-  #   end
-  # end
 
   private
 
@@ -54,9 +40,10 @@ class PaymentProfile < ActiveRecord::Base
     ActiveSupport::JSON.decode(`curl -X POST https://connect.stripe.com/oauth/token -d client_secret=#{ENV['SECRET_KEY']} -d code=#{code} -d grant_type=authorization_code -d scope=read_write`)
   end
 
-  def self.get_client_access(client)
+  def self.get_client_access(client, user)
     Stripe.api_key = client['access_token']
     Rails.configuration.stripe[:publishable_key] = client['stripe_publishable_key']
+    assign_to(client, user)
   end
 
   def self.generate_customer(params)

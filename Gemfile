@@ -10,10 +10,13 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'bcrypt-ruby', :require => "bcrypt"
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'rails_db_info'
+  gem 'pry'
+  gem 'dotenv-rails'
 end
 
 group :test do

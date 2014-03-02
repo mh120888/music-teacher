@@ -1,5 +1,6 @@
 class PaymentProfilesController < ApplicationController
   include StripeHelper
+  include SessionsHelper
 
   def new
     @plans = Stripe::Plan.all
@@ -15,14 +16,14 @@ class PaymentProfilesController < ApplicationController
 
   def index
     @user = username Stripe::Account
-    @connected = session[:connected]
+    @connected = PaymentProfile.setup_client current_user
     @payments = Stripe::Charge.all
     @plans = Stripe::Plan.all
+    @outstanding = current_user.payment_profiles.first.payments
   end
 
   def connect
-    PaymentProfile.access_client_account params[:code]
-    session[:connected] = true
+    PaymentProfile.access_client_account params[:code], current_user
     redirect_to payment_profiles_path
   end
 end
