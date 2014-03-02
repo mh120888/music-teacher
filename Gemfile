@@ -9,6 +9,7 @@ end
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby', :require => "bcrypt"
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'rspec-rails'

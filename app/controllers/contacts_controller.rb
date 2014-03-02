@@ -24,8 +24,8 @@ class ContactsController < ApplicationController
     render partial: 'show', :locals => { contact: @contact }
   end
   def edit
-    user = User.find(params[:user_id])
-    contact = Contact.find(params[:id])
-    render partial: 'edit', :locals => { user: user, contact: contact }
+    @user = User.find(params[:user_id])
+    @contact = Contact.find(params[:id])
+    render partial: 'edit', :locals => { user: @user, contact: @contact }
   end
 end
