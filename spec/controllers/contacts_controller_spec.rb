@@ -13,6 +13,15 @@ describe ContactsController do
       expect(assigns(:contacts)).to eq Contact.all
     end
   end
+  context '#new' do
+    before(:each) do
+      get :new, user_id: user.id
+    end
+    it 'assigns a new contact and it should not be persisted' do
+      expect(assigns(:contact)).to be_an_instance_of Contact
+      expect(assigns(:contact).persisted?).to be_false
+    end
+  end
   context '#create' do
     let!(:contact_params) { FactoryGirl.attributes_for(:contact) }
     it 'increases number of contacts by one' do
@@ -37,6 +46,22 @@ describe ContactsController do
       expect(assigns(:contact).id).to eq contact.id
     end
   end 
-  context '#edit'
+  context '#edit' do
+    let!(:contact) { FactoryGirl.create(:contact) }
+    before(:each) do
+      get :edit, user_id: user.id, id: contact.id
+    end
+    it 'assigns the correct contact' do
+      expect(assigns(:contact).id).to eq contact.id
+    end
+  end
   context '#destroy'
 end
+
+
+
+
+
+
+
+

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Adding contacts' do
   describe 'viewing all contacts' do
     let!(:user) { FactoryGirl.create(:user) }
-    let!(:contact) { FactoryGirl.create(:contact) }
+    let!(:contact) { FactoryGirl.create(:contact, user: user) }
     before(:each) do
       visit user_contacts_path user
     end
@@ -14,12 +14,13 @@ describe 'Adding contacts' do
     it 'should allow me to navigate to the create contact page' do
       expect(page).to have_content 'Add New Contact'
       click_on 'Add New Contact'
-      expect(current_path).to eq new_contact_path
+      expect(page).to have_selector(:link_or_button, 'Create Contact')
     end
   end
   describe 'contact creation form' do
+    let!(:user) { FactoryGirl.create(:user) }
     before(:each) do
-      visit contacts_path
+      visit user_contacts_path user
       click_on 'Add New Contact'
     end
     it 'should have the correct fields' do
@@ -62,17 +63,40 @@ describe 'Adding contacts' do
     end
   end
   describe 'viewing a specific contact' do
-    let!(:contact) { FactoryGirl.create(:contact) }
-    it 'should show all of a contact\'s information after clicking on the name' do
-      visit contacts_path
+    let!(:user) { FactoryGirl.create(:user) }
+    let!(:contact) { FactoryGirl.create(:contact, user: user) }
+    before(:each) do
+      visit user_contacts_path user
+      visit user_contacts_path user
       click_on "#{contact.first_name}"
+    end
+    it 'should show all of a contact\'s information after clicking on the name' do
       expect(page).to have_content contact.first_name
       expect(page).to have_content contact.last_name
       expect(page).to have_content contact.email
       expect(page).to have_content contact.address
       expect(page).to have_content contact.phone
     end
+    it 'should show an edit button' do
+      expect(page).to have_selector(:link_or_button, 'Edit')
+    end
   end
   describe 'editing contacts' do
+    let!(:user) { FactoryGirl.create(:user) }
+    let!(:contact) { FactoryGirl.create(:contact, user: user) }
+    before(:each) do
+      visit edit_user_contact_path(user, contact)
+    end
+    it 'displays a form to edit the contact\'s info' do
+      expect(page).to have_field 'contact_first_name'
+      expect(page).to have_field 'contact_last_name'
+      expect(page).to have_field 'contact_email'
+      expect(page).to have_field 'contact_address'
+      expect(page).to have_field 'contact_phone'
+    end
+    it 'has a save button' do
+      expect(page).to have_selector(:link_or_button, 'Save')
+    end
   end
 end
+

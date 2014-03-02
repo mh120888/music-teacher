@@ -19,5 +19,6 @@ FactoryGirl.define do
     sequence(:address) { |n| "#{n} Main Street, Berkeley, CA" }
     phone     { '111-111-1111' }
     sequence(:email) { |n| "Kevin#{n}@example.com" }
+    user
   end
 end

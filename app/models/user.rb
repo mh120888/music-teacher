@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :email
   has_many :appointments
+  has_many :contacts
   validates :email, uniqueness: true
   validates :email, format: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
   validates :name, presence: true
