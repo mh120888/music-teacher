@@ -1,7 +1,7 @@
 <h2>All Contacts:</h2>
 <ul>
   <% @contacts.each do |contact| %>
-    <span id=<%= contact.id %>><li><%= link_to contact.full_name, user_contact_path(contact.user, contact), :remote => true %></li><span>
+    <span id=<%= contact.id %>><li><%= link_to contact.full_name, user_contact_path(contact.user, contact) %></li><span>
 
   <% end %>
 </ul>

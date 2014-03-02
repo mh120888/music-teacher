@@ -28,4 +28,9 @@ class ContactsController < ApplicationController
     contact = Contact.find(params[:id])
     render partial: 'edit', :locals => { user: user, contact: contact }
   end
+  def update
+    @contact = Contact.find(params[:id])
+    @contact.update_attributes(params[:contact])
+    render partial: 'show', :locals => { contact: @contact }
+  end
 end

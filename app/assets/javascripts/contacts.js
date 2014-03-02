@@ -1,5 +1,6 @@
 $(function() {
   newContact.init();
+  editContact.init();
 });
 
 var newContact = (function(){
@@ -32,14 +33,14 @@ var newContact = (function(){
   }
 }());
 
-var showContact = (function(){
+var editContact = (function(){
   function bindEvents() {
-    $('')
+    $('a.edit-contact').on('click', renderEditForm)
   }
 
-  function toggleHidden(event) {
-    event.preventDefault;
-
+  function renderEditForm() {
+    debugger
+    console.log('stuff');
   }
 
   function addContact(e, data) {

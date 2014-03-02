@@ -1,7 +1,7 @@
 MusicTeacherRails::Application.routes.draw do
   
   resources :users, only: [:new, :create, :show] do
-    resources :contacts, only: [:index, :new, :create, :show, :edit]
+    resources :contacts
   end
 
   resources :sessions, only: [:new, :create, :destory]
