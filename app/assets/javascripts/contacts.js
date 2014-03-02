@@ -1,26 +1,21 @@
 $(function() {
   newContact.init();
+  viewContact.init();
+  editContact.init();
 });
 
 var newContact = (function(){
   function bindEvents() {
-    $('#new-contact').on('click', toggleHidden);
-    $('.new-contact-form form').on('ajax:success', addContact);
-    $('.new-contact-form form').on('ajax:error', showContactError);
-  }
-
-  function toggleHidden(event) {
-    event.preventDefault;
-    $('.new-contact-form').toggleClass('hidden');
-    $('.contacts-list').css('display', 'none');
+    $('#new-contact a').on('ajax:success', addContact);
+    $('#new-contact a').on('ajax:error', showContactError);
   }
 
   function addContact(e, data) {
-    $('.new-contact-form').html(data);
+    $('.contacts-module').html(data);
   }
 
   function showContactError(e, error) {
-    $('.new-contact-form .error').html(error)
+    alert('Something went wrong...sorry!');
   }
 
   function _init() {
@@ -32,21 +27,68 @@ var newContact = (function(){
   }
 }());
 
-var showContact = (function(){
+var viewContact = (function(){
   function bindEvents() {
-    $('')
+    $('.contacts-module').on('ajax:success', '.contacts-list a', showContact);
   }
 
-  function toggleHidden(event) {
-    event.preventDefault;
+  function showContact(event, data) {
+    $('.contacts-module').html(data);
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}());
+
+var editContact = (function(){
+  function bindEvents() {
+    $('.contacts-module').on('ajax:success', 'a.edit-contact', renderEditForm)
+    $('a.edit-contact').on('ajax:error', renderEditContactError)
+    $('body').on('ajax:success', 'form.edit_contact', renderEditedContact);
+    $('body').on('ajax:error', 'form.edit_contact', renderEditError);
+  }
+
+  function renderEditForm(event, data) {
+    debugger
+    $('body').html(data);
+  }
+
+  function renderEditContactError(event, xhr) {
+    alert('Something Broke');
+  }
+
+  function renderEditedContact(event, data) {
+    $('body').html(data);
+  }
+
+  function renderEditError(event, xhr) {
+    alert('Something Broke');
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}());
+
+var deleteContact = (function(){
+  function bindEvents() {
 
   }
 
-  function addContact(e, data) {
+  function deleteContact(e, data) {
 
   }
 
-  function showContactError(e, error) {
+  function showDeleteContactError(e, error) {
 
   }
 
@@ -58,3 +100,4 @@ var showContact = (function(){
     init: _init
   }
 }());
+

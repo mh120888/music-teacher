@@ -1,10 +1,10 @@
 class ContactsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @contacts = Contact.all
-    @contact = Contact.new
+    @contacts = @user.contacts
   end
   def new
+    @user = User.find(params[:user_id])
     @contact = Contact.new
     render partial: 'new'
   end
@@ -27,5 +27,10 @@ class ContactsController < ApplicationController
     @user = User.find(params[:user_id])
     @contact = Contact.find(params[:id])
     render partial: 'edit', :locals => { user: @user, contact: @contact }
+  end
+  def update
+    @contact = Contact.find(params[:id])
+    @contact.update_attributes(params[:contact])
+    render partial: 'show', :locals => { contact: @contact }
   end
 end
