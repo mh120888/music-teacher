@@ -2,6 +2,7 @@ $(function() {
   newContact.init();
   viewContact.init();
   editContact.init();
+  deleteContact.init();
 });
 
 var newContact = (function(){
@@ -54,7 +55,6 @@ var editContact = (function(){
   }
 
   function renderEditForm(event, data) {
-    debugger
     $('body').html(data);
   }
 
@@ -81,11 +81,12 @@ var editContact = (function(){
 
 var deleteContact = (function(){
   function bindEvents() {
-
+    // $('.contacts-module').on('ajax:success', 'a.delete-contact', deleteContact)
   }
 
   function deleteContact(e, data) {
-
+    // e.preventDefault();
+    // debugger
   }
 
   function showDeleteContactError(e, error) {
