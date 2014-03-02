@@ -11,6 +11,9 @@ function bindPopstate() {
       url: location.href + "_partial"
     }).done(function(data) {
       $('.content-wrapper').html(data);
+      if(location.pathname == "/lesson") {
+        LessonPage.init();
+      }
       console.log(location.href + "_partial");
     }).fail(function() {
       console.log("Popstate request failed");
