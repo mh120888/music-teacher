@@ -1,6 +1,13 @@
 $(function(){
   Navigation.init();
+  bindPopstate();
 });
+
+function bindPopstate() {
+  $(window).bind("popstate", function() {
+    $.getScript(location.href);
+  })
+}
 
 Navigation = (function(){
   function _init() {
@@ -20,6 +27,7 @@ Lesson = (function(){
   }
 
   function showLesson(event, data) {
+    history.pushState(null, "Lesson", "/lesson");
     $('.content-wrapper').html(data);
     LessonPage.init();
   }

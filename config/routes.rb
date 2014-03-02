@@ -7,6 +7,7 @@ MusicTeacherRails::Application.routes.draw do
   resources :appointments
   root to: "dashboard#index"
   match '/lesson' => 'dashboard#lesson'
+  match '/lesson_partial' => 'dashboard#lesson_partial'
   match '/test' => 'test#index'
   match '/test_module' => 'test#module'
   match '/another_test_module' => 'test#another_module'

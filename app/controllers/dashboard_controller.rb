@@ -6,6 +6,10 @@ class DashboardController < ApplicationController
   end
 
   def lesson
+    render 'dashboard/lesson/page'
+  end
+
+  def lesson_partial
     render 'dashboard/lesson/page', layout: false
   end
 end
