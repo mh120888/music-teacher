@@ -36,23 +36,25 @@ var newContact = (function(){
 var editContact = (function(){
   function bindEvents() {
     $('a.edit-contact').on('ajax:success', renderEditForm)
-    $('a.edit-contact').on('ajax:error', showEditContactError)
+    $('a.edit-contact').on('ajax:error', renderEditContactError)
+    $('body').on('ajax:success', 'form.edit_contact', renderEditedContact);
+    $('body').on('ajax:error', 'form.edit_contact', renderEditError);
   }
 
   function renderEditForm(event, data) {
     $('body').html(data);
   }
 
-  function showEditContactError(e, xhr) {
-    console.log('that sucks');
+  function renderEditContactError(event, xhr) {
+    alert('Something Broke');
   }
 
-  function addContact(e, data) {
-
+  function renderEditedContact(event, data) {
+    $('body').html(data);
   }
 
-  function showContactError(e, error) {
-
+  function renderEditError(event, xhr) {
+    alert('Something Broke');
   }
 
   function _init() {
@@ -63,3 +65,4 @@ var editContact = (function(){
     init: _init
   }
 }());
+
