@@ -5,7 +5,7 @@
     </div>
     <div class="appointment-divider"><i class="fa fa-long-arrow-down"></i></div>
     <div class="appointment-end">
-      <%= appointment.start_time.strftime("%l:%M") %>
+      <%= appointment.end_time.strftime("%l:%M") %>
     </div>
   </div>
 
@@ -20,10 +20,14 @@
 
   <div class="appointment-change-box">
     <div class="appointment-edit">
-      <%= link_to 'Edit', edit_appointment_path(appointment), class: "show-edit-form", remote: true %>
+      <%= link_to edit_appointment_path(appointment), class: "show-edit-form", remote: true do %>
+        <i class="fa fa-pencil-square-o fa-lg"></i>
+      <% end %>
     </div>
     <div class="appointment-delete">
-      <%= link_to 'Delete', appointment, remote: true, method: :delete,  class: "delete-appointment" %>
+      <%= link_to appointment, remote: true, method: :delete,  class: "delete-appointment" do %>
+        <i class="fa fa-times-circle fa-lg"></i>
+      <% end %>
     </div>
   </div>
 </div>
