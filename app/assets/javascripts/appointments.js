@@ -1,11 +1,11 @@
 $(function(){
-  NewForm.init();
+  AppointmentForm.init();
   EditForm.init();
   DeleteForm.init();
-  Test.init();
+  // AppointmentLink.init();
 });
 
-var NewForm = (function() {
+AppointmentForm = (function() {
   function bindEvents() {
     $('#new-appointment').on('click', toggleHidden);
     $('.new-appointment-form form').on('ajax:success', addAppointment);
@@ -14,7 +14,7 @@ var NewForm = (function() {
 
   function toggleHidden(event) {
     event.preventDefault();
-    $('.new-appointment-form').toggleClass('hidden');
+    $('.new-appointment-form').toggleClass('appointment-hidden');
   }
 
   function addAppointment(event, data) {
@@ -94,27 +94,30 @@ var EditForm = (function() {
   }
 }());
 
-Test = (function() {
-  function bindEvents() {
-    $('.show-appointments-module').on('ajax:success', show);
-    $('.show-appointments-module').on('ajax:error', showError);
-  }
+// AppointmentLink = (function() {
+//   function bindEvents() {
+//     $('.show-appointments-module').on('ajax:success', show);
+//     $('.show-appointments-module').on('ajax:error', showError);
+//   }
 
-  function show(event, data) {
-    $('body').html(data)
-    NewForm.init();
-    EditForm.init();
-    DeleteForm.init();
-  }
+//   function show(event, data) {
+//     debugger
+//     event.preventDefault();
+//     $('.appointments').html(data);
+//     // NewForm.init();
+//     // EditForm.init();
+//     // DeleteForm.init();
+//   }
 
-  function showError(event, xhr, status, error) {
-  }
+//   function showError(event, xhr, status, error) {
+//     console.log('Get appointments failed' + error)
+//   }
 
-  function _init() {
-    bindEvents();
-  }
+//   function _init() {
+//     bindEvents();
+//   }
 
-  return {
-    init: _init
-  }
-}());
+//   return {
+//     init: _init
+//   }
+// }());
