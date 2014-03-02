@@ -8,6 +8,7 @@ var PaymentGenerator = {
 
   addPaymentButton: function(event, data, status, xhr){
     $('#new-payment').html(data)
+    $(".stripe-button-el span").text('Pay!')
   }
 }
 

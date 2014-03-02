@@ -28,7 +28,7 @@ li {
 #plans {
   border: 1px solid black;
   width: 300px;
-  margin: 20px;
+  margin: 0px 20px 20px;
   height: 300px;
   float: left;
   text-align: center;
@@ -88,7 +88,7 @@ h1 {
 
 #chart {
   height: 325px;
-  width: 500px;
+  width: 800px;
   border: 1px solid black;
   float: left;
   margin: 20px;
