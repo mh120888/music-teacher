@@ -3,10 +3,19 @@ $(function(){
   bindPopstate();
 });
 
+
 function bindPopstate() {
   $(window).bind("popstate", function() {
-    $.getScript(location.href);
-  })
+    $.ajax({
+      method: "GET",
+      url: location.href + "_partial"
+    }).done(function(data) {
+      $('.content-wrapper').html(data);
+      console.log(location.href + "_partial");
+    }).fail(function() {
+      console.log("Popstate request failed");
+    });
+  });
 }
 
 Navigation = (function(){
