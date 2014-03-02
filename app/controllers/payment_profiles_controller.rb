@@ -1,4 +1,4 @@
-class PaymentsController < ApplicationController
+class PaymentProfilesController < ApplicationController
   include StripeHelper
 
   def new
@@ -7,10 +7,10 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    charge params
+    PaymentProfile.charge params
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to payments_path
+    redirect_to payment_profiles_path
   end
 
   def index
@@ -21,8 +21,8 @@ class PaymentsController < ApplicationController
   end
 
   def connect
-    access_client_account params[:code]
+    PaymentProfile.access_client_account params[:code]
     session[:connected] = true
-    redirect_to payments_path
+    redirect_to payment_profiles_path
   end
 end

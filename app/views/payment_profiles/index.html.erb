@@ -9,7 +9,7 @@
 <%= render 'plans' , locals: {:plans => @plan} %>
 
 <% if @connected %>
-  <%= link_to "Create a Payment!" , new_payment_path, :class => "new-payment", :remote => true %>
+  <%= link_to "Create a Payment!" , new_payment_profile_path, :class => "new-payment", :remote => true %>
 <% end %>
 <div id="new-payment">
 </div>

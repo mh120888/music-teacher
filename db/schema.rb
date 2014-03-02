@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140227213740) do
+ActiveRecord::Schema.define(:version => 20140228230555) do
+
+  create_table "appointments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "student_id"
+    t.string   "title"
+    t.text     "description"
+    t.date     "date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "dashboards", :force => true do |t|
     t.integer "user_id"
@@ -23,10 +35,15 @@ ActiveRecord::Schema.define(:version => 20140227213740) do
   end
 
   create_table "payments", :force => true do |t|
-    t.integer  "amount"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "access_token"
+    t.string   "publishable_key"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "sounds", :force => true do |t|
+    t.string  "access_token"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|

@@ -1,7 +1,7 @@
 MusicTeacherRails::Application.routes.draw do
 
-  match 'payments/connect' => 'payments#connect'
-  resources :payments
+  match 'payment_profiles/connect' => 'payment_profiles#connect'
+  resources :payment_profiles
 
 
 
