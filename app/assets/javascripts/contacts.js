@@ -35,12 +35,16 @@ var newContact = (function(){
 
 var editContact = (function(){
   function bindEvents() {
-    $('a.edit-contact').on('click', renderEditForm)
+    $('a.edit-contact').on('ajax:success', renderEditForm)
+    $('a.edit-contact').on('ajax:error', showEditContactError)
   }
 
-  function renderEditForm() {
-    debugger
-    console.log('stuff');
+  function renderEditForm(event, data) {
+    $('body').html(data);
+  }
+
+  function showEditContactError(e, xhr) {
+    console.log('that sucks');
   }
 
   function addContact(e, data) {
