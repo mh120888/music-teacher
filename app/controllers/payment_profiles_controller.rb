@@ -19,7 +19,7 @@ class PaymentProfilesController < ApplicationController
     @connected = PaymentProfile.setup_client current_user
     @payments = Stripe::Charge.all
     @plans = Stripe::Plan.all
-    @outstanding = current_user.payment_profiles.first.payments
+    @outstanding = current_user.payment_profiles.first.payments if current_user.payment_profiles.first
   end
 
   def connect

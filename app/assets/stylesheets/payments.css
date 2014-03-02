@@ -40,6 +40,7 @@ li {
   width: 300px;
   border: 2px solid red;
   float: left;
+  margin: 20px 20px 20px;
   margin-top: 50px
   position: relative;
 }
@@ -92,6 +93,12 @@ h1 {
   border: 1px solid black;
   float: left;
   margin: 20px;
+  text-align: center;
+}
+
+#myChart {
+  height: 325px;
+  width: 800px;
 }
 
 #request {

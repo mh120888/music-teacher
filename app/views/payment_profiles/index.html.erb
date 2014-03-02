@@ -24,7 +24,10 @@
         <%= link_to "Pay Now!" , new_payment_profile_path, :class => "new-payment", :remote => true %>
     </div>
     <div class="spacer2"></div>
-    <div id="chart"></div>
+    <div id="chart">
+      <h3>Daily Revenues</h3>
+      <canvas id="myChart" width="800" height="250"></canvas>
+    </div>
     <div class="spacer1"></div>
     <%= render 'plans' , locals: {:plans => @plan} %>
 
