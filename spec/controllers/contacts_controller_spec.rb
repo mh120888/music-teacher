@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe ContactsController do
+  let!(:user) { FactoryGirl.create(:user) }
   context '#index' do
     before(:each) do
-      get :index
+      get :index, user_id: user.id
     end
     it 'should be ok' do
       expect(response).to be_ok
@@ -12,17 +13,30 @@ describe ContactsController do
       expect(assigns(:contacts)).to eq Contact.all
     end
   end
-  context '#new' do
+  context '#create' do
+    let!(:contact_params) { FactoryGirl.attributes_for(:contact) }
+    it 'increases number of contacts by one' do
+      expect {
+        post :create, user_id: user.id, contact: contact_params
+      }.to change { Contact.count }.by 1
+    end
+    it 'creates a contact that belongs to the specified user' do
+      post :create, user_id: user.id, contact: contact_params
+      expect(Contact.last.user_id).to eq user.id
+    end
+  end
+  context '#show' do
+    let!(:contact) { FactoryGirl.create(:contact) }
     before(:each) do
-      get :new
+      get :show, user_id: user.id, id: contact.id
     end
     it 'should be ok' do
       expect(response).to be_ok
     end
-    it 'should instantiate a new contact model' do
-      expect(assigns(:contact)).to be_an_instance_of Contact
-      expect(assigns(:contact).persisted?).to be_false
+    it 'should assign the correct contact' do
+      expect(assigns(:contact).id).to eq contact.id
     end
-  end
-
+  end 
+  context '#edit'
+  context '#destroy'
 end

@@ -31,3 +31,30 @@ var newContact = (function(){
     init: _init
   }
 }());
+
+var showContact = (function(){
+  function bindEvents() {
+    $('')
+  }
+
+  function toggleHidden(event) {
+    event.preventDefault;
+
+  }
+
+  function addContact(e, data) {
+
+  }
+
+  function showContactError(e, error) {
+
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}());
