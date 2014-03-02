@@ -66,3 +66,25 @@ var editContact = (function(){
   }
 }());
 
+var deleteContact = (function(){
+  function bindEvents() {
+    
+  }
+
+  function deleteContact(e, data) {
+
+  }
+
+  function showDeleteContactError(e, error) {
+
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}());
+

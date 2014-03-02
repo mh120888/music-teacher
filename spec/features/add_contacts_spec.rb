@@ -79,6 +79,9 @@ describe 'Adding contacts', js: true do
     it 'should show an edit button' do
       expect(page).to have_selector(:link_or_button, 'Edit')
     end
+    it 'should show a delete button' do
+      expect(page).to have_selector(:link_or_button, 'Delete')
+    end
   end
   describe 'editing contacts' do
     let!(:user) { FactoryGirl.create(:user) }
@@ -109,6 +112,8 @@ describe 'Adding contacts', js: true do
         expect(page).to have_content(new_name)
       end
     end
+  end
+  describe 'deleting a contact' do
   end
 end
 
