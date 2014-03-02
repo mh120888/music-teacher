@@ -1,27 +1,39 @@
 $(function() {
   newContact.init();
+  viewContact.init();
   editContact.init();
 });
 
 var newContact = (function(){
   function bindEvents() {
-    $('#new-contact').on('click', toggleHidden);
-    $('.new-contact-form form').on('ajax:success', addContact);
-    $('.new-contact-form form').on('ajax:error', showContactError);
-  }
-
-  function toggleHidden(event) {
-    event.preventDefault;
-    $('.new-contact-form').toggleClass('hidden');
-    $('.contacts-list').css('display', 'none');
+    $('#new-contact a').on('ajax:success', addContact);
+    $('#new-contact a').on('ajax:error', showContactError);
   }
 
   function addContact(e, data) {
-    $('.new-contact-form').html(data);
+    $('.contacts-module').html(data);
   }
 
   function showContactError(e, error) {
-    $('.new-contact-form .error').html(error)
+    alert('Something went wrong...sorry!');
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}());
+
+var viewContact = (function(){
+  function bindEvents() {
+    $('.contacts-module').on('ajax:success', '.contacts-list a', showContact);
+  }
+
+  function showContact(event, data) {
+    $('.contacts-module').html(data);
   }
 
   function _init() {
@@ -35,13 +47,14 @@ var newContact = (function(){
 
 var editContact = (function(){
   function bindEvents() {
-    $('a.edit-contact').on('ajax:success', renderEditForm)
+    $('.contacts-module').on('ajax:success', 'a.edit-contact', renderEditForm)
     $('a.edit-contact').on('ajax:error', renderEditContactError)
     $('body').on('ajax:success', 'form.edit_contact', renderEditedContact);
     $('body').on('ajax:error', 'form.edit_contact', renderEditError);
   }
 
   function renderEditForm(event, data) {
+    debugger
     $('body').html(data);
   }
 
@@ -68,7 +81,7 @@ var editContact = (function(){
 
 var deleteContact = (function(){
   function bindEvents() {
-    
+
   }
 
   function deleteContact(e, data) {
