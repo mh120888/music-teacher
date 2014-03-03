@@ -1,17 +1,17 @@
 Module = (function(){
   function bindEvents(moduleName) {
-    $('.' + moduleName).find('.module-delete-link').on('click', deleteModule);
-    $('.' + moduleName).find('.module-collapse-link').on('click', collapseModule);
-    // $('.module-delete-link').on('click', deleteModule);
-    // $('.module-collapse-link').on('click', collapseModule);
+    var $module = $('.' + moduleName)
+    $module.find('.module-delete-link').on('click', deleteModule);
+    $module.find('.module-collapse-link').on('click', collapseModule);
   }
 
   function deleteModule(event) {
-    $(this).closest('.module').remove()
+    $(this).closest('.module').remove();
   }
 
   function collapseModule(event) {
-    $(this).closest('.module').find('.module-collapse').toggle( "fast" )
+    var $module = $(this).closest('.module');
+    $module.find('.module-collapse').toggle( "fast" );
   }
 
   function bindDraggable() {

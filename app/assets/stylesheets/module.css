@@ -22,6 +22,14 @@
   border: 2px solid #368ee0;
 }
 
+.border-green {
+  border: 2px solid #393;
+}
+
+.border-red {
+  border: 2px solid #e63a3a;
+}
+
 
 /*****************
   Header Styles
@@ -30,6 +38,7 @@
 .module-header {
   width: 100%;
   height: 48px;
+  position: relative;
 }
 
 .module-header h2 {
@@ -50,6 +59,9 @@
 .module-actions {
   display: inline-block;
   font-size:19px;
+  position: absolute;
+  right: 7px;
+  top: 11px;
 }
 
 .module-actions .module-delete-link {
@@ -88,6 +100,7 @@
 
 .module {
   display: inline-block;
+  position: absolute;
   z-index: 2;
   background: white;
 }
