@@ -1,4 +1,17 @@
 Module = (function(){
+  function bindEvents() {
+    $('.module-delete-link').on('click', deleteModule);
+    $('.module-collapse-link').on('click', collapseModule);
+  }
+
+  function deleteModule(event) {
+    $(this).closest('.module').remove()
+  }
+
+  function collapseModule(event) {
+    $(this).closest('.module').find('.module-collapse').toggle( "fast" )
+  }
+
   function bindDraggable() {
     $(".active-module").draggable({ containment: "parent", handle: ".module-header" });
   }
@@ -29,6 +42,7 @@ Module = (function(){
     $('#module-area').append(newModule[0]);
     bindDraggable();
     bindZIndex();
+    bindEvents();
   }
 
   function _appendModule(data, moduleName) {
