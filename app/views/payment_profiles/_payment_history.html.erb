@@ -1,0 +1,9 @@
+<div id="payment-history">
+  <h3>Payment History</h3>
+    <% @payments.each do |payment| %>
+      <div class="payment">
+        <%= render 'payment_info', :payment => payment %>
+      </div>
+    <% end %>
+</div>
+

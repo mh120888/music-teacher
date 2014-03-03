@@ -1,6 +1,7 @@
 $(function(){
   Navigation.init();
   bindPopstate();
+  FinancesPage.init();
 });
 
 
@@ -87,3 +88,27 @@ LessonPage = (function(){
     init: _init
   }
 }());
+
+FinancesPage = (function(){
+  function bindEvents() {
+    $('.nav-finances').on('ajax:success', showFinances);
+    $('.nav-finances').on('ajax:error', showError);
+  }
+
+  function showFinances(event, data) {
+    history.pushState(null, "Finances", "/finances");
+    $('.content-wrapper').html(data);
+  }
+
+  function showError() {
+    console.log("Error for finances page fool");
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}())
