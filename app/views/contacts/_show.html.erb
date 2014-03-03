@@ -3,5 +3,5 @@
 <p>Email: <%= @contact.email %></p>
 <p>Address: <%= @contact.address %></p>
 
-<%= link_to 'Edit', "#{request.path}/edit", remote: true, class: 'edit-contact' %>
-<%= link_to 'Delete', user_contact_path(@contact.user, @contact), method: :delete, remote: true, class: 'delete-contact' %>
+<%= link_to 'Edit', "#{request.path}/edit", :remote => true, class: 'edit-contact' %>
+<%= link_to 'Delete', user_contact_path(@contact.user, @contact), :method => :delete, :remote => true, class: 'delete-contact' %>

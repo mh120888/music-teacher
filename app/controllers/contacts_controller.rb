@@ -35,9 +35,8 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-
     @contact = Contact.find(params[:id])
     @contact.destroy
-    redirect_to 'index'
+    render :nothing => true
   end
 end

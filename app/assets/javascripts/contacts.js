@@ -40,10 +40,16 @@ var newContact = (function(){
 var viewContact = (function(){
   function bindEvents() {
     $('.contacts-module').on('ajax:success', '.contacts-list a', showContact);
+    $('.contacts-module').on('ajax:error', '.contacts-list a', showViewContactError);
   }
 
   function showContact(event, data) {
+    debugger
     $('.contacts-module').html(data);
+  }
+
+  function showViewContactError(event, error) {
+    debugger;
   }
 
   function _init() {
@@ -58,14 +64,14 @@ var viewContact = (function(){
 var editContact = (function(){
   function bindEvents() {
     $('.contacts-module').on('ajax:success', 'a.edit-contact', renderEditForm)
-    $('a.edit-contact').on('ajax:error', renderEditContactError)
-    $('body').on('ajax:success', 'form.edit_contact', renderEditedContact);
-    $('body').on('ajax:error', 'form.edit_contact', renderEditError);
+    $('.contacts-module').on('ajax:error', 'a.edit-contact', renderEditContactError)
+    $('.contacts-module').on('ajax:success', 'form.edit_contact', renderEditedContact);
+    $('.contacts-module').on('ajax:error', 'form.edit_contact', renderEditError);
   }
 
   function renderEditForm(event, data) {
     event.preventDefault();
-    $('body').html(data);
+    $('.contacts-module').html(data);
   }
 
   function renderEditContactError(event, xhr) {
@@ -73,7 +79,8 @@ var editContact = (function(){
   }
 
   function renderEditedContact(event, data) {
-    $('body').html(data);
+    debugger
+    $('.contacts-module').html(data);
   }
 
   function renderEditError(event, xhr) {
@@ -92,6 +99,7 @@ var editContact = (function(){
 var deleteContact = (function(){
   function bindEvents() {
     $('.contacts-module').on('ajax:success', 'a.delete-contact', deleteContact);
+    $('.contacts-module').on('ajax:error', 'a.delete-contact', showDeleteContactError);
   }
 
   function deleteContact(e, data) {
@@ -99,7 +107,7 @@ var deleteContact = (function(){
   }
 
   function showDeleteContactError(e, error) {
-
+    debugger;
   }
 
   function _init() {
