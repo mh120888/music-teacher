@@ -1,7 +1,9 @@
 Module = (function(){
-  function bindEvents() {
-    $('.module-delete-link').on('click', deleteModule);
-    $('.module-collapse-link').on('click', collapseModule);
+  function bindEvents(moduleName) {
+    $('.' + moduleName).find('.module-delete-link').on('click', deleteModule);
+    $('.' + moduleName).find('.module-collapse-link').on('click', collapseModule);
+    // $('.module-delete-link').on('click', deleteModule);
+    // $('.module-collapse-link').on('click', collapseModule);
   }
 
   function deleteModule(event) {
@@ -38,11 +40,11 @@ Module = (function(){
   }
 
   function newModule(data, moduleName) {
-    var newModule = $('.module').clone().html(data).removeClass('hidden').addClass('active-module').addClass(moduleName);
+    var newModule = $('#master-module-template').clone().html(data).removeAttr('id').removeClass('hidden').addClass('active-module').addClass(moduleName);
     $('#module-area').append(newModule[0]);
     bindDraggable();
     bindZIndex();
-    bindEvents();
+    bindEvents(moduleName);
   }
 
   function _appendModule(data, moduleName) {
