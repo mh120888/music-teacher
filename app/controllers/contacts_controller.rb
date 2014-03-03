@@ -33,4 +33,10 @@ class ContactsController < ApplicationController
     @contact.update_attributes(params[:contact])
     render partial: 'show', :locals => { contact: @contact }
   end
+
+  def destroy
+    @contact = Contact.find(params[:id])
+    @contact.destroy
+    render :json => @contact.user_id
+  end
 end

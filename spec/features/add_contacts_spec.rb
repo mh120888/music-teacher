@@ -113,7 +113,18 @@ describe 'Adding contacts', js: true do
       end
     end
   end
-  describe 'deleting a contact' do
+  describe 'deleting contact' do
+    let!(:user) { FactoryGirl.create(:user) }
+    let!(:contact) { FactoryGirl.create(:contact, user: user) }
+    before do
+      visit user_contacts_path user
+      click_on "#{contact.first_name}"
+      click_on "Delete"
+    end
+
+    it 'should remove conctact from list' do
+      expect(page).not_to have_content(contact.first_name)
+    end
   end
 end
 

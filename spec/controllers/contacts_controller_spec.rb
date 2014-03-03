@@ -55,14 +55,14 @@ describe ContactsController do
       expect(assigns(:contact).id).to eq contact.id
     end
   end
-  # context '#destroy'
-  # let!(:contact) { FactoryGirl.create(:contact) }
-  #   before(:each) do
-  #     delete: destroy, user_id: user.id, id: contact.id
-  #   end
-  #   it 'assigns the correct contact' do
-  #     expect(assigns(:contact).id).to eq contact.id
-  #   end
+  context '#destroy' do
+    let!(:contact) { FactoryGirl.create(:contact) }
+    it 'removes the contact from active record' do
+      expect {
+        delete :destroy, user_id: user.id, id: contact.id
+      }.to change{ Contact.count }.by(-1)
+    end
+  end
 end
 
 
