@@ -55,6 +55,10 @@
 .appointments-header h2 {
   padding: 15px;
   margin: 0;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased !important;
+  padding-top: 11px;
 }
 
 .appointment-body {
@@ -75,7 +79,6 @@
 }
 
 .appointments-pannel {
-  border-radius: 0 0 7px 7px;
   background-color: #FFF;
   border: 1px solid #cececf;
   border-top: 0;
@@ -92,28 +95,23 @@
   transition: border-color .15s linear,box-shadow .15s linear;
 }
 
-.appointments-pannel::-webkit-scrollbar-track
-{
+.appointments-pannel::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   background-color: #F5F5F5;
 }
 
-.appointments-pannel::-webkit-scrollbar
-{
+.appointments-pannel::-webkit-scrollbar {
   width: 5px;
   background-color: #F5F5F5;
 }
 
-.appointments-pannel::-webkit-scrollbar-thumb
-{
+.appointments-pannel::-webkit-scrollbar-thumb {
   background-color: #000000;
   border: 2px solid #555555;
 }
 
 .appointments-header {
   background-color: #368EE0;
-  border-bottom: 1px solid #d3d3d4;
-  border-radius: 7px 7px 0 0;
 }
 
 .appointments-header-new-form {

@@ -1,6 +1,10 @@
-<div id="outstanding">
-  <h3>Outstanding Payments</h3>
-  <% @outstanding.each do |payment| %>
-    <%= render 'payments/payment_info', :payment => payment %>
-  <% end %>
+<div class="outstanding-payments-module">
+  <div class="outstanding-payments-header">
+    <h2>Outstanding <i class="fa fa-exclamation-triangle"></i></h2>
+  </div>
+  <div class="outstanding-payments-content">
+    <% @outstanding.each do |payment| %>
+      <%= render 'payments/payment_info', :payment => payment %>
+    <% end %>
+  </div>
 </div>

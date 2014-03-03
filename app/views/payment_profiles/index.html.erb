@@ -1,7 +1,4 @@
 <div id="payment-module">
-  <div id="title">
-    <h2>Payments</h2>
-  </div>
   <% if !@connected %>
 
     <h2>Setup: Please link you Stripe Account</h2>
@@ -10,9 +7,12 @@
 
 
   <% if @connected %>
-    <div id="payment-info">
+    <div class="payment-info-wrapper">
       <%= render 'payment_history' , locals: {:payments => @payments} %>
       <%= render 'outstanding', locals: {:outstanding => @outstanding} %>
+    </div>
+    <div class="payment-chart-wrapper">
+      <%= render 'chart' %>
     </div>
     <div id="request">
       <%= form_tag payments_path do %>
@@ -20,12 +20,6 @@
         <%= submit_tag "Generate URL!" %>
       <% end %>
     </div>
-    <div class="spacer2"></div>
-    <div id="chart">
-      <h3>Daily Revenues</h3>
-      <canvas id="myChart" width="800" height="250"></canvas>
-    </div>
-    <div class="spacer1"></div>
     <%= render 'plans' , locals: {:plans => @plan} %>
 
   <% end %>

@@ -1,30 +1,162 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+/***************
+  Payment Info
+***************/
 
-/*.stripe-connect {
+.payment-info-wrapper {
+  float: left;
+  width: 280px;
+}
+
+/******************
+ Payments History
+******************/
+
+.payment-history-module, .outstanding-payments-module {
+  width: 280px;
+  margin-right: 20px;
+  display: inline-block;
+  float: left;
+}
+
+.payment-history-header {
+  background: #393;
+  height: 60px;
+  width: 280px;
+}
+
+.payment-history-header h2,
+.outstanding-payments-header h2,
+.payment-chart-header h2 {
+  padding: 15px;
+  margin: 0;
   color: white;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased !important;
+  padding-top: 11px;
+}
 
-}*/
+.payment-history-header h2 .fa {
+  margin-left: 31px;
+}
+
+
+.payment-history-content,
+.outstanding-payments-content,
+.payment-chart-content {
+  height: 300px;
+  width: 278px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #FFF;
+  border: 1px solid #cececf;
+  border-top: 0;
+  border-bottom-color: #dededf;
+  -webkit-box-shadow: inset 0 1px 1px rgba(124,124,127,0.1),0 1px 0 rgba(255,255,255,0.7),0 0 4px rgba(86,149,219,0);
+  -moz-box-shadow: inset 0 1px 1px rgba(124,124,127,0.1),0 1px 0 rgba(255,255,255,0.7),0 0 4px rgba(86,149,219,0);
+  -ms-box-shadow: inset 0 1px 1px rgba(124,124,127,0.1),0 1px 0 rgba(255,255,255,0.7),0 0 4px rgba(86,149,219,0);
+  -o-box-shadow: inset 0 1px 1px rgba(124,124,127,0.1),0 1px 0 rgba(255,255,255,0.7),0 0 4px rgba(86,149,219,0);
+  box-shadow: inset 0 1px 1px rgba(124,124,127,0.1),0 1px 0 rgba(255,255,255,0.7),0 0 4px rgba(86,149,219,0);
+  -webkit-transition: border-color .15s linear,box-shadow .15s linear;
+  -moz-transition: border-color .15s linear,box-shadow .15s linear;
+  -ms-transition: border-color .15s linear,box-shadow .15s linear;
+  -o-transition: border-color .15s linear,box-shadow .15s linear;
+  transition: border-color .15s linear,box-shadow .15s linear;
+}
+
+.payment-history-content h3 {
+  background-color: rgba( 51, 153, 51, 0.2 );
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 3px;
+  padding-left: 6px;
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+}
+
+.payment-history-content::-webkit-scrollbar-track,
+.outstanding-payments-content::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+.payment-history-content::-webkit-scrollbar,
+.outstanding-payments-content::-webkit-scrollbar {
+  width: 5px;
+  background-color: #F5F5F5;
+}
+
+.payment-history-content::-webkit-scrollbar-thumb,
+.outstanding-payments-content::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border: 2px solid #555555;
+}
+
+
+.payment .fa {
+  color: #393;
+}
+
+.payment h4 {
+  margin: 15px;
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+}
+
+/**********************
+  Outstanding Payments
+**********************/
 
 li {
   list-style: none
 }
 
-#payment-history {
-  border: 1px solid black;
-  width: 300px;
-  text-align: center;
-  height: 400px;
-  overflow: scroll;
-  float: left;
+.outstanding-payments-header {
+  background: #e63a3a;
 }
-/*
-.payment {
-  margin: 0 auto;
+
+.outstanding-payments-module {
+  margin-top: 20px;
 }
-*/
+
+.outstanding-payments-header h2 .fa {
+  margin-left: 70px;
+}
+
+/*********
+  Chart
+*********/
+
+.payments-chart-module {
+  height: 360px;
+  width: 900px;
+  float: right;
+}
+
+.payment-chart-content {
+  width: 898px;
+  height: 300px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#myChart {
+  width: 840px;
+  height: 250px;
+  margin: 25px 20px 25px 20px;
+}
+
+.payment-chart-header {
+  background: #368ee0;
+  height: 60px;
+  width: 900px;
+}
+
+.payment-chart-header h2 .fa {
+  margin-left: 719px;
+}
+/**************
+
+**************/
+
 #plans {
   border: 1px solid black;
   width: 300px;
@@ -32,24 +164,6 @@ li {
   height: 300px;
   float: left;
   text-align: center;
-/*  margin-top: 400px;*/
-}
-
-#payment-info {
-  height: 700px;
-  width: 300px;
-  border: 2px solid red;
-  float: left;
-  margin: 20px 20px 20px;
-  margin-top: 50px
-  position: relative;
-}
-
-#payment-module{
-  width: 1200px;
-  height: 800px;
-  border: 3px solid blue;
-  position: relative;
 }
 
 #new-payment {
@@ -66,8 +180,6 @@ li {
   height: 300px;
   text-align: center;
   border: 1px solid green;
-/*  bottom: 0;
-  position: absolute;*/
   overflow: scroll;
   float: left;
 }
@@ -77,29 +189,16 @@ h1 {
   margin: none;
 }
 
-.spacer1 {
-  height: 375px;
-  clear: right;
-}
-
-.spacer2 {
-  height: 40px;
-  clear: right;
-}
-
 #chart {
   height: 325px;
   width: 800px;
   border: 1px solid black;
-  float: left;
+  float: right;
   margin: 20px;
   text-align: center;
 }
 
-#myChart {
-  height: 325px;
-  width: 800px;
-}
+
 
 #request {
   float: left;
