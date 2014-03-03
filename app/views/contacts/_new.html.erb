@@ -1,6 +1,6 @@
 <h1>Add New Contact</h1>
 <span class='error'></span>
-<%= form_for [@user, @contact] do |f| %>
+<%= form_for [@user, @contact], remote: true do |f| %>
   <%= f.label :first_name %>:
   <%= f.text_field :first_name %><br />
 

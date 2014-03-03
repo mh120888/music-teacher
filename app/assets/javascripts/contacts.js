@@ -7,15 +7,24 @@ $(function() {
 
 var newContact = (function(){
   function bindEvents() {
-    $('#new-contact a').on('ajax:success', addContact);
-    $('#new-contact a').on('ajax:error', showContactError);
+    $('#new-contact a').on('ajax:success', renderNewContactForm);
+    $('#new-contact a').on('ajax:error', showContactFormError);
+    $('.contacts-module').on('ajax:success', 'form.new_contact', renderContactsIndex);
   }
 
-  function addContact(e, data) {
+  function renderNewContactForm(e, data) {
     $('.contacts-module').html(data);
   }
 
-  function showContactError(e, error) {
+  function showContactFormError(e, error) {
+    alert('Something went wrong...sorry!');
+  }
+
+  function renderContactsIndex(e, data) {
+    $('.contacts-module').html(data);
+  }
+
+  function showContactsIndexError(e, error) {
     alert('Something went wrong...sorry!');
   }
 
@@ -55,6 +64,7 @@ var editContact = (function(){
   }
 
   function renderEditForm(event, data) {
+    event.preventDefault();
     $('body').html(data);
   }
 
@@ -81,12 +91,11 @@ var editContact = (function(){
 
 var deleteContact = (function(){
   function bindEvents() {
-    // $('.contacts-module').on('ajax:success', 'a.delete-contact', deleteContact)
+    $('.contacts-module').on('ajax:success', 'a.delete-contact', deleteContact);
   }
 
   function deleteContact(e, data) {
-    // e.preventDefault();
-    // debugger
+    debugger;
   }
 
   function showDeleteContactError(e, error) {
