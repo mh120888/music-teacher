@@ -11,9 +11,14 @@ MusicTeacherRails::Application.routes.draw do
   match '/lesson' => 'dashboard#lesson'
   match '/lesson_partial' => 'dashboard#lesson_partial'
 
+  match 'payment_profiles/connect' => 'payment_profiles#connect'
+  resources :payment_profiles
+  resources :payments
+
   match '/test' => 'test#index'
   match '/test_module' => 'test#module'
   match '/another_test_module' => 'test#another_module'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
