@@ -6,10 +6,17 @@ body {
   background-color: #F5F5F7;
 }
 
+#logo {
+  margin-top: -39px;
+  width: 260px;
+  margin-left: -3px;
+}
+
 .header {
   width: 1200px;
   min-height: 45px;
   margin-bottom: 20px;
+  margin-top: 32px;
 }
 
 .dashboard-wrapper {
@@ -78,22 +85,22 @@ div.nav-wrapper ul li:last-child {
   text-decoration: none;
   color: #333;
   letter-spacing: 1px;
+  font-size: 1.2em;
 }
 
 .logo {
   display: inline-block;
   float: left;
-  width: 180px;
+  width: 280px;
   height: 45px;
   padding: 0;
   margin-right: 20px;
-  background: #FFF;
 }
 
 .user-info {
   display: inline-block;
   float: left;
-  width: 180px;
+  width: 270px;
   height: 45px;
   padding: 0;
   background: #FFF;
