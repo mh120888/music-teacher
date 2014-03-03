@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(:version => 20140302023012) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "contacts", :force => true do |t|
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "email"
+    t.string  "address"
+    t.string  "phone"
+    t.integer "user_id"
+  end
+
   create_table "dashboards", :force => true do |t|
     t.integer "user_id"
     t.integer "extension_id"
