@@ -1,0 +1,45 @@
+<div id='landing-content'>
+  <div id="app-logo">
+    <%= image_tag "backlyne-smaller.png", width: 280, id: 'logo' %>
+  </div>
+  <div id='app-overview'>
+    <p class='important'>We believe you should be able to concentrate on being a great teacher, not on the logistics of running a business.</p>
+  </div>
+  <div id='app-features'>
+  <h2>What's Possible with Backlyne?</h2>
+    <p class='important'>Backlyne provides you with a set of tools designed to make your life as a music instructor easier.</p>
+    <div id='dashboard-features'>
+      <h3>Dashboard</h3>
+      <p>From your primary dashboard, you can accomplish the following:</p>
+      <ul>
+        <li>view your availability via an appointments calendar</li>
+        <li>quickly schedule lessons with students</li>
+        <li>easily access student contact info</li>
+      </ul>
+    </div>
+    <div id='lesson-features'>
+      <h3>Lesson</h3>
+        <p>Backlyne gives you access to these tools via your <span class='emphasize'>lesson</span> page</p>
+        <ul>
+          <li>sheet music</li>
+          <li>metronome</li>
+          <li>drone</li>
+          <li>access to SoundCloud</li>
+        </ul>
+    </div> 
+    <div id='finance-features'>
+      <h3>Finances</h3>
+        <p>Track your teacher-related income using Backlyne's finance tools. You can easily</p>
+        <ul>
+          <li>request payment from students</li>
+          <li>visualize past payments</li>
+          <li>see your income over time</li>
+          <li>view outstanding payments</li>
+        </ul>
+    </div> 
+  </div>
+  <div id='feedback'>
+    <h2>Feedback &amp; Suggestions</h2>
+    <p class='important'>Is there a feature that you would like to see? Please <%= mail_to "me@example.com", 'send us' %> your suggestions. </p>
+  </div>
+</div>

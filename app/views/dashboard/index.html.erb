@@ -1,6 +1,10 @@
 <div class="appointments">
-  <%= render "appointments/index" %>
-  <script type="text/javascript">
-    appointmentInit();
-  </script>
+  <% if current_user %>
+    <%= render "appointments/index" %>
+    <script type="text/javascript">
+      appointmentInit();
+    </script>
+  <% else %>
+    <%= render partial: "public/landing_page", layout: false %>
+  <% end %>
 </div>

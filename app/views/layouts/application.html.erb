@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="dashboard-wrapper">
-    <%= render 'dashboard/header' %>
+    <%= render 'dashboard/header' if current_user %>
     <div class="content-wrapper">
       <%= yield %>
     </div>
