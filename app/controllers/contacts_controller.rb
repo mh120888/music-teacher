@@ -24,7 +24,6 @@ class ContactsController < ApplicationController
     render partial: 'show', :locals => { contact: @contact }
   end
   def edit
-    binding.pry
     @user = User.find(params[:user_id])
     @contact = Contact.find(params[:id])
     render partial: 'edit', :locals => { user: @user, contact: @contact }
@@ -36,9 +35,8 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @contact = Contact.find(params[:id])
     @contact.destroy
-    'deleted shit'
+    render :json => @contact.user_id
   end
 end
