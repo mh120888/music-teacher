@@ -19,6 +19,7 @@ group :development, :test do
   gem 'rails_db_info'
   gem 'pry'
   gem 'dotenv-rails'
+  gem 'stripe-ruby-mock', '~> 1.10.1'
 end
 
 group :test do
