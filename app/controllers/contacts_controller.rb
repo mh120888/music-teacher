@@ -37,7 +37,6 @@ class ContactsController < ApplicationController
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
-    render :nothing => true
-    @contact.id
+    render :json => @contact.user_id
   end
 end

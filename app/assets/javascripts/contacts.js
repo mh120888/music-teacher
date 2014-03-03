@@ -103,7 +103,8 @@ var deleteContact = (function(){
   }
 
   function deleteContact(e, data) {
-    window.location = e.target.pathname.slice(0, 17)
+    debugger
+    window.location = '/users/' + data + '/contacts'
   }
 
   function showDeleteContactError(e, error) {
