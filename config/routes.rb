@@ -1,12 +1,16 @@
 MusicTeacherRails::Application.routes.draw do
-  
+
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destory]
   match '/login', to: 'sessions#new', via: 'get', as: 'login'
   match '/logout', to: 'sessions#destroy', via: 'delete', as: 'logout'
   resources :appointments
   root to: "dashboard#index"
+  match '/_partial' => 'dashboard#index_partial'
+
   match '/lesson' => 'dashboard#lesson'
+  match '/lesson_partial' => 'dashboard#lesson_partial'
+
   match '/test' => 'test#index'
   match '/test_module' => 'test#module'
   match '/another_test_module' => 'test#another_module'

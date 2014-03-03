@@ -1,0 +1,16 @@
+<div class="appointments-module">
+    <div class="appointments-header">
+        <h2 class="appointments-header-title">Appointments<%= link_to new_appointment_path, id: "new-appointment" do %></h2>
+        <div class="appointments-header-new-form"><i class="fa fa-plus-square fa-2x"></i></div><% end %>
+    </div>
+    <div class="new-appointment-form appointment-hidden">
+        <%= render 'appointments/form'%>
+    </div>
+    <div class="appointments-pannel">
+        <h4 id="notice"><%= notice %></h4>
+        <div class="appointment-list">
+            <%= render 'appointments/list' %>
+        </div>
+        </table>
+    </div>
+</div>

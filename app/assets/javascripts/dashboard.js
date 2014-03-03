@@ -1,6 +1,25 @@
 $(function(){
   Navigation.init();
+  bindPopstate();
 });
+
+
+function bindPopstate() {
+  $(window).bind("popstate", function() {
+    $.ajax({
+      method: "GET",
+      url: location.href + "_partial"
+    }).done(function(data) {
+      $('.content-wrapper').html(data);
+      if(location.pathname == "/lesson") {
+        LessonPage.init();
+      }
+      console.log(location.href + "_partial");
+    }).fail(function() {
+      console.log("Popstate request failed");
+    });
+  });
+}
 
 Navigation = (function(){
   function _init() {
@@ -20,6 +39,7 @@ Lesson = (function(){
   }
 
   function showLesson(event, data) {
+    history.pushState(null, "Lesson", "/lesson");
     $('.content-wrapper').html(data);
     LessonPage.init();
   }
