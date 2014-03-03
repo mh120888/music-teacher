@@ -1,6 +1,7 @@
 <div class="header-wrapper">
   <div class="header">
-    <div class="logo"><%= image_tag "backlyne-smaller.png", id: 'logo' %></div>
+    <%= link_to root_path do %><div class="logo"><%= image_tag "backlyne-smaller.png", id: 'logo' %></div>
+    <% end %>
     <div class="nav-wrapper">
       <%= render 'dashboard/main_nav' %>
     </div>

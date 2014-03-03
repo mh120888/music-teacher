@@ -81,14 +81,15 @@ body {
   margin: 0;
 }
 
-div.nav-wrapper ul li:first-child {
+div.nav-wrapper ul a:first-child li {
   padding-left: 9px;
   margin-left: 0px;
 }
 
-div.nav-wrapper ul li:last-child {
+div.nav-wrapper ul a:last-child li {
   padding-right: 9px;
   margin-right: 0px;
+  margin-left: -6px;
 }
 
 .main-nav li {
@@ -107,11 +108,11 @@ div.nav-wrapper ul li:last-child {
   text-shadow: 0 1px 0 #eee;
 }
 
-.main-nav li:first-child:hover {
+.main-nav a:first-child li:hover {
   border-radius: 4px 0 0 4px;
 }
 
-.main-nav li:last-child:hover {
+.main-nav a:last-child li:hover {
   border-radius: 0 4px 4px 0;
 }
 
@@ -126,10 +127,10 @@ div.nav-wrapper ul li:last-child {
 .logo {
   display: inline-block;
   float: left;
-  width: 280px;
+  width: 180px;
   height: 45px;
   padding: 0;
-  margin-right: 20px;
+  margin-right: 120px;
 }
 
 .user-info {
