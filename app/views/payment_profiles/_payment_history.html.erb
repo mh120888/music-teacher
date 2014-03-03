@@ -1,0 +1,16 @@
+<div class="payment-history-module">
+  <div class="payment-history-header">
+    <h2>Payment History <i class="fa fa-usd"></i></h2>
+  </div>
+  <div class="payment-history-content">
+    <% group_by_date(@payments).each do |date, payments| %>
+      <h3><%= date %></h3>
+      <% payments.each do |payment| %>
+        <div class="payment">
+          <%= render 'payment_info', :payment => payment %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
