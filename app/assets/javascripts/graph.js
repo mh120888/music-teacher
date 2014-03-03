@@ -15,8 +15,8 @@ function initializeGraph(){
       var total = 0
       var amounts =  array.filter(function(n){return n});
       var int_amounts = $.map(amounts, function(v,i){return parseInt(v)})
-      for(var i in int_amounts) { total += int_amounts[i]; }  
-      return total 
+      for(var i in int_amounts) { total += int_amounts[i]; }
+      return total
     }
 
     return {
@@ -31,7 +31,7 @@ function initializeGraph(){
   function ChartPoint(date){
     this.date = date
     this.revenue = getRevenue(this.date)
-    
+
     function getRevenue(date){
       return chartParser.moneyCompact($("." + date).text().split('Amount: $'))
     }

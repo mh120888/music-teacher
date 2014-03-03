@@ -44,7 +44,7 @@
 .outstanding-payments-content,
 .payment-chart-content {
   height: 300px;
-  width: 279px;
+  width: 278px;
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: #FFF;
@@ -61,6 +61,16 @@
   -ms-transition: border-color .15s linear,box-shadow .15s linear;
   -o-transition: border-color .15s linear,box-shadow .15s linear;
   transition: border-color .15s linear,box-shadow .15s linear;
+}
+
+.payment-history-content h3 {
+  background-color: rgba( 51, 153, 51, 0.2 );
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 3px;
+  padding-left: 6px;
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
 }
 
 .payment-history-content::-webkit-scrollbar-track,
@@ -81,6 +91,15 @@
   border: 2px solid #555555;
 }
 
+
+.payment .fa {
+  color: #393;
+}
+
+.payment h4 {
+  margin: 15px;
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+}
 
 /**********************
   Outstanding Payments

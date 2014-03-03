@@ -6,19 +6,23 @@ $(function(){
 
 
 function bindPopstate() {
-  $(window).bind("popstate", function() {
-    $.ajax({
-      method: "GET",
-      url: location.href + "_partial"
-    }).done(function(data) {
+  $(window).bind("popstate", popstateAjax);
+}
+
+function popstateAjax() {
+  $.ajax({
+    method: "GET",
+    url: location.href + "_partial"
+  }).done(function(data) {
+    if(!location.pathname == '/finances') {
       $('.content-wrapper').html(data);
       if(location.pathname == "/lesson") {
         LessonPage.init();
       }
-      console.log(location.href + "_partial");
-    }).fail(function() {
-      console.log("Popstate request failed");
-    });
+    }
+    console.log(location.href + "_partial");
+  }).fail(function() {
+    console.log("Popstate request failed");
   });
 }
 
