@@ -44,12 +44,11 @@ var viewContact = (function(){
   }
 
   function showContact(event, data) {
-    debugger
     $('.contacts-module').html(data);
   }
 
   function showViewContactError(event, error) {
-    debugger;
+    alert("something broke...sorry!");
   }
 
   function _init() {
@@ -79,7 +78,6 @@ var editContact = (function(){
   }
 
   function renderEditedContact(event, data) {
-    debugger
     $('.contacts-module').html(data);
   }
 
@@ -103,12 +101,11 @@ var deleteContact = (function(){
   }
 
   function deleteContact(e, data) {
-    debugger
     window.location = '/users/' + data + '/contacts'
   }
 
   function showDeleteContactError(e, error) {
-    debugger;
+    alert('Something Broke');
   }
 
   function _init() {
