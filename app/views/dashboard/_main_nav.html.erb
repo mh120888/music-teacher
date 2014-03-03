@@ -1,5 +1,9 @@
 <ul class="main-nav">
-  <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "Lesson", lesson_partial_path, remote: true, class: "nav-lesson" %></li>
-  <li><%= link_to "Finances", finances_partial_path, remote: true, class: "nav-finances" %></li>
+  <%= link_to root_path do %><li>Home</li><% end %>
+  <%= link_to lesson_partial_path, remote: true, class: "nav-lesson" do %>
+    <li>Lesson</li>
+  <% end %>
+  <%= link_to finances_partial_path, remote: true, class: "nav-finances" do %>
+    <li>Finances</li>
+  <% end %>
 </ul>
