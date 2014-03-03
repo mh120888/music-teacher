@@ -4,6 +4,12 @@ $(function(){
   DeleteForm.init();
 });
 
+function appointmentInit() {
+  AppointmentForm.init();
+  EditForm.init();
+  DeleteForm.init();
+}
+
 AppointmentForm = (function() {
   function bindEvents() {
     $('.appointments-header-new-form').on('click', toggleHidden);

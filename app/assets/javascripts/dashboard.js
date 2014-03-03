@@ -1,6 +1,7 @@
 $(function(){
   Navigation.init();
   bindPopstate();
+  FinancesPage.init();
 });
 
 
@@ -60,15 +61,15 @@ Lesson = (function(){
 
 LessonPage = (function(){
   function bindEvents() {
-    $('.test-module-link').on('ajax:success', addModuleOne);
-    $('.test-module-link').on('ajax:error', moduleError);
+    $('.metronome-link').on('ajax:success', addMetronome);
+    $('.metronome-link').on('ajax:error', moduleError);
 
     $('.another-test-module-link').on('ajax:success', addModuleTwo);
     $('.another-test-module-link').on('ajax:error', moduleError);
   }
 
-  function addModuleOne(event, data) {
-    Module.appendModule(data, 'test-module')
+  function addMetronome(event, data) {
+    Module.appendModule(data, 'metronome')
   }
 
   function addModuleTwo(event, data) {
@@ -87,3 +88,27 @@ LessonPage = (function(){
     init: _init
   }
 }());
+
+FinancesPage = (function(){
+  function bindEvents() {
+    $('.nav-finances').on('ajax:success', showFinances);
+    $('.nav-finances').on('ajax:error', showError);
+  }
+
+  function showFinances(event, data) {
+    history.pushState(null, "Finances", "/finances");
+    $('.content-wrapper').html(data);
+  }
+
+  function showError() {
+    console.log("Error for finances page fool");
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}())

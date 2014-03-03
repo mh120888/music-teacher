@@ -1,4 +1,4 @@
-$(document).ready(function(){
+function initializeGraph(){
 
   var chartParser = (function() {
     function _uniqueCompact(array) {
@@ -75,4 +75,4 @@ $(document).ready(function(){
     ]
   }
   var myChart = new Chart(ctx).Line(data);
-})
+}
