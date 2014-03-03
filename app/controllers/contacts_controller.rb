@@ -38,5 +38,6 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
     @contact.destroy
     render :nothing => true
+    @contact.id
   end
 end
