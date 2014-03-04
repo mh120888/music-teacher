@@ -27,7 +27,7 @@ describe ContactsController do
     it 'increases number of contacts by one' do
       expect {
         post :create, user_id: user.id, contact: contact_params
-      }.to change { Contact.count }.by 1
+      }.to change { Contact.count }.by(1)
     end
     it 'creates a contact that belongs to the specified user' do
       post :create, user_id: user.id, contact: contact_params
