@@ -61,4 +61,22 @@ $(function(){
   TrackSearchForm.init();
   TrackWidgetDisplay.init();
   ToggleMode.init()
+
+  $(".play").click(function() {
+    $( "div"+ "#" + $(this).attr('id')).animate({
+        width: '+=400px', height: '+=250px'
+    }, 1000);
+  });
+
+
+
+
+
+
 });
+
+
+
+
+
+

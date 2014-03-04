@@ -6,7 +6,7 @@
 
 <h3 id="existing">Your Tracks!</h3>
 <% if @user_sounds %>
-  <div id="user-tracks">
+  <div id="user-tracks" class="tracks">
     <% @user_sounds.each do |track| %>
       <div class="track">
         <h3><%= track.title %></h3>
@@ -19,7 +19,7 @@
 
 
 <h3 id="search">Search Tracks!</h3>
-<div id="search-tracks">
+<div id="search-tracks" class="tracks">
   <%= render 'search_form' %>
   <% if @results %>
     <div id="search-results">

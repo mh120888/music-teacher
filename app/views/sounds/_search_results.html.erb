@@ -1,13 +1,6 @@
-<% @results.each_slice(5).to_a.each do |track_group| %>
-  <div class="trackgroup">
-    <% track_group.each do |track| %>
-      <div class="track">
-      <h3 class="track-title"><%= track.title %></h3>
-        <%= render 'play_button', track: track %>
-      </div>
-    <% end %>
-    <%= submit_tag "Back", class: 'back' %>
-    <%= submit_tag "More!", class: 'more' %>
-
-</div>
+<% @results.each do |track| %>
+  <div class="track" id='<%= track.id %>'>
+  <h3 class="track-title"><%= track.title %></h3>
+    <%= render 'play_button', track: track %>
+  </div>
 <% end %>
