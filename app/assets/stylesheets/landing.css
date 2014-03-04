@@ -1,9 +1,17 @@
+/******************
+ Whole Page
+******************/
+
 #landing-content {
   font-family: sans-serif;
   margin: -12px -14px;
   text-align: center;
   background-color: #BDBDBD;
 }
+
+/******************
+ Application Overview - Top Section
+******************/
 
 img#app-overview-background {
   opacity: 0.8;
@@ -50,6 +58,10 @@ img#app-overview-background {
   margin: 0 auto;
 }
 
+/******************
+ App Features Section
+******************/
+
 #feature-highlights {
   padding-bottom: 40px;
   position: relative;
@@ -64,7 +76,7 @@ p.important {
   font-size: 1.6em;
 }
 
-#dashboard-features, #lesson-features, #finance-features {
+.landing-module {
   margin: -20px;
   padding: 80px;
 }
@@ -80,19 +92,26 @@ p.important {
 }
 
 #dashboard-features {
-  width: 24%;
+  width: 20%;
   float: left;
+  border: solid black 1px;
 }
 
 #lesson-features {
   width: 24%;
   float: left;
+  border: solid blue 1px;
 }
 
 #finance-features {
   width: 24%;
   float: left;
+  border: solid green 1px;
 }
+
+/******************
+ Footer
+******************/
 
 #feedback {
   clear: both;
@@ -107,6 +126,4 @@ p.important {
 #feedback a:hover {
   color: #40BEFF;
 }
-
-
 
