@@ -24,6 +24,14 @@
   width: 300px;
 }
 
+.appointments-header i {
+  margin-left: 45px;
+}
+
+.appointments-header i:hover {
+  cursor: pointer;
+}
+
 #appointment_title {
   width: 100%;
   border: 2px solid #368EE0;

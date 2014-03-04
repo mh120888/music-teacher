@@ -44,6 +44,7 @@ var NewContact = (function() {
   }
 
   function addContact(event, data) {
+    $('.new-contact-form-wrapper').toggle('contact-hidden');
     $('.contacts-list-append').append(data)
   }
 

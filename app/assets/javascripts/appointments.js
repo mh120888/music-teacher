@@ -15,12 +15,12 @@ var AppointmentForm = (function() {
 
   function toggleHidden(event) {
     event.preventDefault();
-    $('.new-appointment-form').toggleClass('appointment-hidden');
+    $('.new-appointment-form').toggle('appointment-hidden');
   }
 
   function addAppointment(event, data) {
     $('.appointment-list').html(data);
-    $('.new-appointment-form').toggleClass('appointment-hidden');
+    $('.new-appointment-form').toggle('appointment-hidden');
   }
 
   function showCreateError(event, xhr, status, error) {
