@@ -1,7 +1,12 @@
-<h2><%= contact.full_name %></h2>
-<p>Phone: <%= contact.phone %></p>
-<p>Email: <%= contact.email %></p>
-<p>Address: <%= contact.address %></p>
+<div class='contacts-header'>
+  <h2>Students</h2>
+</div>
+<div class='contacts-panel'>
+  <h3><%= contact.full_name %></h3>
+  <p>Phone: <%= contact.phone %></p>
+  <p>Email: <%= contact.email %></p>
+  <p>Address: <%= contact.address %></p>
 
-<%= link_to 'Edit', "#{request.path}/edit", :remote => true, class: 'edit-contact' %>
-<%= link_to 'Delete', user_contact_path(contact.user, contact), :method => :delete, :remote => true, class: 'delete-contact' %>
+  <%= link_to 'Edit', "#{request.path}/edit", :remote => true, class: 'edit-contact' %>
+  <%= link_to 'Delete', user_contact_path(contact.user, contact), :method => :delete, :remote => true, class: 'delete-contact' %>
+</div>

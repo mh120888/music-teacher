@@ -32,7 +32,7 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact.destroy
-    render :json => @contact.user_id
+    # render :json => @contact.user_id
   end
 
   private
