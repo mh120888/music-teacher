@@ -2,12 +2,18 @@ require 'spec_helper'
 
 describe AppointmentsController do
   context "#index" do
+    let!(:user) { FactoryGirl.create(:user) }
     before(:each) do
       get :index
+      current_user = user
     end
 
-    it "shold be ok" do
+    it "should be ok" do
       expect(response).to be_ok
+    end
+
+    it 'should assign the current user' do
+      expect(assigns(user).id).to eq user.id
     end
 
     it "should assign appointment and date" do
