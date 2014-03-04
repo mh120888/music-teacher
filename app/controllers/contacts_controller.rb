@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_filter :get_user, only: [:index, :new, :create, :edit]
+  before_filter :get_user, only: [:index, :new, :create, :edit, :destroy]
   before_filter :get_contact, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -32,7 +32,8 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact.destroy
-    # render :json => @contact.user_id
+    @contacts = @user.contacts
+    render partial: 'list'
   end
 
   private

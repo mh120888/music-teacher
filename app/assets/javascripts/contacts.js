@@ -96,16 +96,17 @@ var editContact = (function(){
 
 var deleteContact = (function(){
   function bindEvents() {
-    $('.contacts-module').on('ajax:success', 'a.delete-contact', deleteContact);
-    $('.contacts-module').on('ajax:error', 'a.delete-contact', showDeleteContactError);
+    $('.contacts-module').on('ajax:success', 'a.delete-contact', _deleteContact);
+    $('.contacts-module').on('ajax:error', 'a.delete-contact', _showDeleteContactError);
   }
 
-  function deleteContact(e, data) {
-    window.location = '/users/' + data + '/contacts'
+  function _deleteContact(e, data) {
+    window.location = '/';
   }
 
-  function showDeleteContactError(e, error) {
-    alert('Something went wrong with deleting the contact!');
+  function _showDeleteContactError(e, error) {
+    console.log('fail');
+    // window.location = '/';
   }
 
   function _init() {
