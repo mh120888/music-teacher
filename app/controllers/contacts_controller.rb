@@ -31,12 +31,12 @@ class ContactsController < ApplicationController
     end
   end
 
-  
+
   def show
     @assignments = @contact.assignments
     render partial: 'show', :locals => { contact: @contact }
   end
-  
+
   def edit
     render partial: 'edit', :locals => { user: @user, contact: @contact }
   end
@@ -57,6 +57,7 @@ class ContactsController < ApplicationController
     @payments = Payment.where(student_id: current_user.student_id)
     PaymentProfile.setup_client @user
     @requests = @contact.requests
+  end
 
   private
 
@@ -66,6 +67,5 @@ class ContactsController < ApplicationController
 
   def get_contact
     @contact = Contact.find(params[:id])
-
   end
 end
