@@ -1,4 +1,6 @@
+<% if @sc_user %>
 <h1>Welcome <%= @sc_user.full_name %>!</h1>
+<% end %>
 
 <%= link_to image_tag('http://connect.soundcloud.com/2/btn-connect-sc-l.png'), @app_client.authorize_url  %>
 
@@ -12,15 +14,18 @@
   <% end %>
 </div>
 
-<h2 id="existing">Your Tracks!</h2>
-<div id="user-tracks">
-  <% @user_sounds.each do |track| %>
-    <h3><%= track.title %></h3>
-    <%= render 'play_button', track: track %>
-  <% end %><br>
-  <%= link_to "Upload a Track!", "http://www.soundcloud.com/upload-beta", target: '_blank' %>
-</div>
 
+
+<h2 id="existing">Your Tracks!</h2>
+<% if @user_sounds %>
+  <div id="user-tracks">
+    <% @user_sounds.each do |track| %>
+      <h3><%= track.title %></h3>
+      <%= render 'play_button', track: track %>
+    <% end %><br>
+    <%= link_to "Upload a Track!", "http://www.soundcloud.com/upload-beta", target: '_blank' %>
+  </div>
+<% end %>
 
 
 
