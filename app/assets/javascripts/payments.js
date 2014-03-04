@@ -1,5 +1,6 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(document).ready(function(){
+  PaymentGenerator.init()
+})
 
 var PaymentGenerator = {
   init: function(){
@@ -11,8 +12,3 @@ var PaymentGenerator = {
     $(".stripe-button-el span").text('Pay!')
   }
 }
-
-$(document).ready(function(){
-  PaymentGenerator.init()
-})
-

@@ -18,4 +18,12 @@ FactoryGirl.define do
     publishable_key "some_pk"
     user
   end
+  factory :contact do
+    sequence(:first_name) { |n| "Kevin#{n}" }
+    sequence(:last_name) { |n| "Awesome#{n}" }
+    sequence(:address) { |n| "#{n} Main Street, Berkeley, CA" }
+    phone     { '111-111-1111' }
+    sequence(:email) { |n| "Kevin#{n}@example.com" }
+    user
+  end
 end
