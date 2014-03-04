@@ -1,7 +1,3 @@
-$(function(){
-  Metronome.init()
-});
-
 AudioAssets = {}
 
 Metronome = (function(){
