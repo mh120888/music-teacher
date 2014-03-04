@@ -17,7 +17,7 @@ var newContact = (function(){
   }
 
   function showContactFormError(e, error) {
-    alert('Something went wrong...sorry!');
+    alert('Something went wrong with showing the add contact form!');
   }
 
   function renderContactsIndex(e, data) {
@@ -25,7 +25,7 @@ var newContact = (function(){
   }
 
   function showContactsIndexError(e, error) {
-    alert('Something went wrong...sorry!');
+    alert('Something went wrong with showing the list of contacts!');
   }
 
   function _init() {
@@ -48,7 +48,7 @@ var viewContact = (function(){
   }
 
   function showViewContactError(event, error) {
-    alert("something broke...sorry!");
+    alert("something went wrong with showing a particular contact!");
   }
 
   function _init() {
@@ -74,7 +74,7 @@ var editContact = (function(){
   }
 
   function renderEditContactError(event, xhr) {
-    alert('Something Broke');
+    alert('Something went wrong with rendering the edit contact form!');
   }
 
   function renderEditedContact(event, data) {
@@ -82,7 +82,7 @@ var editContact = (function(){
   }
 
   function renderEditError(event, xhr) {
-    alert('Something Broke');
+    alert('Something went wrong with rendering the edited contact!');
   }
 
   function _init() {
@@ -105,7 +105,7 @@ var deleteContact = (function(){
   }
 
   function showDeleteContactError(e, error) {
-    alert('Something Broke');
+    alert('Something went wrong with deleting the contact!');
   }
 
   function _init() {
