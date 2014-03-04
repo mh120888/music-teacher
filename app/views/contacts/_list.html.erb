@@ -1,5 +1,5 @@
 <div class='contacts-list'>
-  <h2>All Contacts:</h2>
+  <h2>Student List:</h2>
   <ul>
     <% @contacts.each do |contact| %>
       <li><%= link_to contact.full_name, user_contact_path(contact.user, contact), remote: true %></li>

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 gem 'pg'
+gem "paperclip", "~> 4.1"
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'

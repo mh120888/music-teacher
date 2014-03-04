@@ -1,7 +1,21 @@
 <h2><%= @contact.full_name %></h2>
+<%= link_to 'Edit', "#{request.path}/edit", :remote => true, class: 'edit-contact' %>
+<%= link_to 'Delete', user_contact_path(@contact.user, @contact), :method => :delete, :remote => true, class: 'delete-contact' %>
 <p>Phone: <%= @contact.phone %></p>
 <p>Email: <%= @contact.email %></p>
 <p>Address: <%= @contact.address %></p>
 
-<%= link_to 'Edit', "#{request.path}/edit", :remote => true, class: 'edit-contact' %>
-<%= link_to 'Delete', user_contact_path(@contact.user, @contact), :method => :delete, :remote => true, class: 'delete-contact' %>
+<%= render 'requests/new', locals: {:user => @user, :contact => @contact} %>
+
+
+<h5>Submission History</h5>
+<% @assignments.each do |ass| %>
+	<%= ass.description %><br>
+	<%= link_to "View", ass.content.url(:original, false), target: "blank" %><br>
+<% end %>
+
+<h5>Pending Assignments</h5>
+<% @requests.each do |req| %>
+	<%= req.title %><br>
+	<%= req.description %><br>
+<% end %>

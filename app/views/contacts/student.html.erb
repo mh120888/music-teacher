@@ -1,0 +1,22 @@
+<h2><%= @contact.full_name %></h2>
+
+<p>Phone: <%= @contact.phone %></p>
+<p>Email: <%= @contact.email %></p>
+<p>Address: <%= @contact.address %></p>
+
+<h3>Submission History</h3>
+<% @assignments.each do |ass| %>
+	<h5><%= ass.title %></h5>
+	<li><%= ass.description %></li>
+	<li>Date Submitted: <%= ass.created_at %></li>
+	<%= link_to ass.content_file_name , ass.content.url(:original, false), target: "blank" %><br>
+<% end %>
+
+<h3>Pending Assignments</h3>
+<% @requests.each do |req| %>
+	<h5><%= req.title %></h5>
+	<%= req.description %><br>
+	<%= render 'assignments/new', locals: {:user => @user, :contact => @contact}, :req => req  %>
+<% end %>
+<br>
+<%= link_to "Log Out", logout_path, method: 'delete' %>

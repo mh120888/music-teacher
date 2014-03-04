@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   include BCrypt
   before_create :create_remember_token
 
-  attr_accessible :name, :email
+  attr_accessible :name, :email, :student_id
   has_many :appointments
   has_many :contacts
   validates :email, uniqueness: true
@@ -35,6 +35,16 @@ class User < ActiveRecord::Base
 
   def self.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def self.create_with_contact(contact_info)
+    self
+  end
+
+  def get_user_contact
+    contact = Contact.find(student_id)
+    user = contact.user 
+    [user, contact]
   end
 
   private

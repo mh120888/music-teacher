@@ -8,6 +8,7 @@ class UsersController < ApplicationController
       @old_email = params[:user][:email]
     end
   end
+
   def create
     @user = User.new(params[:user])
     @user.password = params[:password]

@@ -1,0 +1,7 @@
+<%= form_for [@user, @contact, Request.new], :url => user_contact_requests_path(@user, @contact) do |form| %>
+  <%= label_tag :title %>
+  <%= form.text_field :title %>
+  <%= label_tag :description %>
+  <%= form.text_field :description %>
+  <%= submit_tag "Request!" %>
+<% end %>

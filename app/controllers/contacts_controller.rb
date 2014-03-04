@@ -13,6 +13,10 @@ class ContactsController < ApplicationController
     @contact.user_id = params[:user_id]
     if @contact.save
       @contacts = Contact.all
+      user_params = @contact.generate_user_params
+      user = User.new(user_params[:user])
+      user.password = user_params[:password]
+      user.save
       render partial: 'list'
     else
       @user = User.find(params[:user_id])
@@ -20,7 +24,10 @@ class ContactsController < ApplicationController
     end
   end
   def show
+    @user = User.find(params[:user_id])
     @contact = Contact.find(params[:id])
+    @assignments = @contact.assignments
+    @requests = @contact.requests
     render partial: 'show', :locals => { contact: @contact }
   end
   def edit
@@ -38,5 +45,12 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
     @contact.destroy
     render :json => @contact.user_id
+  end
+
+  def student
+    @user = User.find(params[:user_id])
+    @contact = Contact.find(params[:id])
+    @assignments = @contact.assignments
+    @requests = @contact.requests
   end
 end

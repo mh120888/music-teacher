@@ -1,0 +1,6 @@
+<% @assignments.each do |ass| %>
+	<li><h5><%= ass.title %></h5>
+	<li><%= ass.description %></li>
+	<li>Date Submitted: <%= ass.created_at %></li>
+	<%= link_to ass.content_file_name , ass.content.url(:original, false), target: "blank" %></li>
+<% end %>
