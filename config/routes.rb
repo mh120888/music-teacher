@@ -1,6 +1,9 @@
 MusicTeacherRails::Application.routes.draw do
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show] do
+    resources :contacts
+  end
+
   resources :sessions, only: [:new, :create, :destory]
   match '/login', to: 'sessions#new', via: 'get', as: 'login'
   match '/logout', to: 'sessions#destroy', via: 'delete', as: 'logout'
