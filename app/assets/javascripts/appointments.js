@@ -1,4 +1,4 @@
-Appointments = {
+var Appointments = {
   init: function() {
     AppointmentForm.init();
     EditForm.init();
@@ -6,7 +6,7 @@ Appointments = {
   }
 }
 
-AppointmentForm = (function() {
+var AppointmentForm = (function() {
   function bindEvents() {
     $('.appointments-header-new-form').on('click', toggleHidden);
     $('.new-appointment-form form').on('ajax:success', addAppointment);

@@ -1,11 +1,37 @@
-$(function() {
-  newContact.init();
-  viewContact.init();
-  editContact.init();
-  deleteContact.init();
-});
+var Contact = {
+  init: function() {
+    NewContact.init();
+    ViewContact.init();
+    EditContact.init();
+    DeleteContact.init();
+    ContactHover.init();
+  }
+}
 
-var newContact = (function(){
+var ContactHover = (function() {
+  function bindEvents() {
+    $('.contact-hover').on('mouseenter', showInfo);
+    $('.contact-hover').on('mouseleave', hideInfo);
+  }
+
+  function showInfo(event, data) {
+    $(this).find('.contact-toggle').show('fast')
+  }
+
+  function hideInfo() {
+    $(this).find('.contact-toggle').hide('fast')
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}());
+
+var NewContact = (function() {
   function bindEvents() {
     $('#new-contact a').on('ajax:success', renderNewContactForm);
     $('#new-contact a').on('ajax:error', showContactFormError);
@@ -37,7 +63,7 @@ var newContact = (function(){
   }
 }());
 
-var viewContact = (function(){
+var ViewContact = (function() {
   function bindEvents() {
     $('.contacts-module').on('ajax:success', '.contacts-list a', showContact);
     $('.contacts-module').on('ajax:error', '.contacts-list a', showViewContactError);
@@ -60,7 +86,7 @@ var viewContact = (function(){
   }
 }());
 
-var editContact = (function(){
+var EditContact = (function() {
   function bindEvents() {
     $('.contacts-module').on('ajax:success', 'a.edit-contact', renderEditForm)
     $('.contacts-module').on('ajax:error', 'a.edit-contact', renderEditContactError)
@@ -94,7 +120,7 @@ var editContact = (function(){
   }
 }());
 
-var deleteContact = (function(){
+var DeleteContact = (function() {
   function bindEvents() {
     $('.contacts-module').on('ajax:success', 'a.delete-contact', deleteContact);
     $('.contacts-module').on('ajax:error', 'a.delete-contact', showDeleteContactError);

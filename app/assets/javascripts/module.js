@@ -1,4 +1,4 @@
-Module = (function(){
+var Module = (function(){
   function bindEvents(moduleName) {
     var $module = $('.' + moduleName)
     $module.find('.module-delete-link').on('click', deleteModule);

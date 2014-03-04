@@ -1,8 +1,4 @@
-<div class='contacts-header'>
-  <h2>Students</h2>
-</div>
-<div class='contacts-panel'>
-  <h3>Edit Contact</h3>
+<div class="contact-edit-form">
   <span class='error'></span>
   <%= form_for [user, contact], remote: true do |f| %>
     <%= f.label :first_name %>:

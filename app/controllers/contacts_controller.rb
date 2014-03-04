@@ -5,10 +5,12 @@ class ContactsController < ApplicationController
   def index
     @contacts = @user.contacts
   end
+
   def new
     @contact = Contact.new
     render partial: 'new', :locals => { contact: @contact, user: @user }
   end
+
   def create
     @contact = Contact.new(params[:contact])
     @contact.user = @user
@@ -19,12 +21,15 @@ class ContactsController < ApplicationController
       render partial: 'new', :locals => { user: @user, contact: @contact }
     end
   end
+
   def show
     render partial: 'show', :locals => { contact: @contact }
   end
+
   def edit
     render partial: 'edit', :locals => { user: @user, contact: @contact }
   end
+
   def update
     @contact.update_attributes(params[:contact])
     render partial: 'show', :locals => { contact: @contact }

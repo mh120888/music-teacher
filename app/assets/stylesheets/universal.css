@@ -7,6 +7,11 @@
   margin-right: 20px;
 }
 
+.span-3-right {
+  width: 280px;
+  margin-left: 20px;
+}
+
 .span-6 {
   width: 580px;
   margin-right: 20px;
@@ -37,7 +42,7 @@
 
 .right {
   display: inline-block;
-  float: left;
+  float: right;
 }
 
 /**********
@@ -58,6 +63,10 @@
 
 .green {
   background: #393;
+}
+
+.light-green {
+  background: rgba( 51, 153, 51, 0.2 );
 }
 
 .border-blue {
@@ -109,7 +118,7 @@ li {
   display: none;
 }
 
-.content-pannel {
+.content-panel {
   background-color: #FFF;
   border: 1px solid #cececf;
   border-top: 0;
