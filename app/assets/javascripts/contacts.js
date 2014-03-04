@@ -102,11 +102,11 @@ var DeleteContact = (function() {
   }
 
   function deleteContact(e, data) {
-    window.location = '/users/' + data + '/contacts'
+    $(this).closest('li').html(data);
   }
 
   function showDeleteContactError(e, error) {
-    alert('Something went wrong with deleting the contact!');
+    console.log('Something went wrong with deleting the contact!');
   }
 
   function _init() {

@@ -37,7 +37,7 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact.destroy
-    # render :json => @contact.user_id
+    render partial: 'delete_message'
   end
 
   private
