@@ -1,7 +1,10 @@
 <div class='contacts-module'>
-  <%= render 'list' %>
-  <div id="submissions">
-	  <%= render 'assignments/recent', locals: {:assignments => @assignments} %>
-	  <%= render 'requests/index', locals: {:pending => @pending} %>
+  <div id="contacts-box">
+    <%= render 'list' %>
   </div>
+  <div class="submissions" id="teacher">
+    <%= render 'assignments/recent', locals: {:assignments => @assignments} %>
+    <%= render 'requests/index', locals: {:pending => @pending} %>
+  </div>
+  <div id="contact-show"></div>
 </div>

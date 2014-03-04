@@ -2,13 +2,12 @@ class RequestsController < ApplicationController
 	before_filter :get_user_contact
 
 	def new
-
 	end
 
 	def create
 		@request = Request.create(params[:request])
 		@contact.requests << @request
-		redirect_to user_contact_path @user, @contact
+		render 'show', :layout => false
 	end
 
 private

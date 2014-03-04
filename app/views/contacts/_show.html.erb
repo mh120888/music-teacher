@@ -1,22 +1,35 @@
-<h2><%= @contact.full_name %></h2>
-<%= link_to 'Edit', "#{request.path}/edit", :remote => true, class: 'edit-contact' %>
-<%= link_to 'Delete', user_contact_path(@contact.user, @contact), :method => :delete, :remote => true, class: 'delete-contact' %>
-<p>Phone: <%= @contact.phone %></p>
-<p>Email: <%= @contact.email %></p>
-<p>Address: <%= @contact.address %></p>
 
-<%= render 'requests/new', locals: {:user => @user, :contact => @contact} %>
+  <div id="info">
+    <h2><%= @contact.full_name %></h2>
+    <%= link_to 'Edit', "#{request.path}/edit", :remote => true, class: 'edit-contact' %>
+    <%= link_to 'Delete', user_contact_path(@contact.user, @contact), :method => :delete, :remote => true, class: 'delete-contact' %>
+    <p>Phone: <%= @contact.phone %></p>
+    <p>Email: <%= @contact.email %></p>
+    <p>Address: <%= @contact.address %></p>
+    <%= render 'requests/new', locals: {:user => @user, :contact => @contact} %>
+  </div>
 
 
-<h5>Submission History</h5>
-<% @assignments.each do |ass| %>
-	<%= ass.description %><br>
-	<%= link_to "View", ass.content.url(:original, false), target: "blank" %><br>
-<% end %>
+  <div class="submissions" id="student">
+    <div class="student-subs">
+      <h3>Submission History</h3>
+      <% if @assignments %>
+        <% @assignments.each do |ass| %>
+        	<%= ass.description %><br>
+        	<%= link_to "View", ass.content.url(:original, false), target: "blank" %><br>
+        <% end %>
+      <% end %>
+    </div>
 
-<h5>Pending Assignments</h5>
-<% @requests.each do |req| %>
-	<%= req.title %><br>
-	<%= req.description %><br>
-<% end %>
+    <div class="student-subs" id="pending">
+      <h3>Pending Assignments</h3>
+      <% if @requests %>
+        <% @requests.each do |req| %>
+        	<li><h4><%= req.title %></h4>
+        	<%= req.description %></li>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
 

@@ -34,6 +34,7 @@ class ContactsController < ApplicationController
 
   def show
     @assignments = @contact.assignments
+    @requests = @contact.requests
     render partial: 'show', :locals => { contact: @contact }
   end
 

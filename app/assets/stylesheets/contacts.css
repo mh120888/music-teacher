@@ -2,3 +2,73 @@
   display: inline;
   color: red;
 }
+
+
+#contacts-box {
+  border: 1px solid black;
+  width: 300px;
+  height: 300px;
+  overflow-y: scroll;
+  text-align: center;
+  float: left;
+  margin: 10px;
+}
+
+.submissions {
+  border: 1px solid red;
+  width: 850px;
+  height: 470px;
+  float: left;
+  margin: 10px;
+  float: left;
+}
+
+.subs {
+  border: 1px solid black;
+  height: 450px;
+  overflow-y: scroll;
+  text-align: center;
+  width: 400px;
+  float: left;
+  margin: 10px;
+}
+
+.pending {
+  border: 1px solid blue;
+  height: 450px;
+  overflow-y: scroll;
+  text-align: center;
+  margin: 10px;
+  float: left;
+  width: 400px;
+}
+
+#info {
+  width: 300px;
+  height: 450px;
+  text-align: center;
+  border: 1px solid black;
+  margin: 10px;
+  float: left;
+}
+
+#student {
+  border: 1px solid red;
+  width: 420px;
+  height: 820px;
+  float: left;
+  margin: 10px;
+}
+
+#contact-show{
+  float: left;
+}
+
+.student-subs {
+  border: 1px black solid;
+  width: 400px;
+  height: 400px;
+  overflow-y: scroll;
+  margin: 10px;
+  text-align: center;
+}

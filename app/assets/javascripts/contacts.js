@@ -13,7 +13,8 @@ var newContact = (function(){
   }
 
   function renderNewContactForm(e, data) {
-    $('.contacts-module').html(data);
+    $('#contact-form').html(data)
+    $('#contacts-list').hide()
   }
 
   function showContactFormError(e, error) {
@@ -21,7 +22,9 @@ var newContact = (function(){
   }
 
   function renderContactsIndex(e, data) {
-    $('.contacts-module').html(data);
+    $('#contacts-list').html(data);
+    $('#contacts-list').show()
+    $('#contact-form').hide()
   }
 
   function showContactsIndexError(e, error) {
@@ -39,16 +42,24 @@ var newContact = (function(){
 
 var viewContact = (function(){
   function bindEvents() {
-    $('.contacts-module').on('ajax:success', '.contacts-list a', showContact);
-    $('.contacts-module').on('ajax:error', '.contacts-list a', showViewContactError);
+    $('.contacts-module').on('ajax:success', '#contacts-list a.view', showContact);
+    $('.contacts-module').on('ajax:error', '#contacts-list a.view', showViewContactError);
+    $('#teacher-view').on("click", showTeacher)
   }
 
   function showContact(event, data) {
-    $('.contacts-module').html(data);
+    console.log(data)
+    $('#contact-show').html(data);
+    $('#teacher').hide()
   }
 
   function showViewContactError(event, error) {
     alert("something broke...sorry!");
+  }
+
+  function showTeacher(){
+    $('.submissions').show()
+    $('#contact-show').empty()
   }
 
   function _init() {
@@ -66,6 +77,7 @@ var editContact = (function(){
     $('.contacts-module').on('ajax:error', 'a.edit-contact', renderEditContactError)
     $('.contacts-module').on('ajax:success', 'form.edit_contact', renderEditedContact);
     $('.contacts-module').on('ajax:error', 'form.edit_contact', renderEditError);
+    $('.contacts-module').on('ajax:success', '#new_request', renderRequest)
   }
 
   function renderEditForm(event, data) {
@@ -83,6 +95,11 @@ var editContact = (function(){
 
   function renderEditError(event, xhr) {
     alert('Something Broke');
+  }
+
+  function renderRequest(event, data) {
+    $("#new_request").get(0).reset()
+    $('#pending').append(data)
   }
 
   function _init() {
