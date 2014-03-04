@@ -16,9 +16,9 @@ class ContactsController < ApplicationController
     @contact.user = @user
     if @contact.save
       @contacts = @user.contacts
-      render partial: 'list'
+      render partial: 'show', locals: { contact: @contact }
     else
-      render partial: 'new', :locals => { user: @user, contact: @contact }
+      render nothing: true, status: 200, content_type: 'type/html'
     end
   end
 

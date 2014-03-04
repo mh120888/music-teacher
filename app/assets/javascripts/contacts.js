@@ -1,12 +1,12 @@
 var Contact = {
   init: function() {
-    NewContact.init();
-    ViewContact.init();
     EditContact.init();
     DeleteContact.init();
     ContactHover.init();
+    NewContact.init();
   }
 }
+
 
 var ContactHover = (function() {
   function bindEvents() {
@@ -27,54 +27,28 @@ var ContactHover = (function() {
   }
 
   return {
-    init: _init
+    init: _init,
+    bindEvents: bindEvents
   }
 }());
 
 var NewContact = (function() {
   function bindEvents() {
-    $('#new-contact a').on('ajax:success', renderNewContactForm);
-    $('#new-contact a').on('ajax:error', showContactFormError);
-    $('.contacts-module').on('ajax:success', 'form.new_contact', renderContactsIndex);
+    $('#new_contact').on('ajax:success', addContact);
+    $('#new_contact').on('ajax:error', showError);
+    $('.new-contact-link').on('click', showForm)
   }
 
-  function renderNewContactForm(e, data) {
-    $('.contacts-module').html(data);
+  function showForm() {
+    $('.new-contact-form-wrapper').toggle('contact-hidden');
   }
 
-  function showContactFormError(e, error) {
-    alert('Something went wrong with showing the add contact form!');
+  function addContact(event, data) {
+    $('.contacts-list-append').append(data)
   }
 
-  function renderContactsIndex(e, data) {
-    $('.contacts-module').html(data);
-  }
-
-  function showContactsIndexError(e, error) {
-    alert('Something went wrong with showing the list of contacts!');
-  }
-
-  function _init() {
-    bindEvents();
-  }
-
-  return {
-    init: _init
-  }
-}());
-
-var ViewContact = (function() {
-  function bindEvents() {
-    $('.contacts-module').on('ajax:success', '.contacts-list a', showContact);
-    $('.contacts-module').on('ajax:error', '.contacts-list a', showViewContactError);
-  }
-
-  function showContact(event, data) {
-    $('.contacts-module').html(data);
-  }
-
-  function showViewContactError(event, error) {
-    alert("something went wrong with showing a particular contact!");
+  function showError() {
+    cosole.log('Error adding new student')
   }
 
   function _init() {

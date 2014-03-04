@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     @appointments_by_date = Appointment.upcoming_grouped_by_date
     @date = Date.today
     @contacts = Contact.all
+    @contact = Contact.new
   end
 
   def lesson

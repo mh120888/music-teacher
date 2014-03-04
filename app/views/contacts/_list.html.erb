@@ -1,18 +1,12 @@
 <div class='contacts-header green'>
-  <h2 class="header-title header-spacing">Students</h2>
+  <h2 class="header-title header-spacing">Students <i class="new-contact-link fa fa-plus-square fa-lg"></i></h2>
 </div>
 <div class='contacts-panel content-panel small-scroll'>
   <div class='contacts-list'>
-    <ul>
+    <ul class='contacts-list-append'>
       <% @contacts.each do |contact| %>
-        <li class="contact-hover"><h3 class="list-title light-green contact-name">
-          <%= link_to contact.full_name, user_contact_path(contact.user, contact), remote: true %></h3>
-          <div class="contact-toggle contact-hidden">
-            <%= render 'contacts/show', contact: contact %>
-          </div>
-        </li>
+          <%= render 'contacts/show', contact: contact %>
       <% end %>
     </ul>
-    <span id='new-contact'><%= link_to 'Add New Contact', new_user_contact_path(@user), :remote => true %></span>
   </div>
 </div>
