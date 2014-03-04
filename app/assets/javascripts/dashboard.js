@@ -1,6 +1,30 @@
 $(function(){
   Navigation.init();
+  bindPopstate();
+  FinancesPage.init();
 });
+
+
+function bindPopstate() {
+  $(window).bind("popstate", popstateAjax);
+}
+
+function popstateAjax() {
+  $.ajax({
+    method: "GET",
+    url: location.href + "_partial"
+  }).done(function(data) {
+    if(!location.pathname == '/finances') {
+      $('.content-wrapper').html(data);
+      if(location.pathname == "/lesson") {
+        LessonPage.init();
+      }
+    }
+    console.log(location.href + "_partial");
+  }).fail(function() {
+    console.log("Popstate request failed");
+  });
+}
 
 Navigation = (function(){
   function _init() {
@@ -20,6 +44,7 @@ Lesson = (function(){
   }
 
   function showLesson(event, data) {
+    history.pushState(null, "Lesson", "/lesson");
     $('.content-wrapper').html(data);
     LessonPage.init();
   }
@@ -40,15 +65,15 @@ Lesson = (function(){
 
 LessonPage = (function(){
   function bindEvents() {
-    $('.test-module-link').on('ajax:success', addModuleOne);
-    $('.test-module-link').on('ajax:error', moduleError);
+    $('.metronome-link').on('ajax:success', addMetronome);
+    $('.metronome-link').on('ajax:error', moduleError);
 
     $('.another-test-module-link').on('ajax:success', addModuleTwo);
     $('.another-test-module-link').on('ajax:error', moduleError);
   }
 
-  function addModuleOne(event, data) {
-    Module.appendModule(data, 'test-module')
+  function addMetronome(event, data) {
+    Module.appendModule(data, 'metronome')
   }
 
   function addModuleTwo(event, data) {
@@ -67,3 +92,27 @@ LessonPage = (function(){
     init: _init
   }
 }());
+
+FinancesPage = (function(){
+  function bindEvents() {
+    $('.nav-finances').on('ajax:success', showFinances);
+    $('.nav-finances').on('ajax:error', showError);
+  }
+
+  function showFinances(event, data) {
+    history.pushState(null, "Finances", "/finances");
+    $('.content-wrapper').html(data);
+  }
+
+  function showError() {
+    console.log("Error for finances page fool");
+  }
+
+  function _init() {
+    bindEvents();
+  }
+
+  return {
+    init: _init
+  }
+}())

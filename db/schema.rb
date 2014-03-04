@@ -11,7 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140303231254) do
+
+ActiveRecord::Schema.define(:version => 20140302023012) do
+
 
   create_table "appointments", :force => true do |t|
     t.integer  "user_id"
@@ -55,12 +57,26 @@ ActiveRecord::Schema.define(:version => 20140303231254) do
     t.string "name"
   end
 
+<<<<<<< HEAD
   create_table "requests", :force => true do |t|
     t.string   "description"
     t.string   "title"
     t.integer  "contact_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+=======
+  create_table "payment_profiles", :force => true do |t|
+    t.string   "access_token"
+    t.string   "publishable_key"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "payments", :force => true do |t|
+    t.integer "amount"
+    t.integer "payment_profile_id"
+>>>>>>> f71ef4fa4e702d006c5054744d19c137b9d576f4
   end
 
   create_table "users", :force => true do |t|

@@ -1,8 +1,6 @@
 <% @appointments_by_date.each do |date, appointments| %>
     <h3><%= date.strftime("%B %e, %Y") %></h3>
     <% appointments.each do |appointment| %>
-      <div class="appointment">
-        <%= render partial: 'show', locals: { appointment: appointment } %>
-      </div>
+      <%= render partial: 'appointments/show', locals: { appointment: appointment } %>
     <% end %>
 <% end %>

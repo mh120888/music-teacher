@@ -1,0 +1,28 @@
+<div id="payment-module">
+  <% if !@connected %>
+
+    <h2>Setup: Please link you Stripe Account</h2>
+    <%= link_to image_tag("blue.png"), "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_32D88BD1qLklliziD7gYQvctJIhWBSQ7&scope=read_write&state=1234", :class => "stripe-connect"  %>
+  <% end %>
+
+
+  <% if @connected %>
+    <div class="payment-info-wrapper">
+      <%= render 'payment_history' , locals: {:payments => @payments} %>
+      <%= render 'outstanding', locals: {:outstanding => @outstanding} %>
+    </div>
+    <div class="payment-chart-wrapper">
+      <%= render 'chart' %>
+    </div>
+    <div id="request">
+      <%= form_tag payments_path do %>
+        <input type="text" name="amount">
+        <%= submit_tag "Generate URL!" %>
+      <% end %>
+    </div>
+    <%= render 'plans' , locals: {:plans => @plan} %>
+
+  <% end %>
+</div>
+
+<script type="text/javascript">initializeGraph()</script>

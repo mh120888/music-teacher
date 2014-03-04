@@ -1,4 +1,5 @@
 MusicTeacherRails::Application.routes.draw do
+
   
   resources :users, only: [:new, :create, :show] do
     resources :contacts do
@@ -7,15 +8,28 @@ MusicTeacherRails::Application.routes.draw do
     end
   end
   match '/users/:user_id/contacts/:id/student', to: "contacts#student", as: "student"
+
   resources :sessions, only: [:new, :create, :destory]
   match '/login', to: 'sessions#new', via: 'get', as: 'login'
   match '/logout', to: 'sessions#destroy', via: 'delete', as: 'logout'
   resources :appointments
   root to: "dashboard#index"
+  match '/_partial' => 'dashboard#index_partial'
+
   match '/lesson' => 'dashboard#lesson'
+  match '/lesson_partial' => 'dashboard#lesson_partial'
+  match '/metronome' => 'modules#metronome'
+
+  match '/finances' => 'payment_profiles#index'
+  match '/finances_partial' => 'payment_profiles#index_partial'
+  match 'payment_profiles/connect' => 'payment_profiles#connect'
+  resources :payment_profiles
+  resources :payments
+
   match '/test' => 'test#index'
   match '/test_module' => 'test#module'
   match '/another_test_module' => 'test#another_module'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
