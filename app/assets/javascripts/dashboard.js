@@ -4,7 +4,7 @@ $(function(){
   FinancesPage.init();
 });
 
-
+// don't polute the global namespace
 function bindPopstate() {
   $(window).bind("popstate", popstateAjax);
 }
@@ -26,7 +26,7 @@ function popstateAjax() {
   });
 }
 
-Navigation = (function(){
+var Navigation = (function(){
   function _init() {
     Lesson.init();
   }
@@ -37,7 +37,7 @@ Navigation = (function(){
 }());
 
 
-Lesson = (function(){
+var Lesson = (function(){
   function bindEvents() {
     $('.nav-lesson').on('ajax:success', showLesson);
     $('.nav-lesson').on('ajax:error', showError);
@@ -63,7 +63,7 @@ Lesson = (function(){
 }());
 
 
-LessonPage = (function(){
+var LessonPage = (function(){
   function bindEvents() {
     $('.metronome-link').on('ajax:success', addMetronome);
     $('.metronome-link').on('ajax:error', moduleError);

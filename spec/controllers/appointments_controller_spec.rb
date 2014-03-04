@@ -11,12 +11,13 @@ describe AppointmentsController do
     end
 
     it "should assign appointment and date" do
-      expect(assigns(:appointment).class).to eq Appointment
+      expect(assigns(:appointment)).to be_a_new Appointment
       expect(assigns(:date)).to eq Date.today
     end
 
     it "should assign appointments_by_date" do
-      expect(assigns(:appointments_by_date).class).to eq ActiveSupport::HashWithIndifferentAccess
+      # let's test this together.
+      expect(assigns(:appointments_by_date)).to be_a ActiveSupport::HashWithIndifferentAccess
     end
   end
 

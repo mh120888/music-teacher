@@ -1,3 +1,4 @@
+# This could be DRYed up, move stripe-related logic to its own "thing"
 class PaymentProfile < ActiveRecord::Base
     attr_accessible :access_token, :publishable_key
     belongs_to :user
@@ -28,6 +29,7 @@ class PaymentProfile < ActiveRecord::Base
     if user.payment_profiles.first
       payment_profile = user.payment_profiles.first
       Stripe.api_key = payment_profile[:access_token]
+      # look at dotenv gem
       Rails.configuration.stripe[:publishable_key] = payment_profile[:publishable_key]
       true
     end

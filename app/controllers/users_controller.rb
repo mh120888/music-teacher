@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:show]
   before_filter :correct_user, only: [:show]
-  
+
   def new
     @user = User.new
-    if params[:user]
-      @old_email = params[:user][:email]
-    end
+    @old_email = params[:user][:email] if params[:user]
   end
   def create
     @user = User.new(params[:user])

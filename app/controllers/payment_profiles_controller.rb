@@ -1,7 +1,4 @@
 class PaymentProfilesController < ApplicationController
-  include StripeHelper
-  include SessionsHelper
-
   def new
     @plans = Stripe::Plan.all
     render :new, :layout => false
@@ -20,6 +17,7 @@ class PaymentProfilesController < ApplicationController
     @payments = Stripe::Charge.all
     @plans = Stripe::Plan.all
     @outstanding = current_user.payment_profiles.first.payments if current_user.payment_profiles.first
+      render 'index', layout: false and return if request.xhr?
   end
 
   def index_partial

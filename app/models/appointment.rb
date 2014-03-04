@@ -5,6 +5,7 @@ class Appointment < ActiveRecord::Base
 
   def self.upcoming_grouped_by_date
     appts_by_date = Appointment.all.sort_by(&:date).group_by(&:date)
+    # remember inject?
     grouped = {}
     appts_by_date.each do |date, appts|
       grouped[date] = appts.sort_by(&:start_time) if date.future?

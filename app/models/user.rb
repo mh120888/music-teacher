@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  include BCrypt
+  has_secure_password
   before_create :create_remember_token
 
   attr_accessible :name, :email
@@ -10,17 +10,6 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :email, format: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
   validates :name, presence: true
-
-  def password
-    @password ||= Password.new(password_hash)
-  end
-
-  def password= (new_password)
-    validate_password_length(new_password)
-
-    @password = Password.create(new_password)
-    self.password_hash = @password
-  end
 
   def self.create_with_password(user_attributes, password)
     user = self.new user_attributes
@@ -35,6 +24,10 @@ class User < ActiveRecord::Base
 
   def self.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def update_payment_profile payment
+    self.payment_profiles.first.payments << payment
   end
 
   private

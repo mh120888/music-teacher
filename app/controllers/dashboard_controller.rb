@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  # merge index and index_partial
   def index
     @appointment = Appointment.new
     @appointments_by_date = Appointment.upcoming_grouped_by_date
@@ -9,7 +10,7 @@ class DashboardController < ApplicationController
     @appointment = Appointment.new
     @appointments_by_date = Appointment.upcoming_grouped_by_date
     @date = Date.today
-    render 'index', layout: false
+    render 'appointments'
   end
 
   def lesson

@@ -5,6 +5,7 @@ describe 'User login' do
     before(:each) do
       visit login_path
     end
+    # you don't need tests 9,12,16, if I can fill the form, then I can see it.
     it 'should have content that says "log in"' do
       expect(page).to have_content("Log In")
     end

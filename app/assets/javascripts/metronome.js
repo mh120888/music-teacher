@@ -2,9 +2,9 @@ $(function(){
   Metronome.init()
 });
 
-AudioAssets = {}
+var AudioAssets = {}
 
-Metronome = (function(){
+var Metronome = (function(assets){
 
   function setContext() {
     try {
@@ -63,4 +63,4 @@ Metronome = (function(){
   return {
     init: _init,
   }
-}());
+}(AudioAssets));

@@ -1,3 +1,4 @@
+// the name module is overloaded.
 Module = (function(){
   function bindEvents(moduleName) {
     var $module = $('.' + moduleName)

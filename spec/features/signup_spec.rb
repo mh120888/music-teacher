@@ -5,6 +5,7 @@ describe 'User signup', :js => true do
     before(:each) do
       visit new_user_path
     end
+    # see my comment in login_spec
     it 'should have content that says "sign up"' do
       expect(page).to have_content('Sign Up')
     end

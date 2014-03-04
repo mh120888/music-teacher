@@ -1,5 +1,4 @@
 class PaymentsController < ApplicationController
-  include SessionsHelper
   def show
     @payment = Payment.find(params[:id])
     PaymentProfile.setup_client @payment.payment_profile.user
@@ -8,6 +7,7 @@ class PaymentsController < ApplicationController
 
   def update
     PaymentProfile.charge params
+    # repeating line, move it to a before_filter
     payment = Payment.find(params[:id])
     payment.destroy
     render :thank_you
@@ -16,9 +16,10 @@ class PaymentsController < ApplicationController
   end
 
   def create
+  # you're handling the happy path only, what happens if you couldn't update_payment profile?
    payment = Payment.create(amount: params[:amount])
-   current_user.payment_profiles.first.payments << payment
-   @url = "localhost:3000" + payment_path(payment)
+   current_user.update_payment_profile payment
+   @url = payment_url(payment)
    redirect_to payment_profiles_path
   end
 end

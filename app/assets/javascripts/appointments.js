@@ -4,13 +4,14 @@ $(function(){
   DeleteForm.init();
 });
 
+// you're poluting the global namespace...booo
 function appointmentInit() {
   AppointmentForm.init();
   EditForm.init();
   DeleteForm.init();
 }
 
-AppointmentForm = (function() {
+var AppointmentForm = (function() {
   function bindEvents() {
     $('.appointments-header-new-form').on('click', toggleHidden);
     $('.new-appointment-form form').on('ajax:success', addAppointment);
