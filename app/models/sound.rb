@@ -8,13 +8,13 @@ class Sound < ActiveRecord::Base
   end
 
   def self.embed_html(track_url)
-    embed_info = self::APP_CLIENT.get('/oembed', :url => track_url, :maxwidth => "500px", :maxheight => "150px")
+    embed_info = self::APP_CLIENT.get('/oembed', :url => track_url, :maxwidth => "200px", :maxheight => "100px")
     embed_info['html']
   end
 
   def self.search(params)
     search_terms = compact_search_params(params)
-    self::APP_CLIENT.get('/tracks', search_terms, :limit => 5)[0..4]
+    self::APP_CLIENT.get('/tracks', search_terms, :limit => 5)
   end
 
   def self.compact_search_params(params)
