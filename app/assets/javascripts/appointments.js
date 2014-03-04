@@ -1,25 +1,26 @@
-$(function(){
-  NewForm.init();
-  EditForm.init();
-  DeleteForm.init();
-  Test.init();
-});
+Appointments = {
+  init: function() {
+    AppointmentForm.init();
+    EditForm.init();
+    DeleteForm.init();
+  }
+}
 
-var NewForm = (function() {
+AppointmentForm = (function() {
   function bindEvents() {
-    $('#new-appointment').on('click', toggleHidden);
+    $('.appointments-header-new-form').on('click', toggleHidden);
     $('.new-appointment-form form').on('ajax:success', addAppointment);
     $('.new-appointment-form form').on('ajax:error', showCreateError);
   }
 
   function toggleHidden(event) {
     event.preventDefault();
-    $('.new-appointment-form').toggleClass('hidden');
+    $('.new-appointment-form').toggleClass('appointment-hidden');
   }
 
   function addAppointment(event, data) {
     $('.appointment-list').html(data);
-    $('.new-appointment-form').toggleClass('hidden');
+    $('.new-appointment-form').toggleClass('appointment-hidden');
   }
 
   function showCreateError(event, xhr, status, error) {
@@ -43,7 +44,7 @@ var DeleteForm = (function() {
   }
 
   function showDeleteMessage(event, data) {
-    $(this).parent().html(data)
+    $(this).closest('.appointment').html(data)
   }
 
   function showDeleteError(event, xhr, status, error) {
@@ -70,7 +71,7 @@ var EditForm = (function() {
   }
 
   function show(event, data) {
-    $(this).parent().html(data);
+    $(this).closest('.appointment').html(data)
   }
 
   function showError(event, xhr, status, error) {
@@ -78,36 +79,11 @@ var EditForm = (function() {
   }
 
   function replaceWithEdit(event, data) {
-    $(this).parent().html(data);
+    $(this).closest('.appointment').replaceWith(data)
   }
 
   function showEditError(event, xhr, status, error) {
     console.log('Edit appointment failed: ' + error)
-  }
-
-  function _init() {
-    bindEvents();
-  }
-
-  return {
-    init: _init
-  }
-}());
-
-Test = (function() {
-  function bindEvents() {
-    $('.show-appointments-module').on('ajax:success', show);
-    $('.show-appointments-module').on('ajax:error', showError);
-  }
-
-  function show(event, data) {
-    $('body').html(data)
-    NewForm.init();
-    EditForm.init();
-    DeleteForm.init();
-  }
-
-  function showError(event, xhr, status, error) {
   }
 
   function _init() {

@@ -1,0 +1,40 @@
+/************
+  Side Nav
+************/
+
+.side-nav-wrapper {
+  width: 180px;
+}
+
+.side-nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 180px;
+}
+
+.side-nav li {
+  padding: 10px 0 10px 10px;
+  border-bottom: solid 1px #e4e4e4;
+  width: 170px;
+}
+
+.side-nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+.side-nav li:hover {
+  background-color: #eeeeee;
+  background-image: linear-gradient(top, #eeeeee, #cccccc);
+  background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
+  text-shadow: 0 1px 0 #eee;
+}
+
+.side-nav a:first-child li:hover {
+  border-radius: 4px 0 0 4px;
+}
+
+.side-nav a:last-child li:hover {
+  border-radius: 0 4px 4px 0;
+}

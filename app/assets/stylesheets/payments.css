@@ -1,0 +1,112 @@
+/******************
+  Payments History
+******************/
+
+.payment-history-header {
+  height: 60px;
+}
+
+.payment-history-header h2 .fa {
+  margin-left: 31px;
+}
+
+
+.payment-history-content,
+.outstanding-payments-content,
+.payment-chart-content {
+  height: 300px;
+  width: 278px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.payment-history-content h3 {
+  background-color: rgba( 51, 153, 51, 0.2 );
+}
+
+
+.payment .fa {
+  color: #393;
+}
+
+.payment h4 {
+  margin: 15px;
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+}
+
+/**********************
+  Outstanding Payments
+**********************/
+
+.outstanding-payments-module {
+  margin-top: 20px;
+}
+
+.outstanding-payments-header h2 .fa {
+  margin-left: 70px;
+}
+
+/*********
+  Chart
+*********/
+
+.payments-chart-module {
+  height: 360px;
+}
+
+.payment-chart-content {
+  width: 898px;
+  height: 300px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+#myChart {
+  width: 840px;
+  height: 250px;
+  margin: 25px 20px 25px 20px;
+}
+
+.payment-chart-header {
+  height: 60px;
+}
+
+.payment-chart-header h2 .fa {
+  margin-left: 719px;
+}
+
+
+/**************
+  TODO
+**************/
+
+#plans {
+  border: 1px solid black;
+  width: 300px;
+  margin: 0px 20px 20px;
+  height: 300px;
+  float: left;
+  text-align: center;
+}
+
+#new-payment {
+  width: 100px;
+  height: 20px;
+  border: 1px solid black;
+  float: left;
+  text-align: center;
+  clear: right;
+}
+
+#outstanding {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  border: 1px solid green;
+  overflow: scroll;
+  float: left;
+}
+
+#request {
+  float: left;
+}

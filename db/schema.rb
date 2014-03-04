@@ -11,7 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140228230555) do
+
+ActiveRecord::Schema.define(:version => 20140302023012) do
+
 
   create_table "appointments", :force => true do |t|
     t.integer  "user_id"
@@ -25,6 +27,15 @@ ActiveRecord::Schema.define(:version => 20140228230555) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "contacts", :force => true do |t|
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "email"
+    t.string  "address"
+    t.string  "phone"
+    t.integer "user_id"
+  end
+
   create_table "dashboards", :force => true do |t|
     t.integer "user_id"
     t.integer "extension_id"
@@ -34,17 +45,33 @@ ActiveRecord::Schema.define(:version => 20140228230555) do
     t.string "name"
   end
 
+
   create_table "sounds", :force => true do |t|
     t.string  "access_token"
     t.integer "user_id"
+
+  create_table "payment_profiles", :force => true do |t|
+    t.string   "access_token"
+    t.string   "publishable_key"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "payments", :force => true do |t|
+    t.integer "amount"
+    t.integer "payment_profile_id"
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "password"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "password_hash"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

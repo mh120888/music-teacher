@@ -1,0 +1,6 @@
+<div id="plans">
+  <h3>Your Payment Plans</h3>
+  <% @plans.each do |plan| %>
+    <%= render 'plan_info', :plan => plan %>
+  <% end %>
+</div>

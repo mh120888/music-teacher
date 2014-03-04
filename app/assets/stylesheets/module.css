@@ -1,0 +1,49 @@
+.module-header {
+  width: 100%;
+  height: 48px;
+  position: relative;
+}
+
+.module-header h2 {
+  float: left;
+  font-size: 24px;
+  margin: 5px;
+}
+
+.module-header .fa {
+  margin-left: 10px;
+  margin-right: 13px;
+}
+
+.module-actions {
+  display: inline-block;
+  font-size:19px;
+  position: absolute;
+  right: 7px;
+  top: 11px;
+}
+
+.module-actions .module-delete-link {
+  margin-left: 28px;
+}
+
+.module-delete-link:hover {
+  color: #e63a3a;
+  cursor:pointer
+}
+
+.module-collapse-link:hover {
+  color: #333;
+  cursor:pointer
+}
+
+/***************
+ Generic Module
+***************/
+
+.module {
+  display: inline-block;
+  position: absolute;
+  z-index: 2;
+  background: white;
+}
