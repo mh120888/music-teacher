@@ -3,7 +3,6 @@
   margin: -12px -14px;
   text-align: center;
   background-color: #BDBDBD;
-  color: white;
 }
 
 img#app-overview-background {
@@ -21,6 +20,7 @@ img#logo{
 
 #app-overview {
   text-align: center;
+  color: white;
 }
 
 #app-overview-text {
@@ -76,6 +76,7 @@ p.important {
 
 #feature-pages li {
   text-align: left
+  padding-bottom: 4px;
 }
 
 #dashboard-features {
