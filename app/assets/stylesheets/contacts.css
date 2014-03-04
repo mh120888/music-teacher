@@ -2,6 +2,10 @@
  General Styles
 ****************/
 
+.contacts {
+  position: relative;
+}
+
 .contacts-module {
   margin-right: 0;
 }
@@ -87,7 +91,7 @@ a.edit-contact {
   width: 300px;
   display: inline-block;
   position: absolute;
-  right: 408px;
+  right: 295px;
   margin-top: -2px;
 }
 
