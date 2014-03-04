@@ -19,7 +19,6 @@ class PaymentsController < ApplicationController
   def create
    payment = Payment.create(amount: params[:amount], student_id: params[:student])
    current_user.payment_profiles.first.payments << payment
-   @url = "localhost:3000" + payment_path(payment)
    redirect_to payment_profiles_path
   end
 end
