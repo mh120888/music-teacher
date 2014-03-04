@@ -1,19 +1,23 @@
 #landing-content {
+  font-family: sans-serif;
   margin: -12px -14px;
   text-align: center;
 }
 
+img#app-overview-background {
+  
+}
+
 img#logo{
   position: absolute;
+  z-index: -2;
   top: 100px;
   left: 40%;
 }
 
-
 #app-overview {
   text-align: center;
 }
-
 
 #app-overview-text {
   margin-top: -300px;
@@ -24,13 +28,15 @@ img#logo{
   font-family: sans-serif;
   font-size: 1.4em;
   margin-bottom: 90px;
+  position: relative;
 }
 
 #app-overview-text a {
+  position: relative;
   font-size: 1.4em;
   color: white;
   text-decoration: none;
-  background: blue;
+  background: #549EFF;
   padding: 10px 15px;
   border-radius: 5px;
 }
@@ -38,8 +44,6 @@ img#logo{
 img#app-overview-background {
   width: 100%;
   margin: 0 auto;
-  opacity: 0.7;
-  -webkit-filter: blur(3px);
 }
 
 #app-features {
