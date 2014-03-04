@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :punt_student, :except => [ :student, :destroy ]
+  before_filter :punt_student, :except => [ :student, :destroy, :create, :update ]
 
 
   include SessionsHelper

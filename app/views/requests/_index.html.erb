@@ -1,0 +1,7 @@
+<div id="pending">
+	<h3>Pending Assignments</h3>
+	<% @pending.each do |req| %>
+		<h5><%= req.title %></h5>
+		<%= req.description %><br>
+	<% end %>
+</div>

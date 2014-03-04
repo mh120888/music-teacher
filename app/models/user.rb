@@ -49,6 +49,22 @@ class User < ActiveRecord::Base
     [user, contact]
   end
 
+  def get_recent_assignments
+    self.contacts.map {|contact| contact.assignments}.flatten.sort_by {|assignment| assignment.created_at}[0..4] 
+  end
+
+  def get_pending_assignments
+    self.contacts.map {|contact| contact.requests}.flatten
+  end
+
+  def setup_student_payment
+    p self
+    p student_id
+    teacher = Contact.find(self.student_id).user
+    PaymentProfile.setup_client(teacher)
+  end
+
+
   private
 
   def validate_password_length(password)

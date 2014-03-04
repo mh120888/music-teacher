@@ -19,4 +19,10 @@
 	<%= render 'assignments/new', locals: {:user => @user, :contact => @contact}, :req => req  %>
 <% end %>
 <br>
+
+<h3>Pending Payments</h3>
+<% @payments.each do |pay| %>
+	<%= render 'payments/show', {:amount => pay.amount, :payment => pay} %>
+<% end %>
+
 <%= link_to "Log Out", logout_path, method: 'delete' %>
