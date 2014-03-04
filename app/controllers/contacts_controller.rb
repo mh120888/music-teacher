@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
 
-  before_filter :get_user, only: [:index, :new, :create, :edit, :show]
-  before_filter :get_contact, only: [:show, :edit, :update, :destroy]
+  before_filter :get_user, only: [:index, :new, :create, :edit, :show, :lesson_info]
+  before_filter :get_contact, only: [:show, :edit, :update, :destroy, :lesson_info]
 
 
   def index
@@ -59,6 +59,13 @@ class ContactsController < ApplicationController
     PaymentProfile.setup_client @user
     @requests = @contact.requests
   end
+
+  def lesson_info
+    @assignments = @contact.assignments
+    @requests = @contact.requests
+    render partial: 'lesson_info', :locals => { contact: @contact }
+  end
+
 
   private
 

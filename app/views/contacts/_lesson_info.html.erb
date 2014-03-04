@@ -1,14 +1,10 @@
-
   <div id="info">
     <h2><%= @contact.full_name %></h2>
-    <%= link_to 'Edit', "#{request.path}/edit", :remote => true, class: 'edit-contact' %>
-    <%= link_to 'Delete', user_contact_path(@contact.user, @contact), :method => :delete, :remote => true, class: 'delete-contact' %>
     <p>Phone: <%= @contact.phone %></p>
     <p>Email: <%= @contact.email %></p>
     <p>Address: <%= @contact.address %></p>
     <%= render 'requests/new', locals: {:user => @user, :contact => @contact} %>
   </div>
-
 
   <div class="submissions" id="student">
     <div class="student-subs">
@@ -26,10 +22,9 @@
       <% if @requests %>
         <% @requests.each do |req| %>
         	<li><h4><%= req.title %></h4>
-        	<%= req.description %></li>
+        	<%= req.description %><br></li>
         <% end %>
       <% end %>
     </div>
-
   </div>
 

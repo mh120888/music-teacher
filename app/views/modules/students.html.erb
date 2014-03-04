@@ -1,6 +1,6 @@
 <div class='contacts-module'>
   <div id="contacts-box">
-    <%= render 'list' %>
+    <%= render 'student_list' %>
   </div>
   <div class="submissions" id="teacher">
     <%= render 'assignments/recent', locals: {:assignments => @assignments} %>
@@ -8,3 +8,7 @@
   </div>
   <div id="contact-show"></div>
 </div>
+
+<script type="text/javascript">
+  students.init();
+</script>

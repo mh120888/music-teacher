@@ -1,9 +1,41 @@
-$(function() {
-  newContact.init();
-  viewContact.init();
-  editContact.init();
-  deleteContact.init();
-});
+students = {
+  init: function() {
+    listStudents.init();
+    newContact.init();
+    viewContact.init();
+    editContact.init();
+    deleteContact.init();
+  }
+}
+
+
+// $(function() {
+//   students.init();
+//   newContact.init();
+//   viewContact.init();
+//   editContact.init();
+//   deleteContact.init();
+// });
+
+
+var listStudents = (function(){
+  function _init(){
+    $(".students-link").on('ajax:success', renderStudents);
+  }
+
+  function renderStudents(e, data) {
+    console.log("asdfasdf")
+    console.log(data)
+    $('#module-area').html(data)
+  }
+
+  return {
+    init: _init
+  }
+}());
+
+
+
 
 var newContact = (function(){
   function bindEvents() {
