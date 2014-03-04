@@ -1,6 +1,6 @@
 <div id='landing-content'>
   <div id='app-overview'>
-    <%= image_tag "backlyne-logo.png", id: 'logo' %>
+    <%= image_tag "backlyne-logo.png", id: 'landing-logo', class: 'landing' %>
     <%= image_tag "fretboard2.png", id: 'app-overview-background' %>
     <div id='app-overview-text'>
       <p class='tagline'>We let you concentrate on being a great teacher, not on running a business.</p>
@@ -15,32 +15,35 @@
     <div id='feature-pages'>
       <div id='dashboard-features' class='landing-module'>
         <h3>Dashboard</h3>
-        <p>From your primary dashboard, you can accomplish the following:</p>
-        <ul>
+        <%= image_tag "dashboard.png", class: 'feature-pic' %>
+        <p>Maintain your lesson schedule and easily keep track of your students from the dashboard.</p>
+<!--         <ul>
           <li>check your upcoming lessons</li>
           <li>schedule lessons with students</li>
           <li>easily access student contact info</li>
-        </ul>
+        </ul> -->
       </div>
       <div id='lesson-features' class='landing-module'>
         <h3>Lesson</h3>
-          <p>Backlyne gives you access to these tools via your lesson page</p>
-          <ul>
+        <%= image_tag "lesson.png", class: 'feature-pic' %>
+          <p>View and interact with sheet music, a metronome and drone, and audio from SoundCloud from the lesson page.</p>
+<!--           <ul>
             <li>sheet music</li>
             <li>metronome</li>
             <li>drone</li>
             <li>access to SoundCloud</li>
-          </ul>
+          </ul> -->
       </div> 
       <div id='finance-features' class='landing-module'>
         <h3>Finances</h3>
-          <p>Track your teacher-related income using Backlyne's finance tools. You can easily</p>
-          <ul>
+        <%= image_tag "finance.png", class: 'feature-pic' %>
+          <p>Request payments, track past payments and view your income over time using Backlyne's finance tools.</p>
+<!--           <ul>
             <li>request payment from students</li>
             <li>visualize past payments</li>
             <li>see your income over time</li>
             <li>view outstanding payments</li>
-          </ul>
+          </ul> -->
       </div> 
     </div>
   </div>

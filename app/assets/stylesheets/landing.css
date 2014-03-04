@@ -18,7 +18,7 @@ img#app-overview-background {
   z-index: -1;
 }
 
-img#logo{
+img#landing-logo{
   position: absolute;
   width: 30%;
   z-index: 1;
@@ -78,7 +78,7 @@ p.important {
 
 .landing-module {
   margin: -20px;
-  padding: 80px;
+  padding: 60px;
 }
 
 #app-features div h3 {
@@ -86,12 +86,24 @@ p.important {
   font-size: 2em
 }
 
+#feature-pages p {
+  padding-top: 20px;
+  font-size: 1.2em;
+  width: 80%;
+  margin: 0 auto;
+}
+
 #feature-pages li {
   text-align: left
   padding-bottom: 4px;
+  font-size: 1.2em;
 }
 
-#dashboard-features {
+img.feature-pic {
+  width: 65%;
+}
+
+/*#dashboard-features {
   width: 20%;
   float: left;
   border: solid black 1px;
@@ -107,7 +119,7 @@ p.important {
   width: 24%;
   float: left;
   border: solid green 1px;
-}
+}*/
 
 /******************
  Footer
@@ -115,7 +127,10 @@ p.important {
 
 #feedback {
   clear: both;
-  padding-bottom: 20px;
+  padding: 20px;
+  border-top: solid gray 1px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 #feedback a {
