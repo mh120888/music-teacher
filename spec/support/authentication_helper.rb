@@ -8,6 +8,6 @@ module AuthenticationHelper
 	end
 
 	def stub_login user
-	  ApplicationController.any_instance.stub(:current_user) { user }
+	  ApplicationController.any_instance.stubs(:current_user).returns(user)
 	end
 end
