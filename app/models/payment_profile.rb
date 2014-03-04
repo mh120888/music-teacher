@@ -33,12 +33,11 @@ class PaymentProfile < ActiveRecord::Base
     end
   end
 
-
-  private
-
   def self.get_client_info(code) #get's accesstoken and publishable key for the user
     ActiveSupport::JSON.decode(`curl -X POST https://connect.stripe.com/oauth/token -d client_secret=#{ENV['SECRET_KEY']} -d code=#{code} -d grant_type=authorization_code -d scope=read_write`)
   end
+
+  private
 
   def self.get_client_access(client, user)
     Stripe.api_key = client['access_token']
