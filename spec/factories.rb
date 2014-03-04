@@ -13,4 +13,9 @@ FactoryGirl.define do
     sequence(:email) { |n| "Andy#{n}@example.com" }
     password_hash BCrypt::Password.create "password"
   end
+  factory :payment_profile do
+    access_token "some_at"
+    publishable_key "some_pk"
+    user
+  end
 end
