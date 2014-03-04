@@ -9,14 +9,11 @@ MusicTeacherRails::Application.routes.draw do
   match '/logout', to: 'sessions#destroy', via: 'delete', as: 'logout'
   resources :appointments
   root to: "dashboard#index"
-  match '/_partial' => 'dashboard#index_partial'
 
   match '/lesson' => 'dashboard#lesson'
-  match '/lesson_partial' => 'dashboard#lesson_partial'
   match '/metronome' => 'modules#metronome'
 
   match '/finances' => 'payment_profiles#index'
-  match '/finances_partial' => 'payment_profiles#index_partial'
   match 'payment_profiles/connect' => 'payment_profiles#connect'
   resources :payment_profiles
   resources :payments

@@ -7,7 +7,7 @@
 
 
   <% if @connected %>
-    <div class="payment-info-wrapper">
+    <div class="payment-info-wrapper span-3 left">
       <%= render 'payment_history' , locals: {:payments => @payments} %>
       <%= render 'outstanding', locals: {:outstanding => @outstanding} %>
     </div>
@@ -25,4 +25,4 @@
   <% end %>
 </div>
 
-<script type="text/javascript">initializeGraph()</script>
+<script type="text/javascript">Graph.init()</script>

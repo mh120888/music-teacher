@@ -1,40 +1,3 @@
-/******************
- Standard Layouts
-******************/
-
-.span-3 {
-  width: 300px;
-}
-
-.span-6 {
-  width: 600px;
-}
-
-.span-9 {
-  width: 900px;
-}
-
-/*****************
- Standard Styles
-*****************/
-
-.border-blue {
-  border: 2px solid #368ee0;
-}
-
-.border-green {
-  border: 2px solid #393;
-}
-
-.border-red {
-  border: 2px solid #e63a3a;
-}
-
-
-/*****************
-  Header Styles
-*****************/
-
 .module-header {
   width: 100%;
   height: 48px;
@@ -43,11 +6,8 @@
 
 .module-header h2 {
   float: left;
-  color: white;
   font-size: 24px;
   margin: 5px;
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased !important;
 }
 
 .module-header .fa {
@@ -77,40 +37,13 @@
   cursor:pointer
 }
 
-.header-blue {
-  background: #368ee0;
-}
-
-.header-red {
-  background: #e63a3a;
-}
-
-.header-green {
-  background: #393;
-}
-
 /***************
  Generic Module
 ***************/
-
-.hidden {
-  display: none;
-}
 
 .module {
   display: inline-block;
   position: absolute;
   z-index: 2;
   background: white;
-}
-
-/*************
- Test Module
-*************/
-
-.another-module {
-  width: 250px;
-  height: 300px;
-  background-color: aliceblue;
-  border: 1px solid red;
 }
