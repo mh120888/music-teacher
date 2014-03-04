@@ -1,4 +1,4 @@
-Appointments = {
+var Appointments = {
   init: function() {
     AppointmentForm.init();
     EditForm.init();
@@ -6,7 +6,7 @@ Appointments = {
   }
 }
 
-AppointmentForm = (function() {
+var AppointmentForm = (function() {
   function bindEvents() {
     $('.appointments-header-new-form').on('click', toggleHidden);
     $('.new-appointment-form form').on('ajax:success', addAppointment);
@@ -15,12 +15,12 @@ AppointmentForm = (function() {
 
   function toggleHidden(event) {
     event.preventDefault();
-    $('.new-appointment-form').toggleClass('appointment-hidden');
+    $('.new-appointment-form').toggle('appointment-hidden');
   }
 
   function addAppointment(event, data) {
     $('.appointment-list').html(data);
-    $('.new-appointment-form').toggleClass('appointment-hidden');
+    $('.new-appointment-form').toggle('appointment-hidden');
   }
 
   function showCreateError(event, xhr, status, error) {

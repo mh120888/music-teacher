@@ -1,4 +1,125 @@
-.field_with_errors {
-  display: inline;
-  color: red;
+/***************
+ General Styles
+****************/
+
+.contacts {
+  position: relative;
+}
+
+.contacts-module {
+  margin-right: 0;
+}
+
+.contacts-panel {
+  width: 278px;
+  height: 740px;
+  overflow-x: none;
+  overflow-y: scroll;
+}
+
+.contacts-panel ul {
+  margin: 0;
+  padding: 0;
+}
+
+.contacts-header {
+  height: 60px;
+}
+
+.contact-name a {
+  color: black;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.contacts-header i {
+  margin-left: 109px;
+}
+
+.contacts-header i:hover {
+  cursor: pointer;
+}
+
+/********************
+  Individual contact
+*********************/
+
+.contact-hidden {
+  display: none;
+}
+
+.contact-show {
+  padding: 0 0 4px 16px;
+  font-size: 16px;
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+.edit-contact .fa {
+  color: orange;
+}
+
+a.edit-contact {
+  color: rgba( 51, 153, 51, 0.0 );
+}
+
+.delete-contact {
+  color: #e63a3a;
+}
+
+.contact-actions {
+  position: absolute;
+  top: -42px;
+  right: 8px;
+}
+
+.contact-actions .fa {
+  margin-left: 11px;
+}
+
+.contact-show p .fa {
+  margin-right: 10px;
+}
+
+
+/******************
+  New Contact Form
+******************/
+
+.new-contact-form {
+  width: 300px;
+  display: inline-block;
+  position: absolute;
+  right: 295px;
+  margin-top: -2px;
+}
+
+.new-contact-form input {
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1.2em;
+  border: 2px solid  #393;
+  margin-bottom: 4px;
+}
+
+.new-contact-form textarea {
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1.2em;
+  border: 2px solid  #393;
+  height: 120px;
+}
+
+.new-contact-form input[type="submit"] {
+  width: 103%;
+  background-color: #393;
+  color: white;
+}
+
+#contact-edit {
+  width: 93%;
+  display: inline-block;
+  position: static;
+  margin: 10px 0 10px 7px;
 }

@@ -24,18 +24,26 @@
   width: 300px;
 }
 
+.appointments-header i {
+  margin-left: 45px;
+}
+
+.appointments-header i:hover {
+  cursor: pointer;
+}
+
 #appointment_title {
   width: 100%;
   border: 2px solid #368EE0;
   border-radius: 5px;
-  font-size: 1.45em;
+  font-size: 1.2em;
 }
 
 #appointment_description {
   width: 100%;
   border: 2px solid #368EE0;
   border-radius: 5px;
-  font-size: 1.05em;
+  font-size: 1.2em;
   height: 150px;
   margin-top: 5px;
 }
@@ -67,10 +75,6 @@
 .appointments-module {
   font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
   position: relative;
-}
-
-.appointments-header {
-  background-color: #368EE0;
 }
 
 .appointments-header-new-form {
