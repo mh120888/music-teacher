@@ -5,6 +5,7 @@ describe User do
 
   it { should respond_to :remember_token }
   it { should have_many(:appointments) }
+  it { should have_many(:contacts) }
 
   context 'validation' do
     context 'email' do
