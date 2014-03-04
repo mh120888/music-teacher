@@ -9,7 +9,7 @@
       <p><i class="fa fa-home fa-lg"></i> <%= contact.address %></p>
 
       <div class="contact-actions">
-        <%= link_to "#{request.path}edit", :remote => true, class: 'edit-contact' do %><i class="fa fa-pencil-square-o fa-lg"></i>
+        <%= link_to edit_user_contact_path(contact.user, contact), :remote => true, class: 'edit-contact' do %><i class="fa fa-pencil-square-o fa-lg"></i>
         <%  end %>
         <%= link_to user_contact_path(contact.user, contact), :method => :delete, :remote => true, class: 'delete-contact' do %><i class="fa fa-times-circle fa-lg"></i><% end %>
       </div>

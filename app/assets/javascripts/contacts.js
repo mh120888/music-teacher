@@ -71,7 +71,7 @@ var EditContact = (function() {
 
   function renderEditForm(event, data) {
     event.preventDefault();
-    $('.contacts-module').html(data);
+    $(this).closest('li').html(data);
   }
 
   function renderEditContactError(event, xhr) {
@@ -79,11 +79,11 @@ var EditContact = (function() {
   }
 
   function renderEditedContact(event, data) {
-    $('.contacts-module').html(data);
+    $(this).closest('li').html(data);
   }
 
   function renderEditError(event, xhr) {
-    alert('Something went wrong with rendering the edited contact!');
+    console.log('Something went wrong with rendering the edited contact!');
   }
 
   function _init() {

@@ -112,3 +112,10 @@ a.edit-contact {
   background-color: #393;
   color: white;
 }
+
+#contact-edit {
+  width: 93%;
+  display: inline-block;
+  position: static;
+  margin: 10px 0 10px 7px;
+}
