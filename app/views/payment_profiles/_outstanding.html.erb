@@ -1,8 +1,8 @@
-<div class="outstanding-payments-module">
-  <div class="outstanding-payments-header">
-    <h2>Outstanding <i class="fa fa-exclamation-triangle"></i></h2>
+<div class="outstanding-payments-module left">
+  <div class="outstanding-payments-header red">
+    <h2 class="header-title header-spacing">Outstanding <i class="fa fa-exclamation-triangle"></i></h2>
   </div>
-  <div class="outstanding-payments-content">
+  <div class="outstanding-payments-content content-pannel small-scroll">
     <% @outstanding.each do |payment| %>
       <%= render 'payments/payment_info', :payment => payment %>
     <% end %>

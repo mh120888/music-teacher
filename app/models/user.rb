@@ -57,14 +57,6 @@ class User < ActiveRecord::Base
     self.contacts.map {|contact| contact.requests}.flatten
   end
 
-  def setup_student_payment
-    p self
-    p student_id
-    teacher = Contact.find(self.student_id).user
-    PaymentProfile.setup_client(teacher)
-  end
-
-
   private
 
   def validate_password_length(password)

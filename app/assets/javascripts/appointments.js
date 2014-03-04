@@ -1,13 +1,9 @@
-$(function(){
-  AppointmentForm.init();
-  EditForm.init();
-  DeleteForm.init();
-});
-
-function appointmentInit() {
-  AppointmentForm.init();
-  EditForm.init();
-  DeleteForm.init();
+Appointments = {
+  init: function() {
+    AppointmentForm.init();
+    EditForm.init();
+    DeleteForm.init();
+  }
 }
 
 AppointmentForm = (function() {

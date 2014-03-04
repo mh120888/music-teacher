@@ -11,6 +11,7 @@
  Layout
 ***********/
 
+
 .appointments-pannel {
   width: 278px;
   height: 740px;
@@ -93,6 +94,12 @@
   -ms-transition: border-color .15s linear,box-shadow .15s linear;
   -o-transition: border-color .15s linear,box-shadow .15s linear;
   transition: border-color .15s linear,box-shadow .15s linear;
+
+
+.appointments-pannel {
+  width: 278px;
+  height: 740px;
+  overflow-y: scroll;
 }
 
 .appointments-pannel::-webkit-scrollbar-track {
@@ -196,6 +203,132 @@ padding: 0;
 .appointment-edit a {
   color: orange;
   position: absolute;
+  left: 286px;
+  top: -2px;
+  width: 300px;
+}
+
+#appointment_title {
+  width: 100%;
+  border: 2px solid #368EE0;
+  border-radius: 5px;
+  font-size: 1.45em;
+}
+
+#appointment_description {
+  width: 100%;
+  border: 2px solid #368EE0;
+  border-radius: 5px;
+  font-size: 1.05em;
+  height: 150px;
+  margin-top: 5px;
+}
+
+.appointments-header {
+  height: 60px;
+  width: 280px;
+}
+
+.appointments-header h2 {
+  padding: 15px;
+  margin: 0;
+  color: white;
+  padding-top: 11px;
+}
+
+.appointment-body {
+  display: inline-block;
+  width: 190px;
+  float: left;
+  padding-left: 17px;
+}
+
+
+/****************
+  Module Styles
+****************/
+
+.appointments-module {
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+  position: relative;
+}
+
+.appointments-header {
+  background-color: #368EE0;
+}
+
+.appointments-header-new-form {
+  margin-left: 235px;
+  margin-top: -46px;
+  color: white;
+}
+
+/*************
+  List Styles
+*************/
+
+#notice {
+margin: 0;
+padding: 0;
+}
+
+.appointment-list h3:first-child {
+  border-top: 0;
+}
+
+/***************
+  Appointment
+***************/
+
+.appointment {
+  padding: 12px;
+  padding-left: 14px;
+  display: inline-block;
+  position: relative;
+}
+
+
+.appointment-time {
+  display: inline-block;
+  width: 40px;
+  float: left;
+  text-align: center;
+}
+
+.appointment-divider {
+  color: #368EE0;
+  margin: 5px 0;
+}
+
+
+.appointment-title {
+  font-size: 1.3em;
+  font-weight: 500;
+  margin-top: -3px;
+  word-wrap: break-word;
+}
+
+.appointment-description {
+  word-wrap: break-word;
+}
+
+
+.appointment-change-box {
+  position: absolute;
+}
+
+.appointment-edit {
+  margin-left: -9px;
+  margin-top: 22px;
+}
+
+.appointment-delete {
+  margin-left: 30px;
+  margin-top: 22px;
+}
+
+.appointment-edit a {
+  color: orange;
 }
 
 .appointment-delete a {
@@ -204,5 +337,9 @@ padding: 0;
 }
 
 .appointment-deleted {
+
   color: red;
+
+  color: #e63a3a;
+
 }
