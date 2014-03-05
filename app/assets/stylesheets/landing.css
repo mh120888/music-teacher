@@ -10,6 +10,11 @@
   background: #EEEEEE;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 /******************
  Signin Modal
 ******************/
@@ -40,6 +45,13 @@
   background:#fff;
   padding:20px;
 }
+
+#content form {
+  float: left;
+  text-align: right;
+}
+
+#content 
 
 #close {
   display:block;

@@ -13,6 +13,7 @@ var SigninModal  = (function() {
     event.preventDefault();
     $('#landing-content').append(modalHTML());
     $('#modal #content').html(data + "<a href='#' id='close'>close</a>");
+    $('body').addClass('stop-scrolling');
   }
 
   function renderModalError (event, error) {
@@ -25,9 +26,11 @@ var SigninModal  = (function() {
     return "<div id='modal-container'><div id='overlay'></div><div id='modal'><div id='content'></div></div></div>";
   }
 
-  function removeSigninModal() {
+  function removeSigninModal(event) {
+    event.preventDefault();
     $('#modal-container').empty();
     $('#modal-container').remove();
+    $('body').removeClass('stop-scrolling');
   }
 
   function _init() {
