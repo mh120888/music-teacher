@@ -4,18 +4,25 @@ $(document).ready(function(){
 
 var SigninModal  = (function() {
   function bindEvents() {
-    $('a#signin-modal').on('click', renderSigninModal);
+    $('a#signin-modal').on('ajax:success', renderSigninModal);
+    $('a#signin-modal').on('ajax:error', renderModalError);
     $('#landing-content').on('click', 'a#close', removeSigninModal);
   }
 
-  function renderSigninModal(event) {
+  function renderSigninModal(event, data) {
     event.preventDefault();
     $('#landing-content').append(modalHTML());
-    console.log('yay');
+    $('#modal #content').html(data + "<a href='#' id='close'>close</a>");
+  }
+
+  function renderModalError (event, error) {
+    event.preventDefault();
+    $('#landing-content').append(modalHTML());
+    $('#modal #content').html('We\'re having some technical difficulties right now.  Please try again shortly');
   }
 
   function modalHTML() {
-    return "<div id='modal-container'><div id='overlay'></div><div id='modal'><div id='content'>No JavaScript Yet!<a href='#' id='close'>close</a></div></div></div>";
+    return "<div id='modal-container'><div id='overlay'></div><div id='modal'><div id='content'></div></div></div>";
   }
 
   function removeSigninModal() {
