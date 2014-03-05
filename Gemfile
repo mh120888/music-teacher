@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '3.2.14'
 gem 'pg'
@@ -16,11 +17,11 @@ end
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby', :require => "bcrypt"
-gem 'dotenv-rails'
-gem "font-awesome-rails"
-gem 'dotenv-rails'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'rspec-rails'
