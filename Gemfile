@@ -18,7 +18,10 @@ end
 gem 'jquery-rails'
 gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'font-awesome-rails'
-gem 'rails_12factor'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'rspec-rails'
