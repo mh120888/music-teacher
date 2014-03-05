@@ -1,20 +1,11 @@
-<h1>Add New Contact</h1>
+<div class="new-contact-form">
   <span class='error'></span>
   <%= form_for [user, contact], remote: true do |f| %>
-    <%= f.label :first_name %>:
-    <%= f.text_field :first_name %><br />
-
-    <%= f.label :last_name %>:
-    <%= f.text_field :last_name %><br />
-
-    <%= f.label :email %>:
-    <%= f.email_field :email %><br />
-
-    <%= f.label :address %>:
-    <%= f.text_field :address %><br />
-
-    <%= f.label :phone %>:
-    <%= f.phone_field :phone %><br />
-
+    <%= f.text_field :first_name, placeholder: "First name" %><br />
+    <%= f.text_field :last_name, placeholder: "Last name" %><br />
+    <%= f.email_field :email, placeholder: "Email" %><br />
+    <%= f.phone_field :phone, placeholder: "Phone" %><br />
+    <%= f.text_area :address, placeholder: "Address" %><br />
     <%= f.submit %>
-<% end %>
+  <% end %>
+</div>

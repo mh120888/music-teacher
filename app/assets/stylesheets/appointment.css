@@ -25,18 +25,26 @@
   width: 300px;
 }
 
+.appointments-header i {
+  margin-left: 45px;
+}
+
+.appointments-header i:hover {
+  cursor: pointer;
+}
+
 #appointment_title {
   width: 100%;
   border: 2px solid #368EE0;
   border-radius: 5px;
-  font-size: 1.45em;
+  font-size: 1.2em;
 }
 
 #appointment_description {
   width: 100%;
   border: 2px solid #368EE0;
   border-radius: 5px;
-  font-size: 1.05em;
+  font-size: 1.2em;
   height: 150px;
   margin-top: 5px;
 }
@@ -77,48 +85,6 @@
 .appointments-module {
   font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
   position: relative;
-}
-
-.appointments-pannel {
-  background-color: #FFF;
-  border: 1px solid #cececf;
-  border-top: 0;
-  border-bottom-color: #dededf;
-  -webkit-box-shadow: inset 0 1px 1px rgba(124,124,127,0.1),0 1px 0 rgba(255,255,255,0.7),0 0 4px rgba(86,149,219,0);
-  -moz-box-shadow: inset 0 1px 1px rgba(124,124,127,0.1),0 1px 0 rgba(255,255,255,0.7),0 0 4px rgba(86,149,219,0);
-  -ms-box-shadow: inset 0 1px 1px rgba(124,124,127,0.1),0 1px 0 rgba(255,255,255,0.7),0 0 4px rgba(86,149,219,0);
-  -o-box-shadow: inset 0 1px 1px rgba(124,124,127,0.1),0 1px 0 rgba(255,255,255,0.7),0 0 4px rgba(86,149,219,0);
-  box-shadow: inset 0 1px 1px rgba(124,124,127,0.1),0 1px 0 rgba(255,255,255,0.7),0 0 4px rgba(86,149,219,0);
-  -webkit-transition: border-color .15s linear,box-shadow .15s linear;
-  -moz-transition: border-color .15s linear,box-shadow .15s linear;
-  -ms-transition: border-color .15s linear,box-shadow .15s linear;
-  -o-transition: border-color .15s linear,box-shadow .15s linear;
-  transition: border-color .15s linear,box-shadow .15s linear;
-
-
-.appointments-pannel {
-  width: 278px;
-  height: 740px;
-  overflow-y: scroll;
-}
-
-.appointments-pannel::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  background-color: #F5F5F5;
-}
-
-.appointments-pannel::-webkit-scrollbar {
-  width: 5px;
-  background-color: #F5F5F5;
-}
-
-.appointments-pannel::-webkit-scrollbar-thumb {
-  background-color: #000000;
-  border: 2px solid #555555;
-}
-
-.appointments-header {
-  background-color: #368EE0;
 }
 
 .appointments-header-new-form {

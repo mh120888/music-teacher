@@ -1,21 +1,10 @@
 students = {
   init: function() {
     listStudents.init();
-    newContact.init();
     viewContact.init();
-    editContact.init();
-    deleteContact.init();
+    editAssignmnet.init();
   }
 }
-
-
-// $(function() {
-//   students.init();
-//   newContact.init();
-//   viewContact.init();
-//   editContact.init();
-//   deleteContact.init();
-// });
 
 
 var listStudents = (function(){
@@ -24,8 +13,6 @@ var listStudents = (function(){
   }
 
   function renderStudents(e, data) {
-    console.log("asdfasdf")
-    console.log(data)
     $('#module-area').html(data)
   }
 
@@ -34,43 +21,6 @@ var listStudents = (function(){
   }
 }());
 
-
-
-
-var newContact = (function(){
-  function bindEvents() {
-    $('#new-contact a').on('ajax:success', renderNewContactForm);
-    $('#new-contact a').on('ajax:error', showContactFormError);
-    $('.contacts-module').on('ajax:success', 'form.new_contact', renderContactsIndex);
-  }
-
-  function renderNewContactForm(e, data) {
-    $('#contact-form').html(data)
-    $('#contacts-list').hide()
-  }
-
-  function showContactFormError(e, error) {
-    alert('Something went wrong...sorry!');
-  }
-
-  function renderContactsIndex(e, data) {
-    $('#contacts-list').html(data);
-    $('#contacts-list').show()
-    $('#contact-form').hide()
-  }
-
-  function showContactsIndexError(e, error) {
-    alert('Something went wrong...sorry!');
-  }
-
-  function _init() {
-    bindEvents();
-  }
-
-  return {
-    init: _init
-  }
-}());
 
 var viewContact = (function(){
   function bindEvents() {
@@ -103,30 +53,9 @@ var viewContact = (function(){
   }
 }());
 
-var editContact = (function(){
+var editAssignmnet = (function(){
   function bindEvents() {
-    $('.contacts-module').on('ajax:success', 'a.edit-contact', renderEditForm)
-    $('.contacts-module').on('ajax:error', 'a.edit-contact', renderEditContactError)
-    $('.contacts-module').on('ajax:success', 'form.edit_contact', renderEditedContact);
-    $('.contacts-module').on('ajax:error', 'form.edit_contact', renderEditError);
     $('.contacts-module').on('ajax:success', '#new_request', renderRequest)
-  }
-
-  function renderEditForm(event, data) {
-    event.preventDefault();
-    $('.contacts-module').html(data);
-  }
-
-  function renderEditContactError(event, xhr) {
-    alert('Something Broke');
-  }
-
-  function renderEditedContact(event, data) {
-    $('.contacts-module').html(data);
-  }
-
-  function renderEditError(event, xhr) {
-    alert('Something Broke');
   }
 
   function renderRequest(event, data) {
@@ -142,27 +71,3 @@ var editContact = (function(){
     init: _init
   }
 }());
-
-var deleteContact = (function(){
-  function bindEvents() {
-    $('.contacts-module').on('ajax:success', 'a.delete-contact', deleteContact);
-    $('.contacts-module').on('ajax:error', 'a.delete-contact', showDeleteContactError);
-  }
-
-  function deleteContact(e, data) {
-    window.location = '/users/' + data + '/contacts'
-  }
-
-  function showDeleteContactError(e, error) {
-    alert('Something Broke');
-  }
-
-  function _init() {
-    bindEvents();
-  }
-
-  return {
-    init: _init
-  }
-}());
-
