@@ -14,7 +14,7 @@
 
 .appointments-pannel {
   width: 278px;
-  height: 740px;
+  height: 800px;
   overflow-y: scroll;
 }
 
@@ -164,12 +164,11 @@ padding: 0;
 
 .appointment-delete {
   margin-left: 30px;
-  margin-top: 22px;
+  margin-top: -18px
 }
 
 .appointment-edit a {
   color: orange;
-  position: absolute;
   left: 286px;
   top: -2px;
   width: 300px;
@@ -284,29 +283,12 @@ padding: 0;
   position: absolute;
 }
 
-.appointment-edit {
-  margin-left: -9px;
-  margin-top: 22px;
-}
-
-.appointment-delete {
-  margin-left: 30px;
-  margin-top: 22px;
-}
-
-.appointment-edit a {
-  color: orange;
-}
-
 .appointment-delete a {
   color: red;
   position: absolute;
 }
 
 .appointment-deleted {
-
   color: red;
-
   color: #e63a3a;
-
 }

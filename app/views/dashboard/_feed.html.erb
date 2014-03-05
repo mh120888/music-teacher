@@ -1,13 +1,15 @@
 <ul class="student-feed-list left">
-<li class="feed-main-title"><h1>Activity Feed</h1></li>
-<% @feed.each do |item| %>
-  <% if item.class == Assignment %>
-    <li class="feed-item feed-right">
-      <%= render 'dashboard/feed/assignment', item: item %>
-  <% else %>
-    <li class="feed-item feed-left">
-      <%= render 'dashboard/feed/request', item: item %>
+  <li class="feed-main-title"><h1>Activity Feed</h1></li>
+  <div class="feed-scroll-area">
+  <% @feed.each do |item| %>
+    <% if item.class == Assignment %>
+      <li class="feed-item feed-right">
+        <%= render 'dashboard/feed/assignment', item: item %>
+    <% else %>
+      <li class="feed-item feed-left">
+        <%= render 'dashboard/feed/request', item: item %>
+    <% end %>
+    </li>
   <% end %>
-  </li>
-<% end %>
-</ul>
+  </ul>
+</div>
