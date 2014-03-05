@@ -1,13 +1,17 @@
-<div class="appointments">
-  <%= render "appointments/index" %>
-</div>
-<div class="student-feed">
-  <%= render "feed" %>
-</div>
-<div class='contacts'>
-  <%= render "contacts/index" %>
-</div>
+<% if current_user %>
+  <div class="appointments">
+    <%= render "appointments/index" %>
+  </div>
+  <div class="student-feed">
+    <%= render "feed" %>
+  </div>
+  <div class='contacts'>
+    <%= render "contacts/index" %>
+  </div>
 
-<script type="text/javascript">
-  Appointments.init();
-</script>
+  <script type="text/javascript">
+    Appointments.init();
+  </script>
+<% else %>
+  <%= render partial: "public/landing_page", layout: false %>
+<% end %>
