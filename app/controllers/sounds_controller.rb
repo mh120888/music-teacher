@@ -3,11 +3,12 @@ class SoundsController < ApplicationController
   before_filter :set_client, :only => [:index, :search]
 
   def index
+    render :layout => false
   end
 
   def search
     @results = Sound.search(params[:search])
-    render :index
+    render :search_results, :layout => false
   end
 
   def connected

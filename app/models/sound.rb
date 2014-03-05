@@ -8,7 +8,7 @@ class Sound < ActiveRecord::Base
   end
 
   def self.embed_html(track_url)
-    embed_info = self::APP_CLIENT.get('/oembed', :url => track_url, :maxwidth => "200px", :maxheight => "100px")
+    embed_info = self::APP_CLIENT.get('/oembed', :url => track_url, :maxwidth => "400px", :maxheight => "250px")
     embed_info['html']
   end
 

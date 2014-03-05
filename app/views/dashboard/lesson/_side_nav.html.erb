@@ -10,5 +10,8 @@
     <li>Drone</li>
     <li>Sheet Music</li>
     <li>Play Music</li>
+    <%= link_to sounds_path, remote: true, class: "sounds-link" do %>
+      <li>Search Music!</li>
+    <% end %>
   </ul>
 </div>

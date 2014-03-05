@@ -8,15 +8,34 @@
 
 .track {
   text-align: center;
-  border: 1px black solid;
-  width: 300px;
+  width: 250px;
   height: 250px;
   margin: 10px;
   float: left;
+  border-radius: 10px;
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #FFFFFF 0%, #FF6600 100%)
 }
 
 .tracks {
   overflow-y: scroll;
   height: 550px;
-  width: 750px;
+  width: 880px;
+}
+
+#search-results {
+  text-align: center;
+
+}
+
+.soundcloud {
+  text-align: center;
+}
+
+.sounds {
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #FFFFFF 0%, #BAFFFA 100%);
+  text-align: center;
+}
+
+#search-tracks{
+  text-align: center;
 }

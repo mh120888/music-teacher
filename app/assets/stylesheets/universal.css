@@ -48,6 +48,10 @@
   background: #368ee0;
 }
 
+.orange {
+  background: #ff6600;
+}
+
 .light-blue {
   background-color: #e7f1fb;
 }
@@ -70,6 +74,10 @@
 
 .border-red {
   border: 2px solid #e63a3a;
+}
+
+.border-orange {
+  border: 2px solid #ff6600;
 }
 
 /*************

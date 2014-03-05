@@ -2,6 +2,7 @@ Lesson = (function(){
   function bindEvents() {
     $('.metronome-link').on('ajax:success', addMetronome);
     $('.metronome-link').on('ajax:error', moduleError);
+    $('.sounds-link').on('ajax:success', showSounds);
 
     $('.another-test-module-link').on('ajax:success', addModuleTwo);
     $('.another-test-module-link').on('ajax:error', moduleError);
@@ -21,6 +22,10 @@ Lesson = (function(){
 
   function _init() {
     bindEvents();
+  }
+
+  function showSounds(event, data){
+    Module.appendModule(data, 'soundcloud')
   }
 
   return {
