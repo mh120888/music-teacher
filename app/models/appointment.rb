@@ -3,8 +3,8 @@ class Appointment < ActiveRecord::Base
   validates :date, presence: true
   belongs_to :user
 
-  def self.upcoming_grouped_by_date
-    appts_by_date = Appointment.all.sort_by(&:date).group_by(&:date)
+  def self.upcoming_grouped_by_date(user)
+    appts_by_date = user.appointments.sort_by(&:date).group_by(&:date)
     grouped = {}
     appts_by_date.each do |date, appts|
       grouped[date] = appts.sort_by(&:start_time) if date.future?

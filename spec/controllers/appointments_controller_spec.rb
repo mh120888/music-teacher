@@ -1,12 +1,17 @@
 require 'spec_helper'
 
 describe AppointmentsController do
+  let!(:user) { FactoryGirl.create(:user) }
+  before(:each) do
+    stub_login user
+  end
+
   context "#index" do
     before(:each) do
       get :index
     end
 
-    it "shold be ok" do
+    it "should be ok" do
       expect(response).to be_ok
     end
 
