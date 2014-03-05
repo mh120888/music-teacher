@@ -3,6 +3,7 @@
 ******************/
 
 #landing-content {
+  color: #333;
   font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
   margin: -12px -14px;
   text-align: center;
@@ -20,7 +21,7 @@
 }
 
 img#app-overview-background {
-  opacity: 0.8;
+
   z-index: -1;
 }
 
@@ -34,8 +35,8 @@ img#landing-logo{
 
 
 #app-overview-text {
-  margin-top: -500px;
-  margin-bottom: 200px;
+  margin-top: -350px;
+  margin-bottom: 50px;
 }
 
 .tagline {
@@ -50,7 +51,7 @@ img#landing-logo{
   font-size: 1.4em;
   color: white;
   text-decoration: none;
-  background: #40BEFF;
+  background: #1FA9FF;
   padding: 15px 20px;
   border-radius: 5px;
 }
