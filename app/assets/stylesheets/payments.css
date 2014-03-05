@@ -13,8 +13,10 @@
 
 .payment-history-content,
 .outstanding-payments-content,
-.payment-chart-content {
-  height: 300px;
+.payment-chart-content,
+.payment-plans-content,
+.payment-request-content {
+  height: 350px;
   width: 278px;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -46,6 +48,27 @@
   margin-left: 70px;
 }
 
+#outstanding-payments .payment-arrow .fa{
+  width: 10%;
+  color: #e63a3a;
+  margin-right: 8px;
+}
+
+#outstanding-payments .payment {
+  margin: 15px 0 0 15px;
+  width: 100%;
+  display: inline-block;
+}
+
+.payment-info {
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+  width: 80%;
+}
+
+.payment-info h4 {
+  margin: 0;
+}
+
 /*********
   Chart
 *********/
@@ -56,9 +79,14 @@
 
 .payment-chart-content {
   width: 898px;
-  height: 300px;
   overflow-y: hidden;
   overflow-x: hidden;
+}
+
+.payment-chart-content h1 {
+  margin: 12px 0 -3px 0;
+  text-align: center;
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
 }
 
 #myChart {
@@ -72,41 +100,125 @@
 }
 
 .payment-chart-header h2 .fa {
-  margin-left: 719px;
+  margin-left: 725px;
 }
 
+/****************
+ Payment Request
+*****************/
 
-/**************
-  TODO
-**************/
+.payment-request-module {
+  margin-top: 71px;
+  width: 430px;
+  margin-right: 18px;
+}
 
-#plans {
-  border: 1px solid black;
+#payment-request .payment-request-header {
+  padding: 6px;
+  padding-bottom: 5px;
+  width: 418px;
+}
+
+#payment-request .payment-request-header h2 i {
+  top: 15px;
+  right: 4px;
+  position: absolute;
+}
+
+#payment-request .payment-request-content {
+  width: 428px;
+  overflow: hidden;
+}
+
+#payment-request form {
   width: 300px;
-  margin: 0px 20px 20px;
-  height: 300px;
-  float: left;
-  text-align: center;
-}
-
-#new-payment {
-  width: 100px;
-  height: 20px;
-  border: 1px solid black;
-  float: left;
-  text-align: center;
-  clear: right;
-}
-
-#outstanding {
-  width: 300px;
+  margin: 0 auto;
   height: 300px;
   text-align: center;
-  border: 1px solid green;
-  overflow: scroll;
-  float: left;
 }
 
-#request {
-  float: left;
+#payment-request form h3 {
+  font-family: "Open Sans", sans-serif;
+}
+
+#payment-request form input {
+  width: 100%;
+  height: 35px;
+  font-size: 1.3em;
+  margin: 20px 0 20px 0;
+}
+
+#payment-request form select {
+  width: 102%;
+  font-size: 1.3em;
+}
+
+.payment-request-select {
+  width: 100%;
+}
+
+.payment-request-select select {
+  height: 40px;
+  margin-bottom: 12px;
+}
+
+.payment-request-submit {
+  width: 102%;
+}
+
+#request-submit {
+    background-color: orange;
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 22px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+}
+
+#request-submit:hover {
+    border: none;
+    background: darkorange;
+    box-shadow: 0px 0px 1px #777;
+}
+
+.request-title {
+  margin: 25px 0 -3px 0;
+}
+
+.payee-title {
+  margin: -5px 0 18px 0;
+}
+
+/****************
+  Payment Plans
+****************/
+
+#payment-plans .payment-plans-content {
+  width: 448px;
+  height: 350px;
+  margin-top: 21px;
+}
+
+#payment-plans .payment-plans-header {
+  padding: 6px;
+  width: 438px;
+  margin: 71px 0 -21px 0;
+}
+
+#payment-plans .payment-plans-header i {
+  top: 16px;
+  right: 7px;
+  position: absolute;
+}
+
+#payment-plans .list-title {
+  background: rgba(75, 0, 130, 0.2);
+}
+
+#payment-plans .plan-info {
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+  font-size: 1.3em;
+  padding: 13px;
 }

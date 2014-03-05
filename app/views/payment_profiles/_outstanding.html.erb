@@ -2,9 +2,9 @@
   <div class="outstanding-payments-header red">
     <h2 class="header-title header-spacing">Outstanding <i class="fa fa-exclamation-triangle"></i></h2>
   </div>
-  <div class="outstanding-payments-content content-panel small-scroll">
-    <% @outstanding.each do |payment| %>
-      <%= render 'payments/payment_info', :payment => payment %>
+  <div class="outstanding-payments-content content-panel small-scroll" id="outstanding-payments">
+    <% @outstanding.each do |outstanding| %>
+      <%= render 'payments/payment_info', :payment => outstanding %>
     <% end %>
   </div>
 </div>

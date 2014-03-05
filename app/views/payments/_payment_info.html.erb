@@ -1,3 +1,8 @@
 <div class="payment">
-  <li><%= "$#{payment.amount}" %></li>
+  <div class="left payment-arrow">
+    <i class="fa fa-arrow-right fa-lg"></i>
+  </div>
+  <div class="left payment-info">
+    <h4><%= "$ #{payment.amount}" %> - <%= payment.student %></h4>
+  </div>
 </div>
