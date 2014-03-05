@@ -117,4 +117,3 @@ var DeleteContact = (function() {
     init: _init
   }
 }());
-

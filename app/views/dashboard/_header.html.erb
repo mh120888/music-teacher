@@ -5,6 +5,8 @@
     <div class="nav-wrapper content-panel left">
       <%= render 'dashboard/main_nav' %>
     </div>
-    <div class="user-info">User Info</div>
+    <div class="user-info">User Info<br>
+      <%= link_to "Log Out", logout_path, method: 'delete' %>
+    </div>
   </div>
 </div>

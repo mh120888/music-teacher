@@ -11,9 +11,10 @@
  Layout
 ***********/
 
+
 .appointments-pannel {
   width: 278px;
-  height: 740px;
+  height: 800px;
   overflow-y: scroll;
 }
 
@@ -22,6 +23,7 @@
   left: 286px;
   top: -2px;
   width: 300px;
+  z-index: 5;
 }
 
 .appointments-header i {
@@ -44,6 +46,146 @@
   border: 2px solid #368EE0;
   border-radius: 5px;
   font-size: 1.2em;
+  height: 150px;
+  margin-top: 5px;
+}
+
+.appointments-module {
+  width: 280px;
+  margin-right: 20px;
+  display: inline-block;
+  float: left;
+}
+
+.appointments-header {
+  height: 60px;
+  width: 280px;
+}
+
+.appointments-header h2 {
+  padding: 15px;
+  margin: 0;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased !important;
+  padding-top: 11px;
+}
+
+.appointment-body {
+  display: inline-block;
+  width: 190px;
+  float: left;
+  padding-left: 17px;
+}
+
+
+/****************
+  Module Styles
+****************/
+
+.appointments-module {
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+  position: relative;
+}
+
+.appointments-header-new-form {
+  margin-left: 235px;
+  margin-top: -46px;
+  color: white;
+}
+
+/*************
+  List Styles
+*************/
+
+#notice {
+margin: 0;
+padding: 0;
+}
+
+.appointment-list h3 {
+  background-color: #e7f1fb;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 3px;
+  padding-left: 6px;
+}
+
+.appointment-list h3:first-child {
+  border-top: 0;
+}
+
+/***************
+  Appointment
+***************/
+
+.appointment {
+  padding: 12px;
+  padding-left: 14px;
+  display: inline-block;
+  position: relative;
+}
+
+
+.appointment-time {
+  display: inline-block;
+  width: 40px;
+  float: left;
+  text-align: center;
+}
+
+.appointment-divider {
+  color: #368EE0;
+  margin: 5px 0;
+}
+
+
+.appointment-title {
+  font-size: 1.3em;
+  font-weight: 500;
+  margin-top: -3px;
+  word-wrap: break-word;
+}
+
+.appointment-description {
+  word-wrap: break-word;
+}
+
+
+.appointment-change-box {
+  position: absolute;
+}
+
+.appointment-edit {
+  margin-left: -9px;
+  margin-top: 22px;
+}
+
+.appointment-delete {
+  margin-left: 30px;
+  margin-top: -18px
+}
+
+.appointment-edit a {
+  color: orange;
+  left: 286px;
+  top: -2px;
+  width: 300px;
+}
+
+#appointment_title {
+  width: 100%;
+  border: 2px solid #368EE0;
+  border-radius: 5px;
+  font-size: 1.45em;
+}
+
+#appointment_description {
+  width: 100%;
+  border: 2px solid #368EE0;
+  border-radius: 5px;
+  font-size: 1.05em;
   height: 150px;
   margin-top: 5px;
 }
@@ -75,6 +217,10 @@
 .appointments-module {
   font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
   position: relative;
+}
+
+.appointments-header {
+  background-color: #368EE0;
 }
 
 .appointments-header-new-form {
@@ -137,26 +283,12 @@ padding: 0;
   position: absolute;
 }
 
-.appointment-edit {
-  margin-left: -9px;
-  margin-top: 22px;
-}
-
-.appointment-delete {
-  margin-left: 30px;
-  margin-top: 22px;
-}
-
-.appointment-edit a {
-  color: orange;
-  position: absolute;
-}
-
 .appointment-delete a {
   color: red;
   position: absolute;
 }
 
 .appointment-deleted {
+  color: red;
   color: #e63a3a;
 }
