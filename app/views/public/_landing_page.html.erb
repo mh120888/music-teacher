@@ -3,7 +3,7 @@
     <%= image_tag "backlyne_with_fade.png", id: 'app-overview-background' %>
     <div id='app-overview-text'>
       <p class='tagline'>We let you concentrate on being a great teacher, not on running a business.</p>
-      <%= link_to 'Start Using Backlyne', new_user_path %>
+      <%= link_to 'Start Using Backlyne', new_user_path,  id: 'signup-modal', remote: true %>
       <%= link_to 'Sign In', login_path, id: 'signin-modal', remote: true %>
     </div>
   </div>

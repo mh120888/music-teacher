@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 				student = user.get_user_contact[1]
 				redirect_to student_path teacher, student
 			else
-				redirect_to user
+				redirect_to root_path
 			end
 		else
 			flash[:error] = 'Invalid email/password combination' 

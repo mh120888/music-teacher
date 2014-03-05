@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     if params[:user]
       @old_email = params[:user][:email]
     end
+    render :new, layout: false
   end
 
   def create
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
       @old_name = @user.name
       @old_email = @user.email
       @user = User.new
-      render :new
+      render 'dashboard/index'
     end
   end
 
