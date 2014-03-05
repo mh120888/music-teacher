@@ -15,10 +15,8 @@ class UsersController < ApplicationController
     @user.password = params[:password]
     if @user.save
       sign_in @user
-      redirect_to @user
+      redirect_to root_path
     else
-      @old_name = @user.name
-      @old_email = @user.email
       @user = User.new
       render 'dashboard/index'
     end
