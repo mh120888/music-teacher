@@ -2,7 +2,7 @@
   <div class="payment-history-header span-3 green">
     <h2 class="header-title header-spacing">Payment History <i class="fa fa-usd"></i></h2>
   </div>
-  <div class="payment-history-content content-pannel small-scroll">
+  <div class="payment-history-content content-panel small-scroll">
     <% group_by_date(@payments).each do |date, payments| %>
       <h3 class="list-title"><%= date %></h3>
       <% payments.each do |payment| %>
