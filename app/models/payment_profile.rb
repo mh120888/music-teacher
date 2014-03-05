@@ -25,8 +25,9 @@ class PaymentProfile < ActiveRecord::Base
   end
 
   def self.setup_client(user)
-    if user.payment_profiles.first
-      payment_profile = user.payment_profiles.first
+    most_recent = user.payment_profiles.sort_by(&:created_at).last
+    if most_recent
+      payment_profile = most_recent
       Stripe.api_key = payment_profile[:access_token]
       Rails.configuration.stripe[:publishable_key] = payment_profile[:publishable_key]
       true
