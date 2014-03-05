@@ -75,13 +75,11 @@ ActiveRecord::Schema.define(:version => 20140304032423) do
     t.integer  "contact_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-
   end
 
   create_table "sounds", :force => true do |t|
     t.string  "access_token"
     t.integer "user_id"
-
   end
 
   create_table "users", :force => true do |t|

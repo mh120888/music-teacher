@@ -1,5 +1,5 @@
-    <%= form_tag(sc_play_path, class: "play play-form", :method => 'post', :remote => true, :id => track.id) do %>
+    <%= form_tag(sc_play_path, class: "form-play", :method => 'post', :remote => true, :id => track.id) do %>
       <%= image_tag track.artwork_url %><br>
       <%= hidden_field_tag 'track_url', track.permalink_url %>
-      <input name='commit' type='submit' value='Play!' disabled>
+      <input name='commit' type='submit' value='Play!' class="play" >
     <% end %>

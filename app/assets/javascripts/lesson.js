@@ -3,7 +3,7 @@ var Lesson = (function(){
     $('.metronome-link').on('ajax:success', addMetronome);
     $('.metronome-link').on('ajax:error', moduleError);
     $('.sounds-link').on('ajax:success', showSounds);
-
+    $('.sounds-link').on('click', returnSounds);
     $('.another-test-module-link').on('ajax:success', addModuleTwo);
     $('.another-test-module-link').on('ajax:error', moduleError);
   }
@@ -25,7 +25,17 @@ var Lesson = (function(){
   }
 
   function showSounds(event, data){
-    Module.appendModule(data, 'soundcloud')
+    // $(".soundcloud").css("margin-left", "0px")
+    if ( !$(".soundcloud")[0]){
+      Module.appendModule(data, 'soundcloud')
+    }
+    // else{
+    //   return true
+    // }
+  }
+
+  function returnSounds(){
+    $(".soundcloud").css("margin-left", "0px")
   }
 
   return {

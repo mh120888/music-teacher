@@ -16,12 +16,13 @@ var TrackSearchForm = (function(){
 
 var TrackWidgetDisplay = (function(){
   function bind(){
-    $("body").on("click", ".play-form", playWidget)
-    $("body").on("ajax:success",".play-form", showWidget)
+    // $("body").on("click", ".", playWidget)
+    $("body").on("ajax:success",".form-play", showWidget)
   }
 
   function showWidget(event, data){
-    $(this).html(data)
+    $(this).html(data).addClass("opened")
+    $(this).parent().append("<input name='commit' class='back' type='submit' value='Back!'>")
   }
 
   function playWidget(event, data){
@@ -82,26 +83,23 @@ var SearchDisplay = (function(){
 
   function enlargeTrack(){
     $(".track").hide()
-    $(this).parent().show().animate({
+    $(this).parent().parent().show().animate({
         width: '+=400px', height: '+=150px', marginLeft: "100px"
     }, 1000);
-    $(this).children("iframe").animate({
+    $(this).parent().children("iframe").animate({
         width: '+=300px', height: '+=150px'
     }, 1000).show()
-     $(this).children("#replay").remove()
-     $(this).parent().append("<input name='commit' class='back' type='submit' value='Back!'>")
-     setTimeout(function(){ $(this).parent().append("<input name='commit' class='back' type='submit' value='Back!'>")}, 1)
-
+     if ($(this).parent().attr("class").indexOf("opened") != -1){
+       $(this).parent().parent().append("<input name='commit' class='back' type='submit' value='Back!'>")
+     }
+     $(this).hide()
   }
 
   function revertResults(){
     var iframe = $(this).parent().children("form").children("iframe")
     if (!iframe) {
-      console.log("Returned")
       return true
     }
-    console.log(iframe)
-
     $(".track").show()
     $(this).parent().animate({
         width: '-=400px', height: '-=150px', marginLeft: "10px"
@@ -111,7 +109,10 @@ var SearchDisplay = (function(){
         width: '-=300px', height: '-=150px'
     }, 1000);
     $(this).parent().children(".back").remove()
-    iframe.parent().append("<input name='commit' id='replay' type='submit' value='Play!' disabled>")
+    iframe.parent().append("<input name='commit' id='replay' type='submit' value='Play!' class='play'>")
+    if ( !iframe.parent().children("#replay") ) {
+      iframe.parent().append("<input name='commit' id='replay' type='submit' value='Play!' class='play'>")
+    }
   }
 
  function _init(){
