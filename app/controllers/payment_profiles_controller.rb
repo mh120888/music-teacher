@@ -15,6 +15,7 @@ class PaymentProfilesController < ApplicationController
   end
 
   def index
+    p Stripe.api_key
     @user = username Stripe::Account
     @connected = PaymentProfile.setup_client current_user
     @payments = Stripe::Charge.all
