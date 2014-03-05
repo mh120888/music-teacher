@@ -1,1 +1,1 @@
-MusicTeacherRails::Application.config.secret_token = '8aa46a5ec8f2d3131e89b20e2095e58df38146e696177ddcd732e8e57b2ad12f61a12a1fe69b39574433e05c6881c72a2640da14db23cf8713473d61f5bc8d14'
+MusicTeacherRails::Application.config.secret_token = ENV['SECRET_TOKEN']
