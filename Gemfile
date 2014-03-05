@@ -16,9 +16,6 @@ end
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby', :require => "bcrypt"
-gem 'dotenv-rails'
-gem "font-awesome-rails"
-gem 'dotenv-rails'
 gem "font-awesome-rails"
 
 
