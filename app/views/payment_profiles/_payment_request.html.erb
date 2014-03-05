@@ -1,0 +1,24 @@
+<div class="payment-request-module left" id="payment-request">
+  <div class="payment-request-header module-header header-title header-spacing orange" >
+    <h2>Payment Request <i class="fa fa-comment-o"></i></h2>
+  </div>
+  <div class="payment-request-content content-panel">
+    <%= form_tag payments_path do %>
+      <div>
+        <h3 class="request-title">Request Amount</h3>
+        <input type="text" name="amount" placeholder="$ Amount">
+      </div>
+      <div class="payment-request-select">
+        <h3 class="payee-title">Select Payee</h3>
+        <select name="student">
+          <%= current_user.contacts.each do |contact| %>
+            <option value=<%= contact.id %>><%= contact.first_name + contact.last_name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="payment-request-submit">
+        <%= submit_tag "Request!", id: "request-submit" %>
+      </div>
+    <% end %>
+  </div>
+</div>
