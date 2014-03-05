@@ -1,6 +1,6 @@
-AudioAssets = {}
+var AudioAssets = {}
 
-Metronome = (function(){
+var Metronome = (function(){
 
   function setContext() {
     try {

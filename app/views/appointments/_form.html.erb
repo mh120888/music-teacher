@@ -13,6 +13,9 @@
     <%= f.text_field :title, placeholder: "Title"%><br>
     <%= f.text_area :description, placeholder: "Notes" %>
 
+    <%= f.label :student_id, 'Student' %>
+    <%= collection_select(:appointment, :student_id, @user.contacts, :id, :full_name, :prompt => true) %><br/>
+
     <%= f.label :date %><br />
     <%= f.date_select :date %>
 
