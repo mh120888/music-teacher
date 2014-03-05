@@ -31,19 +31,25 @@
 }
 
 #modal {
-  position: absolute;
+  position: fixed;
   top: 30%;
   left: 40%;
   width: 20%;
   background: rgba(0,0,0,0.2);
   border-radius: 14px;
   padding: 8px;
+  z-index: 100;
 }
 
 #content {
   border-radius:8px;
   background:#fff;
   padding:20px;
+}
+
+#content h1 {
+  text-transform: uppercase;
+  margin-top: 0px;
 }
 
 #content form {
