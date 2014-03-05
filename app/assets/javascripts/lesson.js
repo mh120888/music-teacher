@@ -1,4 +1,4 @@
-Lesson = (function(){
+var Lesson = (function(){
   function bindEvents() {
     $('.metronome-link').on('ajax:success', addMetronome);
     $('.metronome-link').on('ajax:error', moduleError);
@@ -32,3 +32,5 @@ Lesson = (function(){
     init: _init
   }
 }());
+
+

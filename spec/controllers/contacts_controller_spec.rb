@@ -2,17 +2,6 @@ require 'spec_helper'
 
 describe ContactsController do
   let!(:user) { FactoryGirl.create(:user) }
-  context '#index' do
-    before(:each) do
-      get :index, user_id: user.id
-    end
-    it 'should be ok' do
-      expect(response).to be_ok
-    end
-    it 'should retrieve all existing contacts' do
-      expect(assigns(:contacts)).to eq Contact.all
-    end
-  end
   context '#new' do
     before(:each) do
       get :new, user_id: user.id
@@ -45,7 +34,7 @@ describe ContactsController do
     it 'should assign the correct contact' do
       expect(assigns(:contact).id).to eq contact.id
     end
-  end 
+  end
   context '#edit' do
     let!(:contact) { FactoryGirl.create(:contact) }
     before(:each) do

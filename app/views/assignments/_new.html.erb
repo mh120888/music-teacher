@@ -1,0 +1,8 @@
+<%= form_for [@user, @contact, Assignment.new], :url => user_contact_assignments_path(@user, @contact), :html => { :multipart => true } do |form| %>
+  <%= hidden_field_tag "request_id", req.id %>
+  <%= form.file_field :content %>
+  <%= label_tag :desription %>
+  <%= form.text_field :description %>
+  <%= hidden_field_tag "assignment[title]", req.title %>
+  <%= submit_tag "Complete!" %>
+<% end %>

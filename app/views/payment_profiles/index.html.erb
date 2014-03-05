@@ -16,8 +16,14 @@
     </div>
     <div id="request">
       <%= form_tag payments_path do %>
-        <input type="text" name="amount">
-        <%= submit_tag "Generate URL!" %>
+        Request $<input type="text" name="amount"><br>
+        From: <select name="student">
+                <%= current_user.contacts.each do |contact| %>
+                  <option value=<%= contact.id %>><%= contact.first_name + contact.last_name %></option>
+                <% end %>
+        </select>
+        
+        <%= submit_tag "Request!" %>
       <% end %>
     </div>
     <%= render 'plans' , locals: {:plans => @plan} %>

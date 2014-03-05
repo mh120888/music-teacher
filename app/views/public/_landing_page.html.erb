@@ -1,0 +1,38 @@
+<div id='landing-content'>
+  <div id='app-overview'>
+    <%= image_tag "backlyne_with_fade.png", id: 'app-overview-background' %>
+    <div id='app-overview-text'>
+      <p class='tagline'>We let you concentrate on being a great teacher, not on running a business.</p>
+      <%= link_to 'Start Using Backlyne', new_user_path %>
+    </div>
+  </div>
+  <div id='divisor'>
+  </div>
+  <div id='app-features'>
+    <div id='feature-highlights'>
+      <h2>Why Backlyne?</h2>
+        <p class='important'>Backlyne provides you with a set of tools designed to make your life as a music instructor easier</p>
+    </div>
+    <div id='feature-pages'>
+      <div id='dashboard-features' class='landing-module'>
+        <h3>Dashboard</h3>
+        <%= image_tag "backlyne_dashboard.png", class: 'feature-pic' %>
+        <p>Maintain your lesson schedule and easily keep track of your students</p>
+      </div>
+      <div id='lesson-features' class='landing-module'>
+        <h3>Lesson</h3>
+        <%= image_tag "backlyne_lesson.png", class: 'feature-pic' %>
+          <p>View and interact with sheet music, a metronome and drone, and audio from SoundCloud</p>
+      </div> 
+      <div id='finance-features' class='landing-module'>
+        <h3>Finances</h3>
+        <%= image_tag "backlyne_finances.png", class: 'feature-pic' %>
+          <p>Request new payments, monitor past and outstanding payments, and view your income over time</p>
+      </div> 
+    </div>
+  </div>
+  <div id='feedback'>
+    <h2>Feedback &amp; Suggestions</h2>
+    <p>Is there a feature that you would like to see? Please <%= mail_to "me@example.com", 'send us' %> your suggestions. </p>
+  </div>
+</div>

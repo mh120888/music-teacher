@@ -1,4 +1,4 @@
-<div class="nav-wrapper side-nav-wrapper content-pannel">
+<div class="nav-wrapper side-nav-wrapper content-panel">
   <ul class="side-nav">
     <li>Lesson Tools</li>
     <%= link_to metronome_path, remote: true, class: "metronome-link" do %>
@@ -12,6 +12,8 @@
     <li>Play Music</li>
     <%= link_to sounds_path, remote: true, class: "sounds-link" do %>
       <li>Search Music!</li>
+    <%= link_to students_path, remote: true, class: "students-link" do %>
+      <li>Students</li>
     <% end %>
   </ul>
 </div>
