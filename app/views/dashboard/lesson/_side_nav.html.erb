@@ -1,10 +1,18 @@
-<div class="nav-wrapper">
+<div class="nav-wrapper side-nav-wrapper content-panel">
   <ul class="side-nav">
     <li>Lesson Tools</li>
-    <li><%= link_to "Metronome", metronome_path, remote: true, class: "metronome-link" %></li>
-    <li><%= link_to "Another Test", another_test_module_path, remote: true, class: "another-test-module-link" %></li>
+    <%= link_to metronome_path, remote: true, class: "metronome-link" do %>
+      <li>Metronome</li>
+    <% end %>
+    <%= link_to another_test_module_path, remote: true, class: "another-test-module-link" do %>
+      <li>Another Test</li>
+    <% end %>
     <li>Drone</li>
     <li>Sheet Music</li>
     <li>Play Music</li>
+    <li>Search Tracks</li>
+    <%= link_to students_path, remote: true, class: "students-link" do %>
+      <li>Students</li>
+    <% end %>
   </ul>
 </div>

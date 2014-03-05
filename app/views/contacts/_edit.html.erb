@@ -1,0 +1,11 @@
+<div class="new-contact-form" id="contact-edit">
+  <span class='error'></span>
+  <%= form_for [user, contact], remote: true do |f| %>
+    <%= f.text_field :first_name, placeholder: "First name" %><br />
+    <%= f.text_field :last_name, placeholder: "Last name" %><br />
+    <%= f.email_field :email, placeholder: "Email" %><br />
+    <%= f.phone_field :phone, placeholder: "Phone" %><br />
+    <%= f.text_area :address, placeholder: "Address" %><br />
+    <%= f.submit %>
+  <% end %>
+</div>

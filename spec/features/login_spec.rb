@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'User login' do
+describe 'User login', js: true do
   describe 'should have a form to log in' do
     before(:each) do
       visit login_path

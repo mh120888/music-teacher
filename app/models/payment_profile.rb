@@ -25,20 +25,20 @@ class PaymentProfile < ActiveRecord::Base
   end
 
   def self.setup_client(user)
-    if user.payment_profiles.first
-      payment_profile = user.payment_profiles.first
+    most_recent = user.payment_profiles.sort_by(&:created_at).last
+    if most_recent
+      payment_profile = most_recent
       Stripe.api_key = payment_profile[:access_token]
       Rails.configuration.stripe[:publishable_key] = payment_profile[:publishable_key]
       true
     end
   end
 
-
-  private
-
   def self.get_client_info(code) #get's accesstoken and publishable key for the user
     ActiveSupport::JSON.decode(`curl -X POST https://connect.stripe.com/oauth/token -d client_secret=#{ENV['SECRET_KEY']} -d code=#{code} -d grant_type=authorization_code -d scope=read_write`)
   end
+
+  private
 
   def self.get_client_access(client, user)
     Stripe.api_key = client['access_token']

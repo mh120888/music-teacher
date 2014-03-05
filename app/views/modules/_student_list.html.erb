@@ -1,0 +1,8 @@
+<div id='contacts-list'>
+  <h2>Student List:</h2>
+    <% @contacts.each do |contact| %>
+      <li class="contact"><%= link_to contact.full_name, lesson_info_path(contact.user, contact), {:remote => true, :class => "view"} %></li>
+    <% end %><br>
+    <%= submit_tag 'Teacher View', :type => 'button', :id => "teacher-view" %>
+</div>
+

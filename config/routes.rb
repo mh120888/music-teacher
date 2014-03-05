@@ -1,19 +1,26 @@
 MusicTeacherRails::Application.routes.draw do
 
-  resources :users, only: [:new, :create, :show]
+
+  resources :users, only: [:new, :create, :show] do
+    resources :contacts do
+      resources :assignments
+      resources :requests
+    end
+  end
+
+  match '/users/:user_id/contacts/:id/student', to: "contacts#student", as: "student"
+  match '/users/:user_id/contacts/:id/lesson_info', to: "contacts#lesson_info", as: "lesson_info"
   resources :sessions, only: [:new, :create, :destory]
   match '/login', to: 'sessions#new', via: 'get', as: 'login'
   match '/logout', to: 'sessions#destroy', via: 'delete', as: 'logout'
   resources :appointments
   root to: "dashboard#index"
-  match '/_partial' => 'dashboard#index_partial'
 
   match '/lesson' => 'dashboard#lesson'
-  match '/lesson_partial' => 'dashboard#lesson_partial'
   match '/metronome' => 'modules#metronome'
+  match '/students' => 'modules#students'
 
   match '/finances' => 'payment_profiles#index'
-  match '/finances_partial' => 'payment_profiles#index_partial'
   match 'payment_profiles/connect' => 'payment_profiles#connect'
   resources :payment_profiles
   resources :payments

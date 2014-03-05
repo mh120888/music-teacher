@@ -1,0 +1,14 @@
+<div class='contacts-module'>
+  <div id="contacts-box">
+    <%= render 'student_list' %>
+  </div>
+  <div class="submissions" id="teacher">
+    <%= render 'assignments/recent', locals: {:assignments => @assignments} %>
+    <%= render 'requests/index', locals: {:pending => @pending} %>
+  </div>
+  <div id="contact-show"></div>
+</div>
+
+<script type="text/javascript">
+  students.init();
+</script>

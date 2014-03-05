@@ -1,0 +1,12 @@
+<div class='contacts-header green'>
+  <h2 class="header-title header-spacing">Students <i class="new-contact-link fa fa-plus-square fa-lg"></i></h2>
+</div>
+<div class='contacts-panel content-panel small-scroll'>
+  <div class='contacts-list'>
+    <ul class='contacts-list-append'>
+      <% @contacts.each do |contact| %>
+          <%= render 'contacts/show', contact: contact %>
+      <% end %>
+    </ul>
+  </div>
+</div>

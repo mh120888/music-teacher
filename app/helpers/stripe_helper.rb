@@ -12,6 +12,19 @@ module StripeHelper
     DateTime.strptime(payment["created"].to_s,'%s').to_s[0..9]
   end
 
+  def group_by_date(payments)
+    group = {}
+    payments["data"].each do |charge|
+      date = DateTime.strptime(charge["created"].to_s, '%s').strftime("%B %e, %Y")
+      if group[date]
+        group[date] << charge
+      else
+        group[date] = [charge]
+      end
+    end
+    group
+  end
+
   def username(account)
     account.retrieve.display_name
   end

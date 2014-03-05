@@ -1,7 +1,12 @@
-<div class="header">
-  <div class="logo"><%= image_tag "backlyne-smaller.png", width: 280, id: 'logo' %></div>
-  <div class="nav-wrapper">
-    <%= render 'dashboard/main_nav' %>
+<div class="header-wrapper">
+  <div class="header">
+    <%= link_to root_path do %><div class="logo"><%= image_tag "backlyne-smaller.png", id: 'logo' %></div>
+    <% end %>
+    <div class="nav-wrapper content-panel left">
+      <%= render 'dashboard/main_nav' %>
+    </div>
+    <div class="user-info">User Info<br>
+      <%= link_to "Log Out", logout_path, method: 'delete' %>
+    </div>
   </div>
-  <div class="user-info">User Info</div>
 </div>

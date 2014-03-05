@@ -1,0 +1,30 @@
+  <div id="info">
+    <h2><%= @contact.full_name %></h2>
+    <p>Phone: <%= @contact.phone %></p>
+    <p>Email: <%= @contact.email %></p>
+    <p>Address: <%= @contact.address %></p>
+    <%= render 'requests/new', locals: {:user => @user, :contact => @contact} %>
+  </div>
+
+  <div class="submissions" id="student">
+    <div class="student-subs">
+      <h3>Submission History</h3>
+      <% if @assignments %>
+        <% @assignments.each do |ass| %>
+        	<%= ass.description %><br>
+        	<%= link_to "View", ass.content.url(:original, false), target: "blank" %><br>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="student-subs" id="pending">
+      <h3>Pending Assignments</h3>
+      <% if @requests %>
+        <% @requests.each do |req| %>
+        	<li><h4><%= req.title %></h4>
+        	<%= req.description %><br></li>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
