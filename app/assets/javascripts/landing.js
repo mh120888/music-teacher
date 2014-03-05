@@ -28,7 +28,6 @@ var SigninModal  = (function() {
 
   function removeSigninModal(event) {
     event.preventDefault();
-    debugger;
     $('#modal-container').empty();
     $('#modal-container').remove();
     $('body').removeClass('stop-scrolling');
@@ -43,3 +42,6 @@ var SigninModal  = (function() {
     bindEvents: bindEvents
   }
 }());
+
+
+
