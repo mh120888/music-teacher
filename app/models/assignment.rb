@@ -7,4 +7,8 @@ class Assignment < ActiveRecord::Base
 	  'audio/mp3',
 	  'application/x-mp3']
 	belongs_to :contact
+
+  def contact_name
+    Contact.find(self.contact_id).full_name
+  end
 end

@@ -2,6 +2,7 @@
 	<h3>Recent Submissions</h3>
 
 	<% @assignments.each do |ass| %>
+    <h4><%= ass.contact_name %></h4>
 		<h5><%= ass.title %></h5>
 		<li><%= ass.description %></li>
 		<li>Date Submitted: <%= ass.created_at %></li>

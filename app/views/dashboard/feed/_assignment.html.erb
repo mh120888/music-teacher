@@ -1,0 +1,10 @@
+<div class="feed-icon"><i class="fa fa-user fa-3x"></i></div>
+<div class="feed-message">
+  <span class="caret-right"></span>
+  <p class="item-title"><%= item.contact_name %> <i class="fa fa-check-square-o"></i> <%= item.title %></p>
+  <p><%= item.description %></p>
+  <%= link_to item.content.url(:original, false), target: "blank" do %>
+    <i class="fa fa-files-o fa-2x"></i>
+  <% end %>
+  <p class="item-time"><%= time_ago_in_words(item.created_at) %> ago</p>
+</div>

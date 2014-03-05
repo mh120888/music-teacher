@@ -1,0 +1,12 @@
+<ul class="student-feed-list left">
+<% @feed.each do |item| %>
+  <% if item.class == Assignment %>
+    <li class="feed-item feed-right">
+      <%= render 'dashboard/feed/assignment', item: item %>
+  <% else %>
+    <li class="feed-item feed-left">
+      <%= render 'dashboard/feed/request', item: item %>
+  <% end %>
+  </li>
+<% end %>
+</ul>

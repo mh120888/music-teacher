@@ -1,0 +1,7 @@
+<div class="feed-icon"><i class="fa fa-user fa-3x"></i></div>
+<div class="feed-message">
+  <span class="caret-left"></span>
+  <p class="item-title"><%= item.contact_name %> <i class="fa fa-long-arrow-right"></i> <%= item.title %></p>
+  <p><%= item.description %></p>
+  <p class="item-time"><%= time_ago_in_words(item.created_at) %> ago</p>
+</div>
