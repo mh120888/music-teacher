@@ -10,7 +10,6 @@ class DashboardController < ApplicationController
       @assignments = current_user.get_recent_assignments
       @pending = current_user.get_pending_assignments
       @feed = (@assignments + @pending).sort_by(&:created_at).reverse
-      binding.pry
     end
   end
 
