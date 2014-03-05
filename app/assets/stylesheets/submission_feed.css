@@ -1,0 +1,116 @@
+/****************
+  General styles
+*****************/
+
+.student-feed-list {
+  width: 600px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.feed-item {
+  position: relative;
+}
+
+.feed-message {
+  margin-bottom: 10px;
+}
+
+.feed-message p {
+  margin: 0;
+  font-size: 15px;
+}
+
+p.item-title {
+  font-size: 17px;
+}
+
+p.item-time {
+  font-size: 10px;
+  margin-top: 7px;
+}
+
+.feed-message .fa-files-o {
+  position: absolute;
+  right: 7px;
+  bottom: 5px;
+}
+
+/***************
+  Item Specific
+****************/
+
+.feed-main-title {
+  text-align: center;
+}
+
+.feed-main-title h1 {
+  margin: 0 0 18px 0;
+  padding: 0;
+}
+
+.caret-right {
+  position: absolute;
+  right: -7px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid #d1e5f8;
+}
+
+.caret-left {
+  position: absolute;
+  left: -7px;
+  top: 10px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid #d3d3d4;
+  border-left: 0;
+}
+
+.feed-left .feed-icon {
+  float: left;
+  width: 50px;
+}
+
+.feed-right .feed-icon {
+  float: right;
+  width: 50px;
+}
+
+
+.feed-left .feed-message {
+  position: relative;
+  background: #d3d3d4;
+  padding: 10px;
+  margin-left: 60px;
+}
+
+.feed-right .feed-message {
+  position: relative;
+  margin-right: 20px;
+  padding: 10px;
+  margin-right: 60px;
+  background: #d1e5f8;
+  color: #11406c;
+}
+
+.feed-scroll-area {
+  height: 800px;
+  overflow-y: scroll;
+}
+
+.feed-scroll-area::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.feed-scroll-area::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+.feed-scroll-area::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}

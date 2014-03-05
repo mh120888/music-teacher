@@ -1,10 +1,15 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '3.2.14'
 gem 'pg'
+
+gem "paperclip", "~> 4.1"
+
 gem 'stripe'
 gem 'omniauth-stripe-connect'
 gem 'chart-js-rails'
+
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'
@@ -12,8 +17,8 @@ end
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby', :require => "bcrypt"
-gem 'dotenv-rails'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'rspec-rails'
