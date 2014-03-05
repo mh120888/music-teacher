@@ -48,6 +48,27 @@
   margin-left: 70px;
 }
 
+#outstanding-payments .payment-arrow .fa{
+  width: 10%;
+  color: #e63a3a;
+  margin-right: 8px;
+}
+
+#outstanding-payments .payment {
+  margin: 15px 0 0 15px;
+  width: 100%;
+  display: inline-block;
+}
+
+.payment-info {
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+  width: 80%;
+}
+
+.payment-info h4 {
+  margin: 0;
+}
+
 /*********
   Chart
 *********/

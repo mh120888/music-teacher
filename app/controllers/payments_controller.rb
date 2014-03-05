@@ -7,7 +7,6 @@ class PaymentsController < ApplicationController
   end
 
   def update
-    puts "&&" * 1000
     PaymentProfile.charge params
     payment = Payment.find(params[:id])
     payment.destroy
