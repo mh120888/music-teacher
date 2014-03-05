@@ -23,6 +23,7 @@
   left: 286px;
   top: -2px;
   width: 300px;
+  z-index: 5;
 }
 
 .appointments-header i {
