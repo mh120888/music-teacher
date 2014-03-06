@@ -17,6 +17,7 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @appointment = Appointment.find(params[:id])
     render partial: "form", locals: { appointment: @appointment }
   end
