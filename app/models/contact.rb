@@ -9,7 +9,10 @@ class Contact < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def generate_user_params
-  	{:user => {:name => first_name + last_name, :email => email, :student_id => id}, :password => "music_student"}
+  def generate_user
+  	user_params = {:user => {:name => first_name + last_name, :email => email, :student_id => id}, :password => "music_student"}
+    user = User.new(user_params[:user])
+    user.password = user_params[:password]
+    user.save
   end
 end

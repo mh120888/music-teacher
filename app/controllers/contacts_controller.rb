@@ -19,11 +19,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(params[:contact])
     @contact.user = @user
     if @contact.save
-      @contacts = Contact.all
-      user_params = @contact.generate_user_params
-      user = User.new(user_params[:user])
-      user.password = user_params[:password]
-      user.save
+      @contact.generate_user
       @contacts = @user.contacts
       render partial: 'show', locals: { contact: @contact }
     else

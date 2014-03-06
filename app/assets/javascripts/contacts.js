@@ -49,7 +49,7 @@ var NewContact = (function() {
   }
 
   function showError() {
-    cosole.log('Error adding new student')
+    console.log('Error adding new student')
   }
 
   function _init() {

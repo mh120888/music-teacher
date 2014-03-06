@@ -78,13 +78,12 @@ var SearchDisplay = (function(){
   var backButton = "<input name='commit' class='back' type='submit' value='Back!'>"
   var replayButton ="<br><input name='commit' id='replay' type='submit' value='Play!' class='play replay'>"
 
-
   function enlargeTrack(){
     var content = $(this).parent()
     var container = $(this).parent().parent()
     content.children('br').remove()
-
     $(".track").hide()
+
     container.show().animate({
         width: '+=400px', height: '+=150px', marginLeft: "100px"
     }, 1000);
