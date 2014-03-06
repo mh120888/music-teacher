@@ -1,0 +1,9 @@
+<div class="header-wrapper" id="student-header">
+  <div class="header">
+    <%= link_to root_path do %><div class="logo"><%= image_tag "backlyne-smaller.png", id: 'logo' %></div>
+    <% end %>
+    <%= link_to logout_path, method: 'delete' do %>
+      <div id="log-out">Log Out <i class="fa fa-sign-out fa-lg"></i></div>
+    <% end %>
+  </div>
+</div>

@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
 
   attr_accessible :name, :email, :student_id
-  attr_accessor :student_id
   has_many :appointments
   has_many :contacts
   has_many :payment_profiles
@@ -46,12 +45,12 @@ class User < ActiveRecord::Base
 
   def get_user_contact
     contact = Contact.find(student_id)
-    user = contact.user 
+    user = contact.user
     [user, contact]
   end
 
   def get_recent_assignments
-    self.contacts.map {|contact| contact.assignments}.flatten.sort_by {|assignment| assignment.created_at}[0..4] 
+    self.contacts.map {|contact| contact.assignments}.flatten.sort_by {|assignment| assignment.created_at}[0..4]
   end
 
   def get_pending_assignments

@@ -1,28 +1,58 @@
-<h2><%= @contact.full_name %></h2>
+<div id="student-page">
 
-<p>Phone: <%= @contact.phone %></p>
-<p>Email: <%= @contact.email %></p>
-<p>Address: <%= @contact.address %></p>
+  <div class="span-3 left student-info">
+    <div class="student-info-header blue">
+      <h2 class="header-title header-spacing">Your Info</h2>
+    </div>
+    <div class="content-panel">
+      <p><i class="fa fa-user"></i> <%= @contact.full_name %></p>
+      <p><i class="fa fa-phone fa-lg"></i> <%= @contact.phone %></p>
+      <p><i class="fa fa-envelope-o fa-lg"></i> <%= @contact.email %></p>
+      <p><i class="fa fa-home fa-lg"></i> <%= @contact.address %></p>
+    </div>
+  </div>
 
-<h3>Submission History</h3>
-<% @assignments.each do |ass| %>
-  <h5><%= ass.title %></h5>
-  <li><%= ass.description %></li>
-  <li>Date Submitted: <%= ass.created_at %></li>
-  <%= link_to ass.content_file_name , ass.content.url(:original, false), target: "blank" %><br>
-<% end %>
+  <div class="span-9 right student-pending-assignments">
+    <div class="student-pending-assignments-header orange">
+      <h2 class="header-title header-spacing">Pending Assignments</h2>
+    </div>
+    <div class="content-panel small-scroll">
+      <% @requests.each do |req| %>
+        <div class="single-pending-assignment">
+          <div><%= req.title %></div>
+          <div><%= req.description %></div>
+          <div><%= render 'assignments/new', locals: {:user => @user, :contact => @contact}, :req => req  %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-<h3>Pending Assignments</h3>
-<% @requests.each do |req| %>
-  <h5><%= req.title %></h5>
-  <%= req.description %><br>
-  <%= render 'assignments/new', locals: {:user => @user, :contact => @contact}, :req => req  %>
-<% end %>
-<br>
+  <div class="span-3 left student-pending-payments">
+    <div class="student-pending-payments-header red">
+      <h2 class="header-title header-spacing">Pending Payments</h2>
+    </div>
+    <div class="content-panel small-scroll">
+    <% @payments.each do |pay| %>
+      <%= render 'payments/show', {:amount => pay.amount, :payment => pay} %>
+    <% end %>
+    </div>
+  </div>
 
-<h3>Pending Payments</h3>
-<% @payments.each do |pay| %>
-  <%= render 'payments/show', {:amount => pay.amount, :payment => pay} %>
-<% end %>
 
-<%= link_to "Log Out", logout_path, method: 'delete' %>
+  <div class="span-9 right student-submission-history">
+    <div class="student-submission-history-header green">
+      <h2 class="header-title header-spacing">Submission History</h2>
+    </div>
+    <div class="content-panel small-scroll">
+      <% @assignments.each do |ass| %>
+        <div class="single-submitted-assignment">
+          <div><%= ass.title %></div>
+          <div><%= ass.description %></div>
+          <div>Submitted <%= time_ago_in_words(ass.created_at) %> ago</div>
+          <div><%= link_to ass.content_file_name , ass.content.url(:original, false), target: "blank" %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
