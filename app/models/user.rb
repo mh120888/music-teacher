@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
 
   attr_accessible :name, :email, :student_id
+  attr_accessor :student_id
   has_many :appointments
   has_many :contacts
   has_many :payment_profiles

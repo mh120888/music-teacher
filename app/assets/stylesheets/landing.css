@@ -10,6 +10,59 @@
   background: #EEEEEE;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+/******************
+ Signin Modal
+******************/
+
+#overlay {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+#modal {
+  position: fixed;
+  top: 30%;
+  left: 39.5%;
+  width: 21%;
+  background: rgba(0,0,0,0.2);
+  border-radius: 14px;
+  padding: 8px;
+  z-index: 100;
+}
+
+#content {
+  border-radius:8px;
+  background:#fff;
+  padding:20px;
+}
+
+#content h1 {
+  text-transform: uppercase;
+  margin-top: 0px;
+}
+
+#content form {
+  float: left;
+  text-align: right;
+}
+
+#content 
+
+#close {
+  display:block;
+}
+
 /******************
  Application Overview - Top Section
 ******************/
@@ -54,6 +107,8 @@ img#landing-logo{
   background: #1FA9FF;
   padding: 15px 20px;
   border-radius: 5px;
+  margin-right: 60px;
+  text-shadow: 1px 1px #333;
 }
 
 img#app-overview-background {
