@@ -1,0 +1,48 @@
+<div class="full-9 border-orange sounds">
+  <div class="module-header header-title orange">
+    <h2> SoundCloud
+      <div class="module-actions">
+        <i class="fa fa-times-circle module-shift-link"></i>
+        <i class="fa fa-angle-down module-collapse-link"></i>
+      </div>
+    </h2>
+  </div>
+
+<div class="module-collapse">
+  <% if !@sc_user %>
+  <%= link_to image_tag('http://connect.soundcloud.com/2/btn-connect-sc-l.png'), @app_client.authorize_url  %>
+  <% end %>
+
+  <h3 id="existing" class="sound-cloud-text">Your Tracks!</h3>
+  <% if @user_sounds %>
+    <div id="user-tracks" class="tracks">
+      <% @user_sounds.each do |track| %>
+        <div class="track">
+          <h3><%= track.title %></h3>
+          <%= render 'play_button', track: track %>
+        </div>
+      <% end %><br>
+    </div>
+  <% end %>
+
+
+  <h3 id="searching" class="sound-cloud-text">Search Tracks!</h3>
+  <div id="search-tracks" class="tracks">
+    <%= render 'search_form' %>
+
+      <div id="search-results">
+      </div>
+
+  </div>
+</div>
+</div>
+
+<script type="text/javascript">
+  Sounds.init()
+</script>
+
+
+
+
+
+

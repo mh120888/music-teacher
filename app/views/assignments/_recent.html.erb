@@ -1,11 +1,14 @@
-<div class="subs">
-	<h3>Recent Submissions</h3>
+<div class="subs border-green">
+  <div class="sub-header light-green">
+    <br>
+    <h3 class="sub-title"> Recent Submissions</h3>
+  </div>
+
 
 	<% @assignments.each do |ass| %>
-    <h4><%= ass.contact_name %></h4>
-		<h5><%= ass.title %></h5>
+    <div class="ass"><h4><%= ass.contact_name %></h4>
+		<h5>Assignment: <%= ass.title %></h5>
 		<li><%= ass.description %></li>
-		<li>Date Submitted: <%= ass.created_at %></li>
-		<%= link_to ass.content_file_name , ass.content.url(:original, false), target: "blank" %>
+		<%= link_to ass.content_file_name , ass.content.url(:original, false), target: "blank" %></div>
 	<% end %>
 </div>

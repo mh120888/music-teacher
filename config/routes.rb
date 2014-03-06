@@ -18,6 +18,7 @@ MusicTeacherRails::Application.routes.draw do
 
   match '/lesson' => 'dashboard#lesson'
   match '/metronome' => 'modules#metronome'
+  match '/drone' => 'modules#drone'
   match '/students' => 'modules#students'
 
   match '/finances' => 'payment_profiles#index'
@@ -28,6 +29,12 @@ MusicTeacherRails::Application.routes.draw do
   match '/test' => 'test#index'
   match '/test_module' => 'test#module'
   match '/another_test_module' => 'test#another_module'
+
+  match '/sounds/search' => 'sounds#search', :as => :sc_search
+  match '/sounds/connected' => 'sounds#connected', :as => :sc_connected
+  match '/sounds/play' => 'sounds#play', :as => :sc_play
+  resources :sounds, :only => [:index]
+
 
 
   # The priority is based upon order of creation:

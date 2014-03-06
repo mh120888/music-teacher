@@ -3,7 +3,13 @@ var Module = (function(){
     var $module = $('.' + moduleName)
     $module.find('.module-delete-link').on('click', deleteModule);
     $module.find('.module-collapse-link').on('click', collapseModule);
+    $module.find('.module-shift-link').on('click', moveModule);
   }
+
+  function moveModule(event){
+    $(this).closest('.module').css("margin-left", "10000px")
+  }
+
 
   function deleteModule(event) {
     $(this).closest('.module').remove();

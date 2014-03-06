@@ -1,14 +1,24 @@
-<div class='contacts-module'>
-  <div id="contacts-box">
+<div class="full-9 border-green students">
+  <div class="module-header header-title green">
+    <h2> Students
+      <div class="module-actions">
+        <i class="fa fa-times-circle module-delete-link"></i>
+        <i class="fa fa-angle-down module-collapse-link"></i>
+      </div>
+    </h2>
+  </div>
+<div class="module-collapse" id="students-mod">
+
+  <div id="contacts-box" class="border-green">
     <%= render 'student_list' %>
   </div>
   <div class="submissions" id="teacher">
     <%= render 'assignments/recent', locals: {:assignments => @assignments} %>
     <%= render 'requests/index', locals: {:pending => @pending} %>
   </div>
-  <div id="contact-show"></div>
 </div>
 
 <script type="text/javascript">
   students.init();
 </script>
+

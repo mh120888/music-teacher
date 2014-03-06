@@ -15,7 +15,6 @@
 .span-6 {
   width: 580px;
   margin-right: 20px;
-
 }
 
 .span-9 {
@@ -51,6 +50,10 @@
 
 .blue {
   background: #368ee0;
+}
+
+.orange {
+  background: #ff6600;
 }
 
 .light-blue {
@@ -95,6 +98,10 @@
 }
 
 
+.border-orange {
+  border: 2px solid #ff6600;
+}
+
 /*************
  Text Styles
 *************/
@@ -125,7 +132,7 @@
 
 
 li {
-  list-style: none
+  list-style: none;
 }
 
 .hidden {

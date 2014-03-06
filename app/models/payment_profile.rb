@@ -31,6 +31,9 @@ class PaymentProfile < ActiveRecord::Base
       Stripe.api_key = payment_profile[:access_token]
       Rails.configuration.stripe[:publishable_key] = payment_profile[:publishable_key]
       true
+    else
+      Stripe.api_key = ENV['SECRET_KEY']
+      false
     end
   end
 
