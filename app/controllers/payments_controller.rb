@@ -1,5 +1,7 @@
 class PaymentsController < ApplicationController
   include SessionsHelper
+
+
   def show
     @payment = Payment.find(params[:id])
     PaymentProfile.setup_client @payment.payment_profile.user

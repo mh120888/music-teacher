@@ -3,6 +3,10 @@ class ModulesController < ApplicationController
     render layout: false
   end
 
+  def drone
+    render layout: false
+  end
+
   def students
     @contacts = current_user.contacts
     @assignments = current_user.get_recent_assignments
