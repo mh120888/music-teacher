@@ -44,7 +44,7 @@
 #content {
   border-radius:8px;
   background:#fff;
-  padding:20px;
+  padding: 20px 20px 100px 20px;
 }
 
 #content h1 {
@@ -57,10 +57,14 @@
   text-align: right;
 }
 
-#content 
-
 #close {
   display:block;
+}
+
+#modal-container a {
+  float: right;
+  font-size: 1.2em;
+  color: #333;
 }
 
 /******************

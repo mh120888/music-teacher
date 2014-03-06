@@ -15,7 +15,7 @@ var LandingModal  = (function() {
   function renderLandingModal(event, data) {
     event.preventDefault();
     $('#landing-content').append(modalHTML());
-    $('#modal #content').html(data + "<a href='#' id='close'>close</a>");
+    $('#modal #content').html("<a href='#' id='close'><i class='fa fa-times'></i></a>" + data);
     $('body').addClass('stop-scrolling');
   }
 
