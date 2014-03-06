@@ -42,4 +42,5 @@ module StripeHelper
       cust.subscriptions.data[0] && cust.subscriptions.data[0].plan.id == plan.id
     end
   end
+
 end

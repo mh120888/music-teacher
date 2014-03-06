@@ -41,13 +41,9 @@ var Lesson = (function(){
   }
 
   function showSounds(event, data){
-    // $(".soundcloud").css("margin-left", "0px")
     if ( !$(".soundcloud")[0]){
       Module.appendModule(data, 'soundcloud')
     }
-    // else{
-    //   return true
-    // }
   }
 
   function returnSounds(){

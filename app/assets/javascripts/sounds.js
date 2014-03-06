@@ -16,17 +16,12 @@ var TrackSearchForm = (function(){
 
 var TrackWidgetDisplay = (function(){
   function bind(){
-    // $("body").on("click", ".", playWidget)
     $("body").on("ajax:success",".form-play", showWidget)
   }
 
   function showWidget(event, data){
     $(this).html(data).addClass("opened")
     $(this).parent().append("<input name='commit' class='back' type='submit' value='Back!'>")
-  }
-
-  function playWidget(event, data){
-    $(this).submit()
   }
 
   function _init(){
@@ -80,40 +75,39 @@ var SearchDisplay = (function(){
     $('#search-results').html("<img src='/assets/spin.gif' id='loading'>")
   }
 
+  var backButton = "<input name='commit' class='back' type='submit' value='Back!'>"
+  var replayButton ="<br><input name='commit' id='replay' type='submit' value='Play!' class='play replay'>"
 
   function enlargeTrack(){
-    $('.replay').parent().children('br').remove()
+    var content = $(this).parent()
+    var container = $(this).parent().parent()
+    content.children('br').remove()
     $(".track").hide()
-    $(this).parent().parent().show().animate({
+
+    container.show().animate({
         width: '+=400px', height: '+=150px', marginLeft: "100px"
     }, 1000);
-    $(this).parent().children("iframe").animate({
+    content.children("iframe").animate({
         width: '+=300px', height: '+=150px'
     }, 1000).show()
-     if ($(this).parent().attr("class").indexOf("opened") != -1){
-       $(this).parent().parent().append("<input name='commit' class='back' type='submit' value='Back!'>")
+     if (content.attr("class").indexOf("opened") != -1){
+       container.append(backButton)
      }
      $(this).hide()
   }
 
   function revertResults(){
     var iframe = $(this).parent().children("form").children("iframe")
-    if (!iframe) {
-      return true
-    }
-    $(".track").show()
-    $(this).parent().animate({
+    var playForm = $(this).parent()
+    playForm.animate({
         width: '-=400px', height: '-=150px', marginLeft: "10px"
     }, 1000);
-
     iframe.animate({
         width: '-=300px', height: '-=150px'
     }, 1000);
-    $(this).parent().children(".back").remove()
-    iframe.parent().append("<br><input name='commit' id='replay' type='submit' value='Play!' class='play replay'>")
-    if ( !iframe.parent().children("#replay") ) {
-      iframe.parent().append("<br><input name='commit' id='replay' type='submit' value='Play!' class='play replay'>")
-    }
+    $(".track").show()
+    playForm.children(".back").remove()
+    iframe.parent().append(replayButton)
   }
 
  function _init(){
@@ -124,14 +118,6 @@ var SearchDisplay = (function(){
     init: _init
   }
 }())
-
-
-// $(function(){
-//   TrackSearchForm.init();
-//   TrackWidgetDisplay.init();
-//   ToggleMode.init()
-//   SearchDisplay.init()
-// });
 
 Sounds = {
   init: function() {

@@ -25,13 +25,12 @@ class SoundsController < ApplicationController
   private
 
   def set_client
-    @client = current_client
     @app_client = Sound::APP_CLIENT
     @connected = session[:sc_id]
-   if @connected
-      @sc_user = @client.get('/me')
+    if @connected
+      @sc_user = current_client.get('/me')
       @sounds = @sc_user.tracks
-      @user_sounds = @client.get("/users/#{@sc_user.id}/tracks")
-   end
+      @user_sounds = current_client.get("/users/#{@sc_user.id}/tracks")
+    end
   end
 end

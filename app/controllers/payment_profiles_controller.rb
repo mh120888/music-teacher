@@ -2,10 +2,6 @@ class PaymentProfilesController < ApplicationController
   include StripeHelper
   include SessionsHelper
 
-  def new
-    @plans = Stripe::Plan.all
-    render :new, :layout => false
-  end
 
   def create
     PaymentProfile.charge params
@@ -19,7 +15,8 @@ class PaymentProfilesController < ApplicationController
     @connected = PaymentProfile.setup_client current_user
     @payments = Stripe::Charge.all
     @plans = Stripe::Plan.all
-    @outstanding = current_user.payment_profiles.first.payments if current_user.payment_profiles.first
+    current_payment_profile = current_user.payment_profiles.first
+    @outstanding = current_payment_profile.payments if current_payment_profile
   end
 
   def connect
