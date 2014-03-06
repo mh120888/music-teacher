@@ -5,6 +5,6 @@
   </div>
 	<% @pending.each do |req| %>
     <li class="request"><h5>Student: <%= req.contact_name %><br> Assignment: <%= req.title %> </h4>
-      Assigned On: <%= req.created_at %></li>
+      Assigned On: <%= req.created_at.to_s[0..9] %></li>
 	<% end %>
 </div>

@@ -25,7 +25,7 @@ var viewContact = (function(){
     var student = $('#contact-show').html(data);
     removeParent(student)
     $('#contacts-box').animate({
-        height: '400px', marginLeft: "140px"
+        height: '400px', marginLeft: "90px"
     }, 500)
     $('#teacher').hide()
     $('#teacher-view').show()
@@ -39,7 +39,7 @@ var viewContact = (function(){
     $('.submissions').show()
     $('#contact-show').empty()
     $('#contacts-box').animate({
-        height: '750px', marginLeft: "10px"
+        height: '750px', marginLeft: "30px"
     }, 500)
     $('.student').remove()
     $('#students-mod').append("<div id='contact-show'></div>")

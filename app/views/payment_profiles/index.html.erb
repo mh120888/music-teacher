@@ -14,19 +14,12 @@
     <div class="payment-chart-wrapper">
       <%= render 'chart' %>
     </div>
-    <div id="request">
-      <%= form_tag payments_path do %>
-        Request $<input type="text" name="amount"><br>
-        From: <select name="student">
-                <%= current_user.contacts.each do |contact| %>
-                  <option value=<%= contact.id %>><%= contact.first_name + contact.last_name %></option>
-                <% end %>
-        </select>
-        
-        <%= submit_tag "Request!" %>
-      <% end %>
+    <div class="payment-request-wrapper">
+      <%= render 'payment_request' %>
     </div>
-    <%= render 'plans' , locals: {:plans => @plan} %>
+    <div class="payment-plans-wrapper">
+      <%= render 'plans' , locals: {:plans => @plan} %>
+    </div>
 
   <% end %>
 </div>

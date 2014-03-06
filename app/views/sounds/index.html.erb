@@ -13,21 +13,20 @@
   <%= link_to image_tag('http://connect.soundcloud.com/2/btn-connect-sc-l.png'), @app_client.authorize_url  %>
   <% end %>
 
-  <h3 id="existing">Your Tracks!</h3>
+  <h3 id="existing" class="sound-cloud-text">Your Tracks!</h3>
   <% if @user_sounds %>
-    <div id="user-tracks" class="tracks border-orange">
+    <div id="user-tracks" class="tracks">
       <% @user_sounds.each do |track| %>
         <div class="track">
           <h3><%= track.title %></h3>
           <%= render 'play_button', track: track %>
         </div>
       <% end %><br>
-      <%= link_to "Upload a Track!", "http://www.soundcloud.com/upload-beta", target: '_blank' %>
     </div>
   <% end %>
 
 
-  <h3 id="searching">Search Tracks!</h3>
+  <h3 id="searching" class="sound-cloud-text">Search Tracks!</h3>
   <div id="search-tracks" class="tracks">
     <%= render 'search_form' %>
 

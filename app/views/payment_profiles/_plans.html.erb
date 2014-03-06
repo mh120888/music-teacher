@@ -1,6 +1,10 @@
-<div id="plans">
-  <h3>Your Payment Plans</h3>
-  <% @plans.each do |plan| %>
-    <%= render 'plan_info', :plan => plan %>
-  <% end %>
+<div id="payment-plans" class="right">
+  <div class="payment-plans-header module-header header-title header-spacing purple">
+    <h2>Payment Plans <i class="fa fa-calendar"></i></h2>
+  </div>
+  <div class="payment-plans-content content-panel small-scroll">
+    <% @plans.each do |plan| %>
+      <%= render 'plan_info', :plan => plan %>
+    <% end %>
+  </div>
 </div>

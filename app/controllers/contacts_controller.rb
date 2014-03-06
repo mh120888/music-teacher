@@ -24,9 +24,6 @@ class ContactsController < ApplicationController
       user = User.new(user_params[:user])
       user.password = user_params[:password]
       user.save
-      p user
-      p user_params
-      puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
       @contacts = @user.contacts
 
       render partial: 'show', locals: { contact: @contact }
