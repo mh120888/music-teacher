@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 				redirect_to root_path
 			end
 		else
-			flash[:error] = 'Invalid email/password combination' 
+			flash[:error] = 'Invalid email/password combination'
       render 'dashboard/index'
     end
 	end

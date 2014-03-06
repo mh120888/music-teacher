@@ -5,6 +5,10 @@
   overflow-x: hidden;
 }
 
+#student-header #log-out {
+  margin-right: 20px;
+}
+
 
 /*********************
  Pending Assignments
