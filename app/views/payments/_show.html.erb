@@ -1,7 +1,6 @@
-<h4>Please pay $<%= amount %></h4>
+<p>Please pay $<%= amount %></p>
 <%= form_tag payment_path(payment), {:method => :put} do %>
   <%= hidden_field_tag 'amount', amount %>
-
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="NEW PAYMENT"

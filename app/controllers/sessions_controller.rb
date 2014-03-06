@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	def new
+	  render :new, layout: false
 	end
 
 	def create
@@ -12,16 +13,16 @@ class SessionsController < ApplicationController
 				student = user.get_user_contact[1]
 				redirect_to student_path teacher, student
 			else
-				redirect_to user
+				redirect_to root_path
 			end
 		else
 			flash[:error] = 'Invalid email/password combination'
-      render :new
+      render 'dashboard/index'
     end
 	end
 
 	def destroy
 		sign_out
-		redirect_to login_path
+		redirect_to root_path
 	end
 end

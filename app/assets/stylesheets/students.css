@@ -1,7 +1,17 @@
-.field_with_errors {
-  display: inline;
-  color: red;
+/***************
+ Contacts panel
+***************/
+
+#students-list .contacts-panel {
+  height: 300px;
+  width: 300px;
+  width: 297px;
+  margin-left: 2px;
 }
+
+/*************
+ Student Feed
+*************/
 
 
 #contacts-box {
@@ -15,28 +25,124 @@
   overflow-y: scroll;
 }
 
-.students-panel {
-  width: 400px;
+#students-module-wrapper {
+  width: 620px;
+
+}
+
+#teacher .subs {
+  width: 300px;
+  height: 300px;
+  margin: 2px 0 0 0;
+  border: 0;
+  display: inline-block;
+}
+
+#teacher .pending {
+  width: 300px;
+  height:300px;
+  margin: 0;
+  border: 0;
+}
+
+#teacher .subs::-webkit-scrollbar-track,
+#teacher .pending::-webkit-scrollbar-track,
+.student-subs::-webkit-scrollbar-track  {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+#teacher .subs::-webkit-scrollbar,
+#teacher .pending::-webkit-scrollbar,
+.student-subs::-webkit-scrollbar {
+  width: 5px;
+  background-color: #F5F5F5;
+}
+
+#teacher .subs::-webkit-scrollbar-thumb,
+#teacher .pending::-webkit-scrollbar-thumb,
+.student-subs::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border: 2px solid #555555;
+}
+
+
+/************
+ Student View
+************/
+
+
+
+#single-student-subs {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+}
+
+#single-pending {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  float: left;
+  margin-top: 0;
+  border-top: 1px solid #D3D3D3;
+}
+
+.single-student-feed {
+  float: right;
+  display: inline-block;
+  width: 300px;
+  height: 600px;
+}
+
+#single-info {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  float: left;
+  margin: -2px 0 0 -2px;
+  border-top: 1px solid #d3d3d3;
+  text-align: center;
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+}
+
+#single-info h4 {
+  margin: 8px 0;
+}
+
+
+.student-subs {
+  width: 300px;
+  height: 300px;
+  overflow-y: scroll;
+  text-align: center;
+  margin: 2px 0 0 0;
+  float: left;
+  overflow-x: auto;
+}
+
+.field_with_errors {
+  display: inline;
+  color: red;
+}
+
+
+#contacts-box {
+  width: 300px !important;
+  height: 300px !important;
+  margin: 2px 0 0 -2px !important;
+  text-align: center;
+  float: left;
+  overflow: hidden;
 }
 
 .submissions {
-  width: 425px;
-  height: 725px;
-  float: left;
+  width: 300px;
+  float: right;
 }
 
 .student-submissions {
   width: 90%;
-}
-
-.subs {
-  height: 50%;
-  overflow-y: scroll;
-  text-align: center;
-  width: 95%;
-  float: left;
-  margin: 10px;
-  overflow-x: auto;
 }
 
 .pending {
@@ -58,41 +164,6 @@
   overflow-x: auto;
 }
 
-#student {
-
-  width: 100%;
-  height: 350px;
-  float: left;
-  margin: 10px;
-}
-
-#contact-show{
-  float: left;
-  width: 450px;
-  height: 900px;
-  text-align: center;
-  overflow-x: auto;
-}
-
-.student-subs {
-
-  width: 45%;
-  height: 90%;
-  overflow-y: scroll;
-  margin: 10px;
-  text-align: center;
-  float: left;
-  overflow-x: auto;
-}
-
-#pending {
-  width: 45%;
-  overflow-y: scroll;
-  margin: 10px;
-  text-align: center;
-  float: left;
-  overflow-x: auto;
-}
 
 #teacher-view {
   display: none;
@@ -130,3 +201,11 @@ a.view {
   margin-left: 40px;
 }
 
+
+.students-module-layout {
+  width: 598px;
+}
+
+#students-mod {
+  margin-top: -2px;
+}

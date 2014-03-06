@@ -41,14 +41,6 @@ body {
   margin-top: 73px;
 }
 
-#module-area {
-  width: 74%;
-  height: 75%;
-  position: absolute;
-  display: inline-block;
-  float: left;
-}
-
 #log-out {
   font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
   font-size: 1.3em;

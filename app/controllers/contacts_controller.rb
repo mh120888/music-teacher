@@ -58,6 +58,7 @@ class ContactsController < ApplicationController
     @payments = Payment.where(student_id: current_user.student_id)
     PaymentProfile.setup_client @user
     @requests = @contact.requests
+    render layout: "student"
   end
 
   def lesson_info

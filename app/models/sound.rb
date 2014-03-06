@@ -1,7 +1,7 @@
 class Sound < ActiveRecord::Base
   attr_accessible :access_token
 
-  APP_CLIENT = Soundcloud.new({:client_id => ENV['SC_CLIENT_ID'], :client_secret => ENV['SC_CLIENT_SECRET'], :redirect_uri => "http://localhost:3000/sounds/connected"})
+  APP_CLIENT = Soundcloud.new({:client_id => ENV['SC_CLIENT_ID'], :client_secret => ENV['SC_CLIENT_SECRET'], :redirect_uri => "http://www.backlyne.com/sounds/connected"})
 
   def client
     Soundcloud.new(:access_token => self.access_token )

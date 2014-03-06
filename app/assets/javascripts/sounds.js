@@ -82,7 +82,8 @@ var SearchDisplay = (function(){
   function enlargeTrack(){
     var content = $(this).parent()
     var container = $(this).parent().parent()
-    $('.replay').parent().children('br').remove()
+    content.children('br').remove()
+
     $(".track").hide()
     container.show().animate({
         width: '+=400px', height: '+=150px', marginLeft: "100px"

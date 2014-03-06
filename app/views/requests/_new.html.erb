@@ -1,7 +1,5 @@
 <%= form_for [@user, @contact, Request.new], {:url => user_contact_requests_path(@user, @contact), :remote => true, :id => "request" } do |form| %>
-  <%= label_tag :title %>
-  <%= form.text_field :title %><br>
-  <%= label_tag :description %><br>
-  <%= form.text_area :description, :rows => 10, :cols => 30 %><br>
+  <%= form.text_field :title, placeholder: "Assignment Title" %><br>
+  <%= form.text_area :description, :rows => 10, :cols => 30, placeholder: "Assignment Description" %><br>
   <%= submit_tag "Request!", :class => @contact.id, :id => "request-button" %>
 <% end %>

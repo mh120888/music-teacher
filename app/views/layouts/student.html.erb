@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Backlyne</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <% if current_user %>
+  <div class="dashboard-wrapper">
+    <%= render 'dashboard/student_header' %>
+    <div class="content-wrapper">
+      <%= yield %>
+    </div>
+  </div>
+  <% else %>
+    <%= yield %>
+  <% end %>
+
+</body>
+</html>
