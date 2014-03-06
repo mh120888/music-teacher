@@ -1,0 +1,6 @@
+<% @results.each do |track| %>
+  <div class="track border-orange" id='<%= track.id %>'>
+  <h3 class="track-title"><%= track.title %></h3>
+    <%= render 'play_button', track: track %>
+  </div>
+<% end %>

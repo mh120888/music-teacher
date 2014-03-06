@@ -1,30 +1,44 @@
-  <div id="info">
-    <h2><%= @contact.full_name %></h2>
-    <p>Phone: <%= @contact.phone %></p>
-    <p>Email: <%= @contact.email %></p>
-    <p>Address: <%= @contact.address %></p>
+  <div id="info" class="border-green student">
+    <div class="sub-header light-green">
+      <br>
+      <h3 class="sub-title "> <%= @contact.full_name %></h3>
+    </div>
+    <p><i class="fa fa-phone fa-lg"></i> <%= @contact.phone %></p>
+        <p><i class="fa fa-envelope-o fa-lg"></i> <%= @contact.email %></p>
+        <p><i class="fa fa-home fa-lg"></i> <%= @contact.address %></p>
+        <h3>Request an Assignment</h3>
     <%= render 'requests/new', locals: {:user => @user, :contact => @contact} %>
   </div>
 
-  <div class="submissions" id="student">
-    <div class="student-subs">
-      <h3>Submission History</h3>
+  <div class="student-submissions student" id="student">
+    <div class="student-subs border-green">
+      <div class="sub-header light-green">
+        <br>
+        <h3 class="sub-title"> Submission History</h3>
+      </div>
       <% if @assignments %>
         <% @assignments.each do |ass| %>
-        	<%= ass.description %><br>
-        	<%= link_to "View", ass.content.url(:original, false), target: "blank" %><br>
+        	<li class="request"><h4><%= ass.description %></h4>
+        	<%= link_to "View", ass.content.url(:original, false), target: "blank", class: "view-button" %></li>
         <% end %>
       <% end %>
     </div>
 
-    <div class="student-subs" id="pending">
-      <h3>Pending Assignments</h3>
+    <div class="student-subs border-green student" id="pending">
+      <div class="sub-header light-green">
+        <br>
+        <h3 class="sub-title"> Pending Assignments</h3>
+      </div>
       <% if @requests %>
         <% @requests.each do |req| %>
-        	<li><h4><%= req.title %></h4>
-        	<%= req.description %><br></li>
+        	<li class="request"><h4>Assignment: <%= req.title %></h4>
+        	Details: <%= req.description %><br></li>
         <% end %>
       <% end %>
     </div>
   </div>
+
+
+
+
 

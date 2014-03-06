@@ -1,0 +1,86 @@
+#advanced-search {
+  display: none;
+}
+
+#user-tracks{
+  display: none;
+}
+
+.track {
+  text-align: center;
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+  float: left;
+  border-radius: 10px;
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #FFFFFF 0%, #FF6600 100%);
+}
+
+.tracks {
+  overflow-y: scroll;
+  height: 550px;
+  width: 880px;
+}
+
+#search-results {
+  text-align: center;
+
+}
+
+.soundcloud {
+  text-align: center;
+}
+
+.sounds {
+  background-image: -webkit-radial-gradient(center, circle farthest-corner, #FFFFFF 0%, #BAFFFA 100%);
+  text-align: center;
+}
+
+#search-tracks{
+  text-align: center;
+}
+
+#metro-widget {
+  height: 230px;
+  overflow: hidden;
+}
+
+#metro-web {
+  position: relative;
+  top: -37px;
+}
+
+#drone-widget {
+  height: 380px;
+  overflow: hidden;
+}
+
+.sound-button {
+  padding: 20px;
+  margin: 10px;
+  border: 2px orange solid;
+  border-radius: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+#search-sound {
+  width: 300px;
+  font-size: 25px;
+  border: 3px orange solid;
+  height: 50px;
+  border-radius: 10px;
+}
+
+#search-des {
+color: orange;
+font-family: Tahoma, Geneva, sans-serif;
+font-size: 30px;
+font-style:italic;
+}
+
+.sound-cloud-text {
+  color: orange;
+  font-size: 40px;
+  font-style:italic;
+}

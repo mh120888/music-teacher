@@ -15,7 +15,6 @@
 .span-6 {
   width: 580px;
   margin-right: 20px;
-
 }
 
 .span-9 {
@@ -53,6 +52,10 @@
   background: #368ee0;
 }
 
+.orange {
+  background: #ff6600;
+}
+
 .light-blue {
   background-color: #e7f1fb;
 }
@@ -73,6 +76,15 @@
   background: rgba( 51, 153, 51, 0.2 );
 }
 
+.orange {
+  background: orange;
+}
+
+.purple {
+  background: #4B0082;
+  opacity: 0.93;
+}
+
 .border-blue {
   border: 2px solid #368ee0;
 }
@@ -83,6 +95,11 @@
 
 .border-red {
   border: 2px solid #e63a3a;
+}
+
+
+.border-orange {
+  border: 2px solid #ff6600;
 }
 
 /*************
@@ -115,7 +132,7 @@
 
 
 li {
-  list-style: none
+  list-style: none;
 }
 
 .hidden {

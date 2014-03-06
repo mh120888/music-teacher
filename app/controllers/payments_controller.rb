@@ -1,5 +1,7 @@
 class PaymentsController < ApplicationController
   include SessionsHelper
+
+
   def show
     @payment = Payment.find(params[:id])
     PaymentProfile.setup_client @payment.payment_profile.user
@@ -7,7 +9,6 @@ class PaymentsController < ApplicationController
   end
 
   def update
-    puts "&&" * 1000
     PaymentProfile.charge params
     payment = Payment.find(params[:id])
     payment.destroy
