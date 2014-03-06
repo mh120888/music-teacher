@@ -25,7 +25,6 @@ class ContactsController < ApplicationController
       user.password = user_params[:password]
       user.save
       @contacts = @user.contacts
-
       render partial: 'show', locals: { contact: @contact }
     else
       render nothing: true, status: 200, content_type: 'type/html'
@@ -66,7 +65,6 @@ class ContactsController < ApplicationController
     @requests = @contact.requests
     render partial: 'lesson_info', :locals => { contact: @contact }
   end
-
 
   private
 
