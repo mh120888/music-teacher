@@ -13,17 +13,27 @@
     <%= f.text_field :title, placeholder: "Title"%><br>
     <%= f.text_area :description, placeholder: "Notes" %>
 
-    <%= f.label :student_id, 'Student' %>
-    <%= collection_select(:appointment, :student_id, @user.contacts, :id, :full_name, :prompt => true) %><br/>
+    <div class="appointments-form-item">
+      <%= f.label :student_id, 'Student' %>
+      <%= collection_select(:appointment, :student_id, @user.contacts, :id, :full_name, :prompt => true) %>
+    </div>
 
-    <%= f.label :date %>
-    <%= f.date_select :date %><br/>
+    <div class="appointments-form-item">
+      <%= f.label :date %>
+      <%= f.date_select :date %>
+    </div>
 
-    <%= f.label :start_time %>
-    <%= f.time_select :start_time, {ampm: true, minute_step: 15} %><br/>
+    <div class="appointments-form-item">
+      <%= f.label :start_time %>
+      <%= f.time_select :start_time, {ampm: true, minute_step: 15} %>
+    </div>
 
-    <%= f.label :end_time %>
-    <%= f.time_select :end_time, {ampm: true, minute_step: 15} %>
+    <div class="appointments-form-item">
+      <%= f.label :end_time %>
+      <%= f.time_select :end_time, {ampm: true, minute_step: 15} %>
+    </div>
 
-    <%= f.submit %>
+    <div class="appointments-form-item appointments-form-submit">
+      <%= f.submit %>
+    </div>
 <% end %>

@@ -58,5 +58,3 @@ var Lesson = (function(){
     init: _init
   }
 }());
-
-

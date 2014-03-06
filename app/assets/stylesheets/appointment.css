@@ -21,9 +21,29 @@
 .new-appointment-form {
   position: absolute;
   left: 286px;
-  top: -2px;
+  top: 0;
   width: 300px;
   z-index: 5;
+}
+
+.appointments-form-item {
+  margin: 5px;
+}
+
+.appointments-form-submit input {
+  width: 100%;
+  display: inline-block;
+  margin: 0 auto;
+  background: #368ee0;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.2em;
+  border: 2px solid #368ee0;
+}
+
+.appointments-form-submit input:hover {
+  cursor: pointer;
 }
 
 .appointments-header i {
@@ -32,22 +52,6 @@
 
 .appointments-header i:hover {
   cursor: pointer;
-}
-
-#appointment_title {
-  width: 100%;
-  border: 2px solid #368EE0;
-  border-radius: 5px;
-  font-size: 1.2em;
-}
-
-#appointment_description {
-  width: 100%;
-  border: 2px solid #368EE0;
-  border-radius: 5px;
-  font-size: 1.2em;
-  height: 150px;
-  margin-top: 5px;
 }
 
 .appointments-module {
@@ -175,19 +179,22 @@ padding: 0;
 }
 
 #appointment_title {
-  width: 100%;
-  border: 2px solid #368EE0;
+  width: 95%;
+  margin: 5px auto 0 auto;
+  display: inherit;
+  border: 1px solid #368EE0;
   border-radius: 5px;
   font-size: 1.45em;
 }
 
 #appointment_description {
-  width: 100%;
-  border: 2px solid #368EE0;
+  width: 95%;
+  margin: -10px auto 0 auto;
+  display: inherit;
+  border: 1px solid #368EE0;
   border-radius: 5px;
   font-size: 1.05em;
   height: 150px;
-  margin-top: 5px;
 }
 
 .appointments-header {
