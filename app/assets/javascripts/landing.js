@@ -15,7 +15,7 @@ var LandingModal  = (function() {
   function renderLandingModal(event, data) {
     event.preventDefault();
     $('#landing-content').append(modalHTML());
-    $('#modal #content').html(data + "<a href='#' id='close'>close</a>");
+    $('#modal #content').html("<a href='#' id='close'><i class='fa fa-times'></i></a>" + data);
     $('body').addClass('stop-scrolling');
   }
 
@@ -26,13 +26,12 @@ var LandingModal  = (function() {
   }
 
   function modalHTML() {
-    return "<div id='modal-container'><div id='overlay'></div><div id='modal'><div id='content'></div></div></div>";
+    return "<div id='overlay'><div id='modal-container'><div id='modal'><div id='content'></div></div></div></div>";
   }
 
   function removeLandingModal(event) {
     event.preventDefault();
-    $('#modal-container').empty();
-    $('#modal-container').remove();
+    $('#overlay').remove();
     $('body').removeClass('stop-scrolling');
   }
 
