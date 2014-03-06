@@ -2,8 +2,8 @@ require 'bcrypt'
 
 FactoryGirl.define do
   factory :appointment do
-    title       { Faker::Lorem.word }
-    description { Faker::Lorem.sentence }
+    sequence(:title) { |n| "appttitle#{n}" }
+    sequence(:description) { |n| "apptdescription#{n}" }
     date        { Date.tomorrow }
     start_time  { Time.now }
     end_time    { Time.now + (60 * 60)}
