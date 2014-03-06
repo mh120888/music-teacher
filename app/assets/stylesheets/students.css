@@ -102,10 +102,6 @@ a.view {
   color: black;
 }
 
-.students {
-  height: 825px;
-}
-
 .request {
   background: lightblue;
   border-radius: 5px;
@@ -132,3 +128,4 @@ a.view {
   margin: 10px;
   margin-left: 40px;
 }
+
