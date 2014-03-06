@@ -13,6 +13,10 @@
 
 .sub-title {
   margin: 0 auto;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  margin-top: -5px;
 }
 
 .module-header h2 {
