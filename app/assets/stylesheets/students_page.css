@@ -1,0 +1,62 @@
+#student-page .content-panel {
+  height: 300px;
+  margin: 0 0 11px 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+/*********************
+ Pending Assignments
+*********************/
+
+#student-page .student-pending-assignments-header.orange h2 {
+  padding-bottom: 15px;
+}
+
+/**************
+ Student Info
+**************/
+
+#student-page .student-info .content-panel {
+  overflow-y: hidden !important;
+}
+
+#student-page .student-info p {
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+  padding: 10px;
+  word-break: break-all;
+}
+
+#student-page .student-info i {
+  width: 28px;
+  margin-left: 3px;
+}
+
+/*****************
+ Pending Payments
+*****************/
+
+#student-page .student-pending-payments p {
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+  padding: 10px;
+}
+
+#student-page .student-pending-payments form {
+  padding: 0;
+  margin: -17px 0 0 7px;
+}
+
+/********************
+ Pending Assignments
+********************/
+
+.single-pending-assignment {
+  margin: 25px;
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+}
+
+.single-submitted-assignment {
+  margin: 25px;
+  font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+}
