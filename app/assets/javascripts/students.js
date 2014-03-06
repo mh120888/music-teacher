@@ -1,38 +1,34 @@
 students = {
   init: function() {
-    listStudents.init();
+    // listStudents.init();
     viewContact.init();
     editAssignmnet.init();
   }
 }
 
 
-var listStudents = (function(){
-  function _init(){
-    $(".students-link").on('ajax:success', renderStudents);
-  }
-
-  function renderStudents(e, data) {
-    $('#module-area').html(data)
-  }
-
-  return {
-    init: _init
-  }
-}());
+// $('#contact-box').animate({
+//         height: '-=540px'
+//     }, 1000)
 
 
 var viewContact = (function(){
   function bindEvents() {
-    $('.contacts-module').on('ajax:success', '#contacts-list a.view', showContact);
-    $('.contacts-module').on('ajax:error', '#contacts-list a.view', showViewContactError);
+    $('.students').on('ajax:success', 'a.view', showContact);
+    $('.students').on('ajax:error', '#students-list a.view', showViewContactError);
     $('#teacher-view').on("click", showTeacher)
   }
 
   function showContact(event, data) {
-    console.log(data)
-    $('#contact-show').html(data);
+    $('.student').remove()
+    $('#students-mod').append("<div id='contact-show'></div>")
+    var student = $('#contact-show').html(data);
+    removeParent(student)
+    $('#contacts-box').animate({
+        height: '400px', marginLeft: "140px"
+    }, 500)
     $('#teacher').hide()
+    $('#teacher-view').show()
   }
 
   function showViewContactError(event, error) {
@@ -42,6 +38,17 @@ var viewContact = (function(){
   function showTeacher(){
     $('.submissions').show()
     $('#contact-show').empty()
+    $('#contacts-box').animate({
+        height: '750px', marginLeft: "10px"
+    }, 500)
+    $('.student').remove()
+    $('#students-mod').append("<div id='contact-show'></div>")
+    $('#teacher-view').hide()
+  }
+
+  function removeParent(selector){
+    var cnt = $(selector).contents();
+    $(selector).replaceWith(cnt);
   }
 
   function _init() {
@@ -55,12 +62,13 @@ var viewContact = (function(){
 
 var editAssignmnet = (function(){
   function bindEvents() {
-    $('.contacts-module').on('ajax:success', '#new_request', renderRequest)
+    $('.students').on('ajax:success', '#new_request', renderRequest)
   }
 
   function renderRequest(event, data) {
     $("#new_request").get(0).reset()
     $('#pending').append(data)
+    $("h3."  + $("#request-button").attr("class").replace( /^\D+/g, '')).click()
   }
 
   function _init() {

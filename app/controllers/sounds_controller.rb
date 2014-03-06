@@ -28,13 +28,7 @@ class SoundsController < ApplicationController
     @client = current_client
     @app_client = Sound::APP_CLIENT
     @connected = session[:sc_id]
-    p @app_client
-    p @client
-    p @app_client == @client
-    p @connected
-    p current_client
-    puts "\n" * 30
-   if @client != @app_client
+   if @connected
       @sc_user = @client.get('/me')
       @sounds = @sc_user.tracks
       @user_sounds = @client.get("/users/#{@sc_user.id}/tracks")

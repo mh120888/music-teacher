@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20140304032423) do
   end
 
   create_table "requests", :force => true do |t|
-    t.string   "description"
+    t.text     "description"
     t.string   "title"
     t.integer  "contact_id"
     t.datetime "created_at",  :null => false

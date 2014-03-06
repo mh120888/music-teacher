@@ -1,8 +1,10 @@
-<div class="pending">
-	<h3>Pending Assignments</h3>
+<div class="pending border-green">
+	<div class="sub-header light-green">
+    <br>
+    <h3 class="sub-title"> Pending Assignments</h3>
+  </div>
 	<% @pending.each do |req| %>
-    <h4><%= req.contact_name %></h4>
-		<h5><%= req.title %></h5>
-		<%= req.description %><br>
+    <li class="request"><h5>Student: <%= req.contact_name %><br> Assignment: <%= req.title %> </h4>
+      Assigned On: <%= req.created_at %></li>
 	<% end %>
 </div>

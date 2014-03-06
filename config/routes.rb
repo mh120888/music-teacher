@@ -18,6 +18,7 @@ MusicTeacherRails::Application.routes.draw do
 
   match '/lesson' => 'dashboard#lesson'
   match '/metronome' => 'modules#metronome'
+  match '/drone' => 'modules#drone'
   match '/students' => 'modules#students'
 
   match '/finances' => 'payment_profiles#index'

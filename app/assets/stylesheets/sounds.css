@@ -39,3 +39,18 @@
 #search-tracks{
   text-align: center;
 }
+
+#metro-widget {
+  height: 230px;
+  overflow: hidden;
+}
+
+#metro-web {
+  position: relative;
+  top: -37px;
+}
+
+#drone-widget {
+  height: 380px;
+  overflow: hidden;
+}

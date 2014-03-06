@@ -82,6 +82,7 @@ var SearchDisplay = (function(){
 
 
   function enlargeTrack(){
+    $('.replay').parent().children('br').remove()
     $(".track").hide()
     $(this).parent().parent().show().animate({
         width: '+=400px', height: '+=150px', marginLeft: "100px"
@@ -109,9 +110,9 @@ var SearchDisplay = (function(){
         width: '-=300px', height: '-=150px'
     }, 1000);
     $(this).parent().children(".back").remove()
-    iframe.parent().append("<input name='commit' id='replay' type='submit' value='Play!' class='play'>")
+    iframe.parent().append("<br><input name='commit' id='replay' type='submit' value='Play!' class='play replay'>")
     if ( !iframe.parent().children("#replay") ) {
-      iframe.parent().append("<input name='commit' id='replay' type='submit' value='Play!' class='play'>")
+      iframe.parent().append("<br><input name='commit' id='replay' type='submit' value='Play!' class='play replay'>")
     }
   }
 
