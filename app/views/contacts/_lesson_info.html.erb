@@ -1,17 +1,5 @@
-  <div id="info" class="border-green student">
-    <div class="sub-header light-green">
-      <br>
-      <h3 class="sub-title "> <%= @contact.full_name %></h3>
-    </div>
-    <p><i class="fa fa-phone fa-lg"></i> <%= @contact.phone %></p>
-        <p><i class="fa fa-envelope-o fa-lg"></i> <%= @contact.email %></p>
-        <p><i class="fa fa-home fa-lg"></i> <%= @contact.address %></p>
-        <h3>Request an Assignment</h3>
-    <%= render 'requests/new', locals: {:user => @user, :contact => @contact} %>
-  </div>
-
-  <div class="student-submissions student" id="student">
-    <div class="student-subs border-green">
+  <div class="student-submissions student" id="single-student-subs">
+    <div class="student-subs">
       <div class="sub-header light-green">
         <br>
         <h3 class="sub-title"> Submission History</h3>
@@ -24,7 +12,7 @@
       <% end %>
     </div>
 
-    <div class="student-subs border-green student" id="pending">
+    <div class="student-subs student" id="single-pending">
       <div class="sub-header light-green">
         <br>
         <h3 class="sub-title"> Pending Assignments</h3>
@@ -38,6 +26,15 @@
     </div>
   </div>
 
+
+<div id="single-info" class="student">
+  <div class="sub-header light-green">
+    <br>
+    <h3 class="sub-title"> <%= @contact.full_name %></h3>
+  </div>
+      <h4>New assignment</h4>
+  <%= render 'requests/new', locals: {:user => @user, :contact => @contact} %>
+</div>
 
 
 
