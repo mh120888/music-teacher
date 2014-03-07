@@ -37,6 +37,7 @@
   border: 0;
   display: inline-block;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #teacher .pending {
