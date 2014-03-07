@@ -72,13 +72,16 @@
 }
 
 #search-des {
-color: orange;
-font-size: 30px;
-font-style:italic;
+  color: #333;
+  font-size: 30px;
 }
 
 .sound-cloud-text {
-  color: orange;
+  color: #333;
   font-size: 40px;
   font-style:italic;
+}
+
+.subs::-webkit-scrollbar {
+  width: 0px;
 }
